@@ -1,129 +1,240 @@
+"""
+prepare.py — Build the dataset manifest CSV.
+
+Generator-level holdout split strategy
+──────────────────────────────────────
+TRAIN_GENERATORS  (ADM, VQDM, SDv5, Wukong, GLIDE):
+    original train/ subdir  →  logical split "train"
+    original val/   subdir  →  logical split "val"
+
+TEST_GENERATORS  (BigGAN, Midjourney):
+    ALL images (train/ + val/)  →  logical split "test"
+    Never exposed during training or validation.
+
+No images are moved, copied, resized, or otherwise modified.
+The manifest alone encodes the logical split.
+
+Manifest columns
+────────────────
+image_path      Absolute path to the image file.
+label           0 = nature (real), 1 = ai (generated).
+class_name      "nature" or "ai" (mirrors the source folder name).
+generator       Canonical generator name (ADM, VQDM, …).
+orig_split      Original dataset split folder: "train" or "val".
+split           Logical split assigned by this strategy: "train", "val", or "test".
+width           Image width in pixels.
+height          Image height in pixels.
+format          PIL format string (JPEG, PNG, …).
+is_cross_gen_dup  True if the image has an MD5-identical copy in another generator.
+"""
+
 import csv
 import hashlib
-import random
+from collections import Counter
 from pathlib import Path
+
 from PIL import Image, UnidentifiedImageError
 
-# Adjust import so it works if run as a script
 from ml.data import config
 
+
+# ── Helpers ────────────────────────────────────────────────────────────────────
+
 def calculate_hash(filepath: Path) -> str:
-    """Calculate MD5 hash of a file for basic duplicate detection."""
+    """MD5 hash of a file — used for cross-generator duplicate detection."""
     hasher = hashlib.md5()
-    with open(filepath, 'rb') as f:
+    with open(filepath, "rb") as f:
         buf = f.read(65536)
         while len(buf) > 0:
             hasher.update(buf)
             buf = f.read(65536)
     return hasher.hexdigest()
 
+
 def is_valid_image(filepath: Path) -> bool:
+    """Return True if the file has a supported extension and passes PIL verification."""
     if filepath.suffix.lower() not in config.SUPPORTED_EXTENSIONS:
         return False
     try:
         with Image.open(filepath) as img:
-            img.verify() # verify it is an image
+            img.verify()
         return True
     except (UnidentifiedImageError, IOError):
         return False
 
+
 def get_image_info(filepath: Path):
+    """Return (width, height, format) or (None, None, None) on failure."""
     try:
         with Image.open(filepath) as img:
             return img.width, img.height, img.format
     except Exception:
         return None, None, None
 
-def discover_and_split():
-    data_dir = config.DATA_DIR
-    if not data_dir.exists():
-        print(f"Data directory {data_dir} does not exist.")
+
+# ── Main entry point ───────────────────────────────────────────────────────────
+
+def build_manifest(
+    genimage_dir: Path | None = None,
+    train_generators: set | None = None,
+    test_generators: set | None = None,
+    generator_folder_map: dict | None = None,
+    manifest_path: Path | None = None,
+) -> None:
+    """
+    Scan data/genimage/ and write a manifest CSV encoding the generator-level
+    holdout split.  Accepts keyword overrides so tests can inject a smaller
+    synthetic dataset without touching config.
+
+    Args:
+        genimage_dir:         Root of the genimage dataset (default: config.GENIMAGE_DIR).
+        train_generators:     Set of canonical generator names used for train/val.
+        test_generators:      Set of canonical generator names held out for test.
+        generator_folder_map: Dict mapping folder names → canonical names.
+        manifest_path:        Output CSV path (default: config.MANIFEST_PATH).
+    """
+    genimage_dir         = genimage_dir         or config.GENIMAGE_DIR
+    train_generators     = train_generators     or config.TRAIN_GENERATORS
+    test_generators      = test_generators      or config.TEST_GENERATORS
+    generator_folder_map = generator_folder_map or config.GENERATOR_FOLDER_MAP
+    manifest_path        = manifest_path        or config.MANIFEST_PATH
+
+    if not genimage_dir.exists():
+        print(f"[ERROR] GenImage directory not found: {genimage_dir}")
         return
 
-    real_dir = data_dir / "real"
-    ai_dir = data_dir / "ai_generated"
+    all_generators = train_generators | test_generators
 
-    records = []
-    seen_hashes = set()
-    duplicates = 0
+    print("=" * 64)
+    print("BUILD MANIFEST")
+    print(f"  Source      : {genimage_dir}")
+    print(f"  Train/val   : {sorted(train_generators)}")
+    print(f"  Test (held) : {sorted(test_generators)}")
+    print("=" * 64)
+
+    raw_records: list[dict] = []
     invalid = 0
+    skipped = 0
 
-    def process_directory(directory: Path, label: int, class_name: str):
-        nonlocal duplicates, invalid
-        if not directory.exists():
-            return
-        for filepath in directory.rglob("*"):
-            if filepath.is_file():
-                if not is_valid_image(filepath):
-                    invalid += 1
+    # ── Pass 1: collect every image with its metadata and MD5 hash ────────────
+    for folder_name, gen_canonical in generator_folder_map.items():
+        gen_dir = genimage_dir / folder_name
+
+        if not gen_dir.exists():
+            print(f"  [MISSING FOLDER] {folder_name} — skipping")
+            continue
+
+        if gen_canonical not in all_generators:
+            print(f"  [UNREGISTERED]   {gen_canonical} — skipping")
+            skipped += 1
+            continue
+
+        is_test_gen = gen_canonical in test_generators
+
+        for orig_split in ("train", "val"):
+            split_dir = gen_dir / orig_split
+            if not split_dir.exists():
+                print(f"  [MISSING] {folder_name}/{orig_split}")
+                continue
+
+            for label_folder in ("ai", "nature"):
+                label_dir = split_dir / label_folder
+                if not label_dir.exists():
+                    print(f"  [MISSING] {folder_name}/{orig_split}/{label_folder}")
                     continue
-                
-                file_hash = calculate_hash(filepath)
-                if file_hash in seen_hashes:
-                    duplicates += 1
-                    continue
-                seen_hashes.add(file_hash)
 
-                # Extract generator from path if nested inside ai_generated
-                generator = "unknown"
-                if label == config.LABEL_AI_GENERATED and filepath.parent != directory:
-                    generator = filepath.parent.name
-                
-                width, height, img_format = get_image_info(filepath)
-                if width is None:
-                    invalid += 1
-                    continue
+                label_value   = config.LABEL_AI if label_folder == "ai" else config.LABEL_NATURE
+                logical_split = "test" if is_test_gen else orig_split
 
-                records.append({
-                    "image_path": str(filepath.absolute()),
-                    "label": label,
-                    "class_name": class_name,
-                    "source": "unknown",
-                    "generator": generator if label == config.LABEL_AI_GENERATED else "N/A",
-                    "width": width,
-                    "height": height,
-                    "format": img_format,
-                })
+                for filepath in sorted(label_dir.rglob("*")):
+                    if not filepath.is_file():
+                        continue
+                    if filepath.suffix.lower() not in config.SUPPORTED_EXTENSIONS:
+                        skipped += 1
+                        continue
+                    if not is_valid_image(filepath):
+                        print(f"  [CORRUPT] {filepath}")
+                        invalid += 1
+                        continue
 
-    print("Scanning for real images...")
-    process_directory(real_dir, config.LABEL_REAL, "real")
-    
-    print("Scanning for AI-generated images...")
-    process_directory(ai_dir, config.LABEL_AI_GENERATED, "ai_generated")
+                    width, height, fmt = get_image_info(filepath)
+                    if width is None:
+                        invalid += 1
+                        continue
 
-    print(f"Discovered {len(records)} valid unique images.")
-    print(f"Ignored {invalid} invalid files and {duplicates} duplicates.")
+                    raw_records.append({
+                        "image_path":  str(filepath.absolute()),
+                        "label":       label_value,
+                        "class_name":  label_folder,
+                        "generator":   gen_canonical,
+                        "orig_split":  orig_split,
+                        "split":       logical_split,
+                        "width":       width,
+                        "height":      height,
+                        "format":      fmt or "",
+                        "_hash":       calculate_hash(filepath),
+                    })
 
-    if not records:
-        print("No records found, aborting manifest generation.")
+    print(f"\nCollected {len(raw_records)} valid images "
+          f"({invalid} corrupt, {skipped} unsupported/skipped).")
+
+    if not raw_records:
+        print("No records found — aborting manifest generation.")
         return
 
-    # Splitting
-    random.seed(config.RANDOM_SEED)
-    random.shuffle(records)
+    # ── Pass 2: detect cross-generator duplicates by MD5 ─────────────────────
+    hash_to_indices: dict[str, list[int]] = {}
+    for i, rec in enumerate(raw_records):
+        hash_to_indices.setdefault(rec["_hash"], []).append(i)
 
-    n_total = len(records)
-    n_train = int(n_total * config.TRAIN_SPLIT)
-    n_val = int(n_total * config.VAL_SPLIT)
+    cross_gen_dup_hashes: set[str] = set()
+    for h, indices in hash_to_indices.items():
+        if len(indices) > 1:
+            gens = {raw_records[i]["generator"] for i in indices}
+            if len(gens) > 1:          # same bytes, different generators
+                cross_gen_dup_hashes.add(h)
+                paths = [raw_records[i]["image_path"] for i in indices]
+                print(f"  [CROSS-GEN DUP] hash={h}")
+                for p in paths:
+                    print(f"      {p}")
 
-    for i, record in enumerate(records):
-        if i < n_train:
-            record["split"] = "train"
-        elif i < n_train + n_val:
-            record["split"] = "val"
-        else:
-            record["split"] = "test"
+    # ── Build final records and write manifest ────────────────────────────────
+    fieldnames = [
+        "image_path", "label", "class_name", "generator",
+        "orig_split", "split", "width", "height", "format", "is_cross_gen_dup",
+    ]
 
-    # Write manifest
-    fieldnames = ["image_path", "label", "class_name", "source", "generator", "split", "width", "height", "format"]
-    
-    with open(config.MANIFEST_PATH, "w", newline="", encoding="utf-8") as csvfile:
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(manifest_path, "w", newline="", encoding="utf-8") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
-        for record in records:
-            writer.writerow(record)
-    
-    print(f"Manifest written to {config.MANIFEST_PATH}")
+        for rec in raw_records:
+            h = rec.pop("_hash")
+            rec["is_cross_gen_dup"] = str(h in cross_gen_dup_hashes)
+            writer.writerow(rec)
+
+    # ── Summary ───────────────────────────────────────────────────────────────
+    split_counts = Counter(r["split"]      for r in raw_records)
+    gen_counts   = Counter(r["generator"]  for r in raw_records)
+    label_counts = Counter(r["class_name"] for r in raw_records)
+    dup_count    = sum(1 for r in raw_records if r["is_cross_gen_dup"] == "True")
+
+    print(f"\nManifest written -> {manifest_path}")
+    print(f"  Total records  : {len(raw_records)}")
+    print(f"  Splits         : train={split_counts['train']}  "
+          f"val={split_counts['val']}  test={split_counts['test']}")
+    print(f"  Labels         : nature={label_counts['nature']}  "
+          f"ai={label_counts['ai']}")
+    print(f"  Dup records    : {dup_count}")
+    print("  Per generator  :")
+    for gen in sorted(gen_counts):
+        print(f"    {gen:<14}: {gen_counts[gen]}")
+
+
+def discover_and_split() -> None:
+    """Deprecated alias -> build_manifest().  Kept for backwards compatibility."""
+    build_manifest()
+
 
 if __name__ == "__main__":
-    discover_and_split()
+    build_manifest()

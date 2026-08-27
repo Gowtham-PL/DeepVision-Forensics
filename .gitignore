@@ -1,6 +1,37 @@
+# Python virtual environment
 .venv/
+
+# Python cache
 __pycache__/
 *.pyc
-.vscode/
+*.pyo
+
+# Pytest
 .pytest_cache/
+
+# Environment / secrets
 .env
+.env.*
+
+# IDE settings
+.vscode/
+
+# Dataset
+data/genimage/
+data/*.csv
+
+# Generated model files / checkpoints
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
+tests/test_data/
