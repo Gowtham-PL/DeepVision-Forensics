@@ -32,15 +32,29 @@
 
 ## 7. Robustness and Evaluation Strategy
 - **Datasets:** 
-  - GenImage (primary).
-  - CIFAKE (additional benchmarking).
-  - Reserve at least one generator (e.g., specific Diffusion Model) exclusively for testing cross-generator generalization.
-- **Transformations (Experimental):**
+  - GenImage (primary): 7 generators × 5,000 images = 35,000 total.
+  - CIFAKE (additional benchmarking, Phase 3+).
+- **Generator-level holdout split** (implemented in `manifest.csv` — no physical file copies):
+
+  | Logical split | Generators | Source dirs | Images |
+  |---|---|---|---:|
+  | `train` | ADM, VQDM, SDv5, Wukong, GLIDE | `*/train/ai` + `*/train/nature` | 20,000 |
+  | `val`   | ADM, VQDM, SDv5, Wukong, GLIDE | `*/val/ai`   + `*/val/nature`   |  5,000 |
+  | `test`  | **BigGAN, Midjourney** (held-out) | all of `*/train/*` + `*/val/*` | 10,000 |
+
+  BigGAN and Midjourney are **completely invisible** during training and validation.  
+  The test set measures **cross-generator generalization** — whether the model detects  
+  AI-generated images from generators it has never encountered before.
+
+- **Label encoding:** `nature` → 0 (real photographs), `ai` → 1 (generated).
+- **Cross-generator duplicate:** One nature-class image pair (ADM/train ≡ Midjourney/train)  
+  is flagged `is_cross_gen_dup=True` in the manifest. The Midjourney copy should be  
+  excluded from test evaluation metrics to avoid a 1-image train/test overlap.
+- **Transformations (Phase 3+):**
   - JPEG compression (various quality levels).
   - Resizing/Scaling.
   - Gaussian Blur.
   - Noise addition.
-- **Data Splits:** Strict 70% Train, 15% Validation, 15% Test separation. No data leakage between splits.
 
 ## 8. Output to Backend
 The ML pipeline inference script will return:
