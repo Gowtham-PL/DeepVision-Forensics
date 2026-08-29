@@ -167,7 +167,7 @@ def compute_log_magnitude_spectrum(
     if image_tensor.dim() == 3:
         image_tensor = image_tensor.unsqueeze(0)
 
-    transform = FFTTransform(norm_strategy=norm_strategy)
+    transform = FFTTransform(norm_strategy=norm_strategy).to(image_tensor.device)
     with torch.no_grad():
         spec = transform(image_tensor)
 

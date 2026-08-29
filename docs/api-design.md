@@ -1,66 +1,84 @@
 # DeepVision Forensics - API Design
 
 ## Overview
-The backend is powered by FastAPI, providing RESTful endpoints for the React frontend to upload images, retrieve forensic analyses, and access system status.
+The backend is powered by FastAPI, providing RESTful endpoints for the frontend to upload images, retrieve probabilistic forensic analyses, inspect Grad-CAM spatial heatmaps, and extract diagnostic 2D FFT spectra.
 
 ## Base URL
 `/api/v1`
 
 ## Endpoints
 
-### 1. `POST /analyze`
-Uploads a single image for forensic analysis.
+### 1. `POST /api/v1/analyze`
+Uploads a single image for forensic analysis using the deployed E1 SpatialClassifier.
 
 **Request:**
 - Content-Type: `multipart/form-data`
-- Body: `file` (The image file: JPG, PNG)
+- Body:
+  - `file`: Image file (`PNG`, `JPEG`, `WEBP` up to 10MB)
+  - `include_fft`: (Optional boolean, default `true`) Whether to generate 2D FFT log-magnitude spectrum visualization.
 
 **Response (200 OK):**
 ```json
 {
-  "id": "uuid-string",
   "status": "success",
-  "analysis": {
-    "classification": "AI-generated",
-    "ai_probability": 0.98,
-    "authenticity_assessment": "The image exhibits strong spectral anomalies and synthetic spatial textures typical of diffusion models.",
+  "model_info": {
+    "name": "DeepVision-E1-Spatial",
+    "backbone": "EfficientNet-B3",
+    "parameters": 11549993,
+    "device": "cuda"
+  },
+  "prediction": {
+    "classification_label": "AI-generated",
+    "ai_probability": 0.9142,
+    "authenticity_assessment": "Model estimate: 91.4% probability of AI generation.",
     "risk_indicator": "HIGH",
-    "evidence": {
-      "spatial_summary": "High activation in background textures and unnatural edge blending.",
-      "frequency_summary": "Checkerboard artifacts detected in high-frequency spectrum."
-    },
-    "visualizations": {
-      "gradcam_heatmap": "data:image/png;base64,..."
-    }
-  }
+    "threshold_used": 0.50
+  },
+  "evidence": {
+    "spatial_summary": "Grad-CAM visualization showing spatial regions receiving stronger model attention.",
+    "frequency_summary": "Diagnostic 2D Fast Fourier Transform (FFT) log-magnitude spectrum showing spectral energy distribution."
+  },
+  "visualizations": {
+    "gradcam_heatmap": "data:image/png;base64,iVBORw0KGgo...",
+    "fft_spectrum": "data:image/png;base64,iVBORw0KGgo..."
+  },
+  "disclaimer": "This analysis provides probabilistic forensic indicators for research and screening purposes, not definitive proof."
 }
 ```
 
 **Response (400 Bad Request):**
 ```json
 {
-  "error": "Invalid file format. Please upload a valid image (JPEG/PNG)."
+  "status": "error",
+  "detail": "Unsupported image format 'GIF'. Allowed formats: PNG, JPEG, WEBP."
 }
 ```
 
-### 2. `GET /health`
+**Response (503 Service Unavailable):**
+```json
+{
+  "status": "error",
+  "detail": "Model is not loaded or currently initializing. Please try again shortly."
+}
+```
+
+---
+
+### 2. `GET /api/v1/health`
 Checks API and model loading status.
 
 **Response (200 OK):**
 ```json
 {
-  "status": "online",
+  "status": "healthy",
   "model_loaded": true,
-  "device": "cuda"
+  "model_name": "DeepVision-E1-Spatial",
+  "device": "cuda",
+  "gpu_name": "NVIDIA GeForce RTX 3050 Laptop GPU"
 }
 ```
 
 ## Security Risk Indicator Rules
-Risk thresholds are TBD and will be determined using validation/evaluation results and documented as application-level rules. Do not hard-code arbitrary thresholds at this stage.
-
-## Future Endpoints (Database Integration)
-- `GET /history`: Fetch past analyses.
-- `GET /report/{id}`: Fetch a specific forensic report.
-
-## Implementation Note
-This API design is an interface contract only. Do not create fake ML outputs, fake Grad-CAM images, fake probabilities or fabricated forensic evidence merely to make the API functional. The real `/analyze` implementation will be completed after the ML pipeline is validated.
+- `ai_probability >= 0.70`: **HIGH**
+- `0.30 <= ai_probability < 0.70`: **MEDIUM**
+- `ai_probability < 0.30`: **LOW**
