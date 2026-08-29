@@ -1,0 +1,151 @@
+{
+  "metadata": {
+    "device": "cuda",
+    "gpu_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "total_test_records": 10000,
+    "excluded_duplicates_count": 1,
+    "evaluated_test_records": 9999,
+    "test_generators": [
+      "BigGAN",
+      "Midjourney"
+    ],
+    "threshold": 0.5
+  },
+  "models": {
+    "E1": {
+      "split": "test",
+      "excluded_duplicates_count": 1,
+      "aggregate": {
+        "sample_count": 9999,
+        "accuracy": 0.813081308130813,
+        "precision": 0.9002812579902838,
+        "recall": 0.7042,
+        "f1_score": 0.7902592301649647,
+        "roc_auc": 0.8990666333266655,
+        "pr_auc": 0.9078651617550003,
+        "tp": 3521,
+        "fp": 390,
+        "tn": 4609,
+        "fn": 1479
+      },
+      "by_generator": {
+        "BigGAN": {
+          "sample_count": 5000,
+          "accuracy": 0.9206,
+          "precision": 0.9221196306704135,
+          "recall": 0.9188,
+          "f1_score": 0.9204568222801042,
+          "roc_auc": 0.97323008,
+          "pr_auc": 0.9698963592488411,
+          "tp": 2297,
+          "fp": 194,
+          "tn": 2306,
+          "fn": 203
+        },
+        "Midjourney": {
+          "sample_count": 4999,
+          "accuracy": 0.7055411082216443,
+          "precision": 0.8619718309859155,
+          "recall": 0.4896,
+          "f1_score": 0.6244897959183673,
+          "roc_auc": 0.8224476190476191,
+          "pr_auc": 0.8248792500227196,
+          "tp": 1224,
+          "fp": 196,
+          "tn": 2303,
+          "fn": 1276
+        }
+      }
+    },
+    "E2": {
+      "split": "test",
+      "excluded_duplicates_count": 1,
+      "aggregate": {
+        "sample_count": 9999,
+        "accuracy": 0.5774577457745774,
+        "precision": 0.6528599605522682,
+        "recall": 0.331,
+        "f1_score": 0.4392833443928335,
+        "roc_auc": 0.6365969593918784,
+        "pr_auc": 0.6340173953867232,
+        "tp": 1655,
+        "fp": 880,
+        "tn": 4119,
+        "fn": 3345
+      },
+      "by_generator": {
+        "BigGAN": {
+          "sample_count": 5000,
+          "accuracy": 0.5734,
+          "precision": 0.6450592885375495,
+          "recall": 0.3264,
+          "f1_score": 0.43346613545816737,
+          "roc_auc": 0.59546616,
+          "pr_auc": 0.6311234909271999,
+          "tp": 816,
+          "fp": 449,
+          "tn": 2051,
+          "fn": 1684
+        },
+        "Midjourney": {
+          "sample_count": 4999,
+          "accuracy": 0.5815163032606522,
+          "precision": 0.6606299212598425,
+          "recall": 0.3356,
+          "f1_score": 0.44509283819628653,
+          "roc_auc": 0.6764808323329332,
+          "pr_auc": 0.6317858045515798,
+          "tp": 839,
+          "fp": 431,
+          "tn": 2068,
+          "fn": 1661
+        }
+      }
+    },
+    "E3": {
+      "split": "test",
+      "excluded_duplicates_count": 1,
+      "aggregate": {
+        "sample_count": 9999,
+        "accuracy": 0.7724772477247724,
+        "precision": 0.9037037037037037,
+        "recall": 0.61,
+        "f1_score": 0.7283582089552239,
+        "roc_auc": 0.8850957791558312,
+        "pr_auc": 0.8907604592250996,
+        "tp": 3050,
+        "fp": 325,
+        "tn": 4674,
+        "fn": 1950
+      },
+      "by_generator": {
+        "BigGAN": {
+          "sample_count": 5000,
+          "accuracy": 0.856,
+          "precision": 0.9210028382213813,
+          "recall": 0.7788,
+          "f1_score": 0.8439531859557868,
+          "roc_auc": 0.9464636,
+          "pr_auc": 0.9448465024095389,
+          "tp": 1947,
+          "fp": 167,
+          "tn": 2333,
+          "fn": 553
+        },
+        "Midjourney": {
+          "sample_count": 4999,
+          "accuracy": 0.6889377875575114,
+          "precision": 0.8747026169706582,
+          "recall": 0.4412,
+          "f1_score": 0.5865461313480457,
+          "roc_auc": 0.8228204081632654,
+          "pr_auc": 0.8225346637099467,
+          "tp": 1103,
+          "fp": 158,
+          "tn": 2341,
+          "fn": 1397
+        }
+      }
+    }
+  }
+}

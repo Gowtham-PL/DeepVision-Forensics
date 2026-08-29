@@ -70,6 +70,18 @@ class DeepVisionDataset(Dataset):
         record     = self.records[index]
         image_path = Path(record["image_path"])
 
+        if not image_path.exists():
+            path_str = str(image_path).replace("\\", "/")
+            if "genimage/" in path_str:
+                rel_suffix = path_str.split("genimage/", 1)[1]
+                candidate = config.GENIMAGE_DIR / rel_suffix
+                if candidate.exists():
+                    image_path = candidate
+            elif not image_path.is_absolute():
+                candidate = config.DATA_DIR / image_path
+                if candidate.exists():
+                    image_path = candidate
+
         with Image.open(image_path) as img:
             image = img.convert("RGB")
 

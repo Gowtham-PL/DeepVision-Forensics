@@ -1,0 +1,4 @@
+Model,Architecture,Overall_Accuracy,Overall_ROC_AUC,Overall_PR_AUC,Overall_F1,BigGAN_Accuracy,BigGAN_ROC_AUC,BigGAN_PR_AUC,Midjourney_Accuracy,Midjourney_ROC_AUC,Midjourney_PR_AUC
+E1,Spatial-Only (EfficientNet-B3),0.8131,0.8991,0.9079,0.7903,0.9206,0.9732,0.9699,0.7055,0.8224,0.8249
+E2,Frequency-Only (4-Block CNN),0.5775,0.6366,0.6340,0.4393,0.5734,0.5955,0.6311,0.5815,0.6765,0.6318
+E3,Dual-Domain Fusion (Spatial + Freq),0.7725,0.8851,0.8908,0.7284,0.8560,0.9465,0.9448,0.6889,0.8228,0.8225

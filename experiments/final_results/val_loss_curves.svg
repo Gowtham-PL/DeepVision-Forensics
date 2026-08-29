@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" width="700" height="420">
+<style>
+  .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; fill: #1e293b; }
+  .axis { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 12px; fill: #64748b; }
+  .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 500; fill: #334155; }
+  .legend { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 600; }
+  .grid { stroke: #e2e8f0; stroke-width: 1; stroke-dasharray: 4 4; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" rx="8" />
+<text x="350.0" y="32" text-anchor="middle" class="title">Validation Loss vs Epoch (In-Distribution Validation, N = 5,000)</text>
+<line x1="80" y1="360.0" x2="540" y2="360.0" class="grid" />
+<text x="70" y="364.0" text-anchor="end" class="axis">0.15</text>
+<line x1="80" y1="285.0" x2="540" y2="285.0" class="grid" />
+<text x="70" y="289.0" text-anchor="end" class="axis">0.28</text>
+<line x1="80" y1="210.0" x2="540" y2="210.0" class="grid" />
+<text x="70" y="214.0" text-anchor="end" class="axis">0.40</text>
+<line x1="80" y1="135.0" x2="540" y2="135.0" class="grid" />
+<text x="70" y="139.0" text-anchor="end" class="axis">0.53</text>
+<line x1="80" y1="60.0" x2="540" y2="60.0" class="grid" />
+<text x="70" y="64.0" text-anchor="end" class="axis">0.65</text>
+<line x1="80.0" y1="60" x2="80.0" y2="360" class="grid" />
+<text x="80.0" y="380" text-anchor="middle" class="axis">1</text>
+<line x1="131.11111111111111" y1="60" x2="131.11111111111111" y2="360" class="grid" />
+<text x="131.11111111111111" y="380" text-anchor="middle" class="axis">2</text>
+<line x1="182.22222222222223" y1="60" x2="182.22222222222223" y2="360" class="grid" />
+<text x="182.22222222222223" y="380" text-anchor="middle" class="axis">3</text>
+<line x1="233.33333333333331" y1="60" x2="233.33333333333331" y2="360" class="grid" />
+<text x="233.33333333333331" y="380" text-anchor="middle" class="axis">4</text>
+<line x1="284.44444444444446" y1="60" x2="284.44444444444446" y2="360" class="grid" />
+<text x="284.44444444444446" y="380" text-anchor="middle" class="axis">5</text>
+<line x1="335.55555555555554" y1="60" x2="335.55555555555554" y2="360" class="grid" />
+<text x="335.55555555555554" y="380" text-anchor="middle" class="axis">6</text>
+<line x1="386.66666666666663" y1="60" x2="386.66666666666663" y2="360" class="grid" />
+<text x="386.66666666666663" y="380" text-anchor="middle" class="axis">7</text>
+<line x1="437.77777777777777" y1="60" x2="437.77777777777777" y2="360" class="grid" />
+<text x="437.77777777777777" y="380" text-anchor="middle" class="axis">8</text>
+<line x1="488.88888888888886" y1="60" x2="488.88888888888886" y2="360" class="grid" />
+<text x="488.88888888888886" y="380" text-anchor="middle" class="axis">9</text>
+<line x1="540.0" y1="60" x2="540.0" y2="360" class="grid" />
+<text x="540.0" y="380" text-anchor="middle" class="axis">10</text>
+<line x1="80" y1="60" x2="80" y2="360" stroke="#94a3b8" stroke-width="1.5" />
+<line x1="80" y1="360" x2="540" y2="360" stroke="#94a3b8" stroke-width="1.5" />
+<text x="310.0" y="405" text-anchor="middle" class="label">Training Epoch</text>
+<text x="24" y="210.0" text-anchor="middle" transform="rotate(-90 24 210.0)" class="label">BCE Validation Loss</text>
+<polyline fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="80.0,131.6 131.1,122.6 182.2,259.1 233.3,245.3 284.4,285.2 335.6,291.1 386.7,294.8 437.8,329.5 488.9,316.9 540.0,265.1" />
+<circle cx="80.0" cy="131.6" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="131.1" cy="122.6" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="182.2" cy="259.1" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="233.3" cy="245.3" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="284.4" cy="285.2" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="335.6" cy="291.1" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="386.7" cy="294.8" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="437.8" cy="329.5" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="488.9" cy="316.9" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="540.0" cy="265.1" r="4" fill="#2563eb" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="565" cy="80" r="5" fill="#2563eb" />
+<text x="578" y="84" class="legend" fill="#2563eb">E1: Spatial Baseline</text>
+<polyline fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="80.0,88.3 131.1,92.0 182.2,102.4 233.3,134.5 284.4,114.5 335.6,139.4 386.7,115.6 437.8,155.2 488.9,162.8 540.0,165.2" />
+<circle cx="80.0" cy="88.3" r="4" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="131.1" cy="92.0" r="4" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="182.2" cy="102.4" r="4" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="233.3" cy="134.5" r="4" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="284.4" cy="114.5" r="4" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="335.6" cy="139.4" r="4" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="386.7" cy="115.6" r="4" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="437.8" cy="155.2" r="4" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="488.9" cy="162.8" r="4" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="540.0" cy="165.2" r="4" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="565" cy="106" r="5" fill="#059669" />
+<text x="578" y="110" class="legend" fill="#059669">E2: Frequency Baseline</text>
+<polyline fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="80.0,96.9 131.1,169.0 182.2,258.4 233.3,213.4 284.4,299.9 335.6,312.9 386.7,277.1 437.8,332.8 488.9,340.3 540.0,338.0" />
+<circle cx="80.0" cy="96.9" r="4" fill="#d97706" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="131.1" cy="169.0" r="4" fill="#d97706" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="182.2" cy="258.4" r="4" fill="#d97706" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="233.3" cy="213.4" r="4" fill="#d97706" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="284.4" cy="299.9" r="4" fill="#d97706" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="335.6" cy="312.9" r="4" fill="#d97706" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="386.7" cy="277.1" r="4" fill="#d97706" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="437.8" cy="332.8" r="4" fill="#d97706" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="488.9" cy="340.3" r="4" fill="#d97706" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="540.0" cy="338.0" r="4" fill="#d97706" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="565" cy="132" r="5" fill="#d97706" />
+<text x="578" y="136" class="legend" fill="#d97706">E3: Dual-Domain Model</text>
+</svg>
