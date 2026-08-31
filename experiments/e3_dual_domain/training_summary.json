@@ -1,0 +1,10 @@
+{
+  "experiment": "E3",
+  "best_epoch": 9,
+  "best_val_roc_auc": 0.9795,
+  "val_loss": 0.1829,
+  "val_accuracy": 0.9282,
+  "vram_peak_mb": 1833.2,
+  "total_duration_sec": 2514.8,
+  "total_duration_min": 41.91
+}

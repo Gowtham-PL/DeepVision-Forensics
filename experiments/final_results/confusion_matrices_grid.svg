@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360">
+<style>
+  .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; fill: #1e293b; }
+  .subhead { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 600; fill: #334155; }
+  .cell-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 700; fill: #0f172a; }
+  .cell-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11px; fill: #64748b; }
+  .axis-lbl { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 500; fill: #475569; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" rx="8" />
+<text x="400.0" y="32" text-anchor="middle" class="title">Unseen Test Confusion Matrices (Threshold = 0.50, N = 9,999)</text>
+<text x="150" y="70" text-anchor="middle" class="subhead">E1: Spatial Baseline</text>
+<text x="150" y="88" text-anchor="middle" class="cell-sub">Acc: 81.31% | F1: 0.7903</text>
+<text x="110" y="115" text-anchor="middle" class="axis-lbl">Pred: Nature</text>
+<text x="190" y="115" text-anchor="middle" class="axis-lbl">Pred: AI</text>
+<text x="48" y="160" text-anchor="middle" class="axis-lbl" transform="rotate(-90 48 160)">True: Nature</text>
+<text x="48" y="240" text-anchor="middle" class="axis-lbl" transform="rotate(-90 48 240)">True: AI</text>
+<rect x="70" y="125" width="75" height="75" fill="#dcfce7" stroke="#86efac" stroke-width="1.5" rx="4" />
+<text x="107" y="160" text-anchor="middle" class="cell-text">4,609</text>
+<text x="107" y="178" text-anchor="middle" class="cell-sub">TN (92.2%)</text>
+<rect x="155" y="125" width="75" height="75" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5" rx="4" />
+<text x="192" y="160" text-anchor="middle" class="cell-text">390</text>
+<text x="192" y="178" text-anchor="middle" class="cell-sub">FP (7.8%)</text>
+<rect x="70" y="205" width="75" height="75" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5" rx="4" />
+<text x="107" y="240" text-anchor="middle" class="cell-text">1,479</text>
+<text x="107" y="258" text-anchor="middle" class="cell-sub">FN (29.6%)</text>
+<rect x="155" y="205" width="75" height="75" fill="#dcfce7" stroke="#86efac" stroke-width="1.5" rx="4" />
+<text x="192" y="240" text-anchor="middle" class="cell-text">3,521</text>
+<text x="192" y="258" text-anchor="middle" class="cell-sub">TP (70.4%)</text>
+<text x="400" y="70" text-anchor="middle" class="subhead">E2: Frequency Baseline</text>
+<text x="400" y="88" text-anchor="middle" class="cell-sub">Acc: 57.75% | F1: 0.4393</text>
+<text x="360" y="115" text-anchor="middle" class="axis-lbl">Pred: Nature</text>
+<text x="440" y="115" text-anchor="middle" class="axis-lbl">Pred: AI</text>
+<text x="298" y="160" text-anchor="middle" class="axis-lbl" transform="rotate(-90 298 160)">True: Nature</text>
+<text x="298" y="240" text-anchor="middle" class="axis-lbl" transform="rotate(-90 298 240)">True: AI</text>
+<rect x="320" y="125" width="75" height="75" fill="#dcfce7" stroke="#86efac" stroke-width="1.5" rx="4" />
+<text x="357" y="160" text-anchor="middle" class="cell-text">4,119</text>
+<text x="357" y="178" text-anchor="middle" class="cell-sub">TN (82.4%)</text>
+<rect x="405" y="125" width="75" height="75" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5" rx="4" />
+<text x="442" y="160" text-anchor="middle" class="cell-text">880</text>
+<text x="442" y="178" text-anchor="middle" class="cell-sub">FP (17.6%)</text>
+<rect x="320" y="205" width="75" height="75" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5" rx="4" />
+<text x="357" y="240" text-anchor="middle" class="cell-text">3,345</text>
+<text x="357" y="258" text-anchor="middle" class="cell-sub">FN (66.9%)</text>
+<rect x="405" y="205" width="75" height="75" fill="#dcfce7" stroke="#86efac" stroke-width="1.5" rx="4" />
+<text x="442" y="240" text-anchor="middle" class="cell-text">1,655</text>
+<text x="442" y="258" text-anchor="middle" class="cell-sub">TP (33.1%)</text>
+<text x="650" y="70" text-anchor="middle" class="subhead">E3: Dual-Domain Fusion</text>
+<text x="650" y="88" text-anchor="middle" class="cell-sub">Acc: 77.25% | F1: 0.7284</text>
+<text x="610" y="115" text-anchor="middle" class="axis-lbl">Pred: Nature</text>
+<text x="690" y="115" text-anchor="middle" class="axis-lbl">Pred: AI</text>
+<text x="548" y="160" text-anchor="middle" class="axis-lbl" transform="rotate(-90 548 160)">True: Nature</text>
+<text x="548" y="240" text-anchor="middle" class="axis-lbl" transform="rotate(-90 548 240)">True: AI</text>
+<rect x="570" y="125" width="75" height="75" fill="#dcfce7" stroke="#86efac" stroke-width="1.5" rx="4" />
+<text x="607" y="160" text-anchor="middle" class="cell-text">4,674</text>
+<text x="607" y="178" text-anchor="middle" class="cell-sub">TN (93.5%)</text>
+<rect x="655" y="125" width="75" height="75" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5" rx="4" />
+<text x="692" y="160" text-anchor="middle" class="cell-text">325</text>
+<text x="692" y="178" text-anchor="middle" class="cell-sub">FP (6.5%)</text>
+<rect x="570" y="205" width="75" height="75" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5" rx="4" />
+<text x="607" y="240" text-anchor="middle" class="cell-text">1,950</text>
+<text x="607" y="258" text-anchor="middle" class="cell-sub">FN (39.0%)</text>
+<rect x="655" y="205" width="75" height="75" fill="#dcfce7" stroke="#86efac" stroke-width="1.5" rx="4" />
+<text x="692" y="240" text-anchor="middle" class="cell-text">3,050</text>
+<text x="692" y="258" text-anchor="middle" class="cell-sub">TP (61.0%)</text>
+</svg>

@@ -1,0 +1,27 @@
+{
+  "protocol_name": "5-Fold Leave-One-Generator-Out (LOGO) Cross-Validation",
+  "development_generators": [
+    "ADM",
+    "GLIDE",
+    "SDv5",
+    "VQDM",
+    "Wukong"
+  ],
+  "forbidden_test_generators": [
+    "BigGAN",
+    "Midjourney"
+  ],
+  "strategies": [
+    "minmax",
+    "standardize",
+    "none"
+  ],
+  "batch_size": 16,
+  "epochs": 10,
+  "warmup_epochs": 2,
+  "lr_backbone": 1e-05,
+  "lr_head": 0.0005,
+  "weight_decay": 0.0001,
+  "seed": 42,
+  "base_architecture": "E3 (Spatial EfficientNet-B3 + Spectral 4-Block CNN)"
+}

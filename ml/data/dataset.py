@@ -1,6 +1,6 @@
 import csv
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Set, Tuple, Union
 
 import torch
 from PIL import Image
@@ -23,19 +23,33 @@ class DeepVisionDataset(Dataset):
         is_cross_gen_dup — "True" / "False" (informational; not filtered here)
 
     Args:
-        split:      One of "train", "val", or "test".
-        transform:  Optional torchvision transforms.Compose.  If None, uses
-                    standard ImageNet resize + normalisation.
+        split:                 One of "train", "val", "test", a collection of split names,
+                               or None to include all splits.
+        transform:             Optional torchvision transforms.Compose. If None, uses
+                               standard ImageNet resize + normalisation.
+        generators:            Optional iterable of generator names to include.
+        exclude_generators:    Optional iterable of generator names to exclude.
+        manifest_path:         Optional path to manifest CSV (defaults to config.MANIFEST_PATH).
+        exclude_cross_gen_dups: Whether to filter out cross-generator duplicates.
     """
 
     def __init__(
         self,
-        split: str = "train",
+        split: Optional[Union[str, List[str], set]] = "train",
         transform: Optional[transforms.Compose] = None,
+        generators: Optional[Union[List[str], set]] = None,
+        exclude_generators: Optional[Union[List[str], set]] = None,
+        manifest_path: Optional[Path] = None,
+        exclude_cross_gen_dups: bool = False,
     ) -> None:
         super().__init__()
-        self.split   = split
-        self.records = self._load_manifest(split)
+        self.split = split
+        self.generators = set(generators) if generators is not None else None
+        self.exclude_generators = set(exclude_generators) if exclude_generators is not None else None
+        self.manifest_path = manifest_path or config.MANIFEST_PATH
+        self.exclude_cross_gen_dups = exclude_cross_gen_dups
+
+        self.records = self._load_manifest()
 
         if transform is None:
             self.transform = transforms.Compose([
@@ -48,17 +62,32 @@ class DeepVisionDataset(Dataset):
 
     # ── Internal ───────────────────────────────────────────────────────────────
 
-    def _load_manifest(self, target_split: str) -> List[Dict]:
-        if not config.MANIFEST_PATH.exists():
+    def _load_manifest(self) -> List[Dict]:
+        if not self.manifest_path.exists():
             raise FileNotFoundError(
-                f"Manifest not found at {config.MANIFEST_PATH}. Run prepare.py first."
+                f"Manifest not found at {self.manifest_path}. Run prepare.py first."
             )
+        target_splits = None
+        if self.split is not None:
+            if isinstance(self.split, str):
+                target_splits = {self.split}
+            else:
+                target_splits = set(self.split)
+
         records: List[Dict] = []
-        with open(config.MANIFEST_PATH, "r", encoding="utf-8") as f:
+        with open(self.manifest_path, "r", encoding="utf-8") as f:
             reader = csv.DictReader(f)
             for row in reader:
-                if row["split"] == target_split:
-                    records.append(row)
+                if target_splits is not None and row["split"] not in target_splits:
+                    continue
+                gen = row.get("generator")
+                if self.generators is not None and gen not in self.generators:
+                    continue
+                if self.exclude_generators is not None and gen in self.exclude_generators:
+                    continue
+                if self.exclude_cross_gen_dups and row.get("is_cross_gen_dup") == "True":
+                    continue
+                records.append(row)
         return records
 
     # ── Dataset interface ──────────────────────────────────────────────────────
@@ -69,6 +98,18 @@ class DeepVisionDataset(Dataset):
     def __getitem__(self, index: int) -> Tuple[torch.Tensor, int]:
         record     = self.records[index]
         image_path = Path(record["image_path"])
+
+        if not image_path.exists():
+            path_str = str(image_path).replace("\\", "/")
+            if "genimage/" in path_str:
+                rel_suffix = path_str.split("genimage/", 1)[1]
+                candidate = config.GENIMAGE_DIR / rel_suffix
+                if candidate.exists():
+                    image_path = candidate
+            elif not image_path.is_absolute():
+                candidate = config.DATA_DIR / image_path
+                if candidate.exists():
+                    image_path = candidate
 
         with Image.open(image_path) as img:
             image = img.convert("RGB")
