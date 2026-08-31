@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 420" width="750" height="420">
+<style>
+  .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; fill: #1e293b; }
+  .axis { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 12px; fill: #64748b; }
+  .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; fill: #334155; }
+  .bar-val { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 700; fill: #0f172a; }
+  .grid { stroke: #e2e8f0; stroke-width: 1; stroke-dasharray: 4 4; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" rx="8" />
+<text x="375.0" y="32" text-anchor="middle" class="title">Overall Unseen-Generator ROC-AUC Comparison (Test Split, N=9,999)</text>
+<line x1="90" y1="360.0" x2="710" y2="360.0" class="grid" />
+<text x="80" y="364.0" text-anchor="end" class="axis">0.85</text>
+<line x1="90" y1="317.14285714285717" x2="710" y2="317.14285714285717" class="grid" />
+<text x="80" y="321.14285714285717" text-anchor="end" class="axis">0.86</text>
+<line x1="90" y1="274.2857142857143" x2="710" y2="274.2857142857143" class="grid" />
+<text x="80" y="278.2857142857143" text-anchor="end" class="axis">0.87</text>
+<line x1="90" y1="231.42857142857144" x2="710" y2="231.42857142857144" class="grid" />
+<text x="80" y="235.42857142857144" text-anchor="end" class="axis">0.88</text>
+<line x1="90" y1="188.57142857142858" x2="710" y2="188.57142857142858" class="grid" />
+<text x="80" y="192.57142857142858" text-anchor="end" class="axis">0.89</text>
+<line x1="90" y1="145.71428571428572" x2="710" y2="145.71428571428572" class="grid" />
+<text x="80" y="149.71428571428572" text-anchor="end" class="axis">0.90</text>
+<line x1="90" y1="102.85714285714334" x2="710" y2="102.85714285714334" class="grid" />
+<text x="80" y="106.85714285714334" text-anchor="end" class="axis">0.91</text>
+<line x1="90" y1="60.000000000000455" x2="710" y2="60.000000000000455" class="grid" />
+<text x="80" y="64.00000000000045" text-anchor="end" class="axis">0.92</text>
+<line x1="90" y1="60" x2="90" y2="360" stroke="#94a3b8" stroke-width="1.5" />
+<line x1="90" y1="360" x2="710" y2="360" stroke="#94a3b8" stroke-width="1.5" />
+<text x="24" y="210.0" text-anchor="middle" transform="rotate(-90 24 210.0)" class="label">ROC-AUC</text>
+<rect x="148.3" y="209.6" width="90" height="150.4" fill="#94a3b8" rx="4" />
+<text x="193.3" y="201.6" text-anchor="middle" class="bar-val">0.8851</text>
+<text x="193.3" y="384" text-anchor="middle" class="label">E3 Dual (MinMax)</text>
+<rect x="355.0" y="163.3" width="90" height="196.7" fill="#0284c7" rx="4" />
+<text x="400.0" y="155.3" text-anchor="middle" class="bar-val">0.8959</text>
+<text x="400.0" y="384" text-anchor="middle" class="label">E3-Std Dual (Standardize)</text>
+<rect x="561.7" y="149.6" width="90" height="210.4" fill="#10b981" rx="4" />
+<text x="606.7" y="141.6" text-anchor="middle" class="bar-val">0.8991</text>
+<text x="606.7" y="384" text-anchor="middle" class="label">E1 Spatial Baseline</text>
+</svg>

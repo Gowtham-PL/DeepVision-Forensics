@@ -1,0 +1,10 @@
+Model_ID,Architecture,Frequency_Norm,Evaluation_Scope,Sample_Count,Accuracy,Precision,Recall,F1_Score,ROC_AUC,PR_AUC,TP,FP,TN,FN
+Candidate_OOD,Dual-Domain (Spatial + Frequency),standardize,Overall_Unseen,9999,0.7552,0.9256,0.5550,0.6939,0.8959,0.8993,2775,223,4776,2225
+Candidate_OOD,Dual-Domain (Spatial + Frequency),standardize,Gen_BigGAN,5000,0.8446,0.9375,0.7384,0.8261,0.9511,0.9494,1846,123,2377,654
+Candidate_OOD,Dual-Domain (Spatial + Frequency),standardize,Gen_Midjourney,4999,0.6657,0.9028,0.3716,0.5265,0.8392,0.8374,929,100,2399,1571
+E1_Spatial_Frozen,Spatial-Only (EfficientNet-B3),N/A,Overall_Unseen,9999,0.8131,0.9003,0.7042,0.7903,0.8991,0.9079,3521,390,4609,1479
+E1_Spatial_Frozen,Spatial-Only (EfficientNet-B3),N/A,Gen_BigGAN,5000,0.9206,0.9221,0.9188,0.9205,0.9732,0.9699,2297,194,2306,203
+E1_Spatial_Frozen,Spatial-Only (EfficientNet-B3),N/A,Gen_Midjourney,4999,0.7055,0.8620,0.4896,0.6245,0.8224,0.8249,1224,196,2303,1276
+E3_Dual_Frozen,Dual-Domain (Spatial + Frequency),minmax,Overall_Unseen,9999,0.7725,0.9037,0.6100,0.7284,0.8851,0.8908,3050,325,4674,1950
+E3_Dual_Frozen,Dual-Domain (Spatial + Frequency),minmax,Gen_BigGAN,5000,0.8560,0.9210,0.7788,0.8440,0.9465,0.9448,1947,167,2333,553
+E3_Dual_Frozen,Dual-Domain (Spatial + Frequency),minmax,Gen_Midjourney,4999,0.6889,0.8747,0.4412,0.5865,0.8228,0.8225,1103,158,2341,1397

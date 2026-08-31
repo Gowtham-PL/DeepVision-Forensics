@@ -1,0 +1,174 @@
+{
+  "metadata": {
+    "evaluation_name": "Final Unseen-Generator Evaluation (Candidate Standardize)",
+    "device": "cuda",
+    "gpu_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "total_test_records": 10000,
+    "excluded_duplicates_count": 1,
+    "evaluated_test_records": 9999,
+    "test_generators": [
+      "BigGAN",
+      "Midjourney"
+    ],
+    "threshold": 0.5,
+    "timestamp": "2026-08-31T15:58:05Z",
+    "candidate_config": {
+      "experiment": "E3",
+      "batch_size": 16,
+      "epochs": 10,
+      "lr_backbone": 1e-05,
+      "lr_head": 0.0005,
+      "weight_decay": 0.0001,
+      "seed": 42,
+      "norm_strategy": "standardize",
+      "freq_embedding_dim": 256
+    }
+  },
+  "candidate_metrics": {
+    "overall": {
+      "sample_count": 9999,
+      "accuracy": 0.7551755175517552,
+      "precision": 0.9256170780520346,
+      "recall": 0.555,
+      "f1_score": 0.6939234808702176,
+      "roc_auc": 0.8959171034206841,
+      "pr_auc": 0.8993197415912673,
+      "tp": 2775,
+      "fp": 223,
+      "tn": 4776,
+      "fn": 2225
+    },
+    "by_generator": {
+      "BigGAN": {
+        "sample_count": 5000,
+        "accuracy": 0.8446,
+        "precision": 0.9375317420010157,
+        "recall": 0.7384,
+        "f1_score": 0.8261356008055493,
+        "roc_auc": 0.95108704,
+        "pr_auc": 0.9493652089956202,
+        "tp": 1846,
+        "fp": 123,
+        "tn": 2377,
+        "fn": 654
+      },
+      "Midjourney": {
+        "sample_count": 4999,
+        "accuracy": 0.6657331466293258,
+        "precision": 0.902818270165209,
+        "recall": 0.3716,
+        "f1_score": 0.5264947577217343,
+        "roc_auc": 0.8391688675470188,
+        "pr_auc": 0.8374456568295692,
+        "tp": 929,
+        "fp": 100,
+        "tn": 2399,
+        "fn": 1571
+      }
+    }
+  },
+  "frozen_baseline_comparison": {
+    "e1_spatial_frozen": {
+      "overall": {
+        "sample_count": 9999,
+        "accuracy": 0.813081308130813,
+        "precision": 0.9002812579902838,
+        "recall": 0.7042,
+        "f1_score": 0.7902592301649647,
+        "roc_auc": 0.8990666333266655,
+        "pr_auc": 0.9078651617550003,
+        "tp": 3521,
+        "fp": 390,
+        "tn": 4609,
+        "fn": 1479
+      },
+      "by_generator": {
+        "BigGAN": {
+          "sample_count": 5000,
+          "accuracy": 0.9206,
+          "precision": 0.9221196306704135,
+          "recall": 0.9188,
+          "f1_score": 0.9204568222801042,
+          "roc_auc": 0.97323008,
+          "pr_auc": 0.9698963592488411,
+          "tp": 2297,
+          "fp": 194,
+          "tn": 2306,
+          "fn": 203
+        },
+        "Midjourney": {
+          "sample_count": 4999,
+          "accuracy": 0.7055411082216443,
+          "precision": 0.8619718309859155,
+          "recall": 0.4896,
+          "f1_score": 0.6244897959183673,
+          "roc_auc": 0.8224476190476191,
+          "pr_auc": 0.8248792500227196,
+          "tp": 1224,
+          "fp": 196,
+          "tn": 2303,
+          "fn": 1276
+        }
+      }
+    },
+    "e3_dual_frozen": {
+      "overall": {
+        "sample_count": 9999,
+        "accuracy": 0.7724772477247724,
+        "precision": 0.9037037037037037,
+        "recall": 0.61,
+        "f1_score": 0.7283582089552239,
+        "roc_auc": 0.8850957791558312,
+        "pr_auc": 0.8907604592250996,
+        "tp": 3050,
+        "fp": 325,
+        "tn": 4674,
+        "fn": 1950
+      },
+      "by_generator": {
+        "BigGAN": {
+          "sample_count": 5000,
+          "accuracy": 0.856,
+          "precision": 0.9210028382213813,
+          "recall": 0.7788,
+          "f1_score": 0.8439531859557868,
+          "roc_auc": 0.9464636,
+          "pr_auc": 0.9448465024095389,
+          "tp": 1947,
+          "fp": 167,
+          "tn": 2333,
+          "fn": 553
+        },
+        "Midjourney": {
+          "sample_count": 4999,
+          "accuracy": 0.6889377875575114,
+          "precision": 0.8747026169706582,
+          "recall": 0.4412,
+          "f1_score": 0.5865461313480457,
+          "roc_auc": 0.8228204081632654,
+          "pr_auc": 0.8225346637099467,
+          "tp": 1103,
+          "fp": 158,
+          "tn": 2341,
+          "fn": 1397
+        }
+      }
+    },
+    "deltas_vs_e1": {
+      "roc_auc": -0.0031,
+      "accuracy": -0.0579,
+      "f1_score": -0.0963,
+      "pr_auc": -0.0085,
+      "biggan_roc_auc": -0.0221,
+      "midjourney_roc_auc": 0.0167
+    },
+    "deltas_vs_e3": {
+      "roc_auc": 0.0108,
+      "accuracy": -0.0173,
+      "f1_score": -0.0344,
+      "pr_auc": 0.0086,
+      "biggan_roc_auc": 0.0046,
+      "midjourney_roc_auc": 0.0163
+    }
+  }
+}

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 420" width="750" height="420">
+<style>
+  .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; fill: #1e293b; }
+  .axis { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 12px; fill: #64748b; }
+  .cat { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; fill: #334155; }
+  .legend { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 600; }
+  .bar-val { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 700; fill: #0f172a; }
+  .grid { stroke: #e2e8f0; stroke-width: 1; stroke-dasharray: 4 4; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" rx="8" />
+<text x="375.0" y="32" text-anchor="middle" class="title">Per-Generator Unseen ROC-AUC Comparison</text>
+<line x1="80" y1="360.0" x2="570" y2="360.0" class="grid" />
+<text x="70" y="364.0" text-anchor="end" class="axis">0.75</text>
+<line x1="80" y1="299.99999999999994" x2="570" y2="299.99999999999994" class="grid" />
+<text x="70" y="303.99999999999994" text-anchor="end" class="axis">0.80</text>
+<line x1="80" y1="240.00000000000003" x2="570" y2="240.00000000000003" class="grid" />
+<text x="70" y="244.00000000000003" text-anchor="end" class="axis">0.85</text>
+<line x1="80" y1="179.99999999999997" x2="570" y2="179.99999999999997" class="grid" />
+<text x="70" y="183.99999999999997" text-anchor="end" class="axis">0.90</text>
+<line x1="80" y1="120.00000000000006" x2="570" y2="120.00000000000006" class="grid" />
+<text x="70" y="124.00000000000006" text-anchor="end" class="axis">0.95</text>
+<line x1="80" y1="60.0" x2="570" y2="60.0" class="grid" />
+<text x="70" y="64.0" text-anchor="end" class="axis">1.00</text>
+<line x1="80" y1="60" x2="80" y2="360" stroke="#94a3b8" stroke-width="1.5" />
+<line x1="80" y1="360" x2="570" y2="360" stroke="#94a3b8" stroke-width="1.5" />
+<text x="24" y="210.0" text-anchor="middle" transform="rotate(-90 24 210.0)" class="cat">ROC-AUC</text>
+<text x="202.5" y="384" text-anchor="middle" class="cat">BigGAN (GAN Paradigm)</text>
+<rect x="116.8" y="92.2" width="53.2" height="267.8" fill="#10b981" rx="3" />
+<text x="143.3" y="86.2" text-anchor="middle" class="bar-val">0.9732</text>
+<rect x="173.9" y="124.2" width="53.2" height="235.8" fill="#94a3b8" rx="3" />
+<text x="200.5" y="118.2" text-anchor="middle" class="bar-val">0.9465</text>
+<rect x="231.1" y="118.7" width="53.2" height="241.3" fill="#0284c7" rx="3" />
+<text x="257.7" y="112.7" text-anchor="middle" class="bar-val">0.9511</text>
+<text x="447.5" y="384" text-anchor="middle" class="cat">Midjourney (Commercial Diffusion)</text>
+<rect x="361.8" y="273.1" width="53.2" height="86.9" fill="#10b981" rx="3" />
+<text x="388.3" y="267.1" text-anchor="middle" class="bar-val">0.8224</text>
+<rect x="418.9" y="272.6" width="53.2" height="87.4" fill="#94a3b8" rx="3" />
+<text x="445.5" y="266.6" text-anchor="middle" class="bar-val">0.8228</text>
+<rect x="476.1" y="253.0" width="53.2" height="107.0" fill="#0284c7" rx="3" />
+<text x="502.7" y="247.0" text-anchor="middle" class="bar-val">0.8392</text>
+<rect x="590" y="70" width="14" height="14" fill="#10b981" rx="3" />
+<text x="610" y="82" class="legend" fill="#10b981">E1 Spatial Baseline</text>
+<rect x="590" y="98" width="14" height="14" fill="#94a3b8" rx="3" />
+<text x="610" y="110" class="legend" fill="#94a3b8">E3 Dual (MinMax)</text>
+<rect x="590" y="126" width="14" height="14" fill="#0284c7" rx="3" />
+<text x="610" y="138" class="legend" fill="#0284c7">E3-Std Dual (Standardize)</text>
+</svg>
