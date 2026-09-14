@@ -227,3 +227,73 @@ class TestFastAPIEndpoints:
         payload = response.json()
         assert payload["status"] == "error"
         assert "detail" in payload
+
+
+class TestModelSelection:
+    """Tests for model selection between E1 Spatial and E3-Std Dual-Domain."""
+
+    def test_e1_is_default_model(self, loaded_service):
+        assert loaded_service.active_model_key == "e1_spatial"
+        info = loaded_service.get_model_info()
+        assert info.name == "DeepVision-E1-Spatial"
+        assert info.parameters == 11549993
+
+    def test_load_e3_std_model(self, loaded_service):
+        e3_model = loaded_service.load_model("e3_std")
+        assert e3_model is not None
+        assert loaded_service.is_loaded("e3_std") is True
+        e3_info = loaded_service.get_model_info("e3_std")
+        assert e3_info.name == "DeepVision-E3-Std"
+        assert e3_info.parameters == 12135689
+
+    def test_predict_and_analyze_e3_std(self, loaded_service):
+        img = Image.new("RGB", (128, 128), color=(220, 180, 100))
+        resp = loaded_service.predict_and_analyze(img, include_fft=True, model_key="e3_std")
+        assert resp.status == "success"
+        assert resp.model_info.name == "DeepVision-E3-Std"
+        assert resp.model_info.parameters == 12135689
+        assert 0.0 <= resp.prediction.ai_probability <= 1.0
+        assert resp.visualizations.gradcam_heatmap.startswith("data:image/png;base64,")
+        assert resp.visualizations.fft_spectrum.startswith("data:image/png;base64,")
+
+    def test_models_list_endpoint(self, api_client):
+        response = api_client.get(f"{config.API_V1_PREFIX}/models")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["status"] == "success"
+        assert "models" in data
+        model_ids = [m["id"] for m in data["models"]]
+        assert "e1_spatial" in model_ids
+        assert "e3_std" in model_ids
+        assert data["active_model"] == "e1_spatial"
+
+    def test_analyze_endpoint_with_explicit_model_selection(self, api_client):
+        img_bytes = create_synthetic_image_bytes(64, 64, fmt="PNG", color=(75, 150, 225))
+        files = {"file": ("test_e3.png", img_bytes, "image/png")}
+        data = {"include_fft": "true", "model": "e3_std"}
+
+        response = api_client.post(f"{config.API_V1_PREFIX}/analyze", files=files, data=data)
+        assert response.status_code == 200
+        payload = response.json()
+        assert payload["model_info"]["name"] == "DeepVision-E3-Std"
+        assert payload["model_info"]["parameters"] == 12135689
+
+    def test_analyze_endpoint_default_fallback(self, api_client):
+        """Omitting the model parameter must preserve default E1 Spatial behavior."""
+        img_bytes = create_synthetic_image_bytes(64, 64, fmt="PNG", color=(100, 100, 100))
+        files = {"file": ("test_default.png", img_bytes, "image/png")}
+        response = api_client.post(f"{config.API_V1_PREFIX}/analyze", files=files)
+        assert response.status_code == 200
+        payload = response.json()
+        assert payload["model_info"]["name"] == "DeepVision-E1-Spatial"
+        assert payload["model_info"]["parameters"] == 11549993
+
+    def test_analyze_endpoint_invalid_model_rejected(self, api_client):
+        img_bytes = create_synthetic_image_bytes(64, 64, fmt="PNG")
+        files = {"file": ("test.png", img_bytes, "image/png")}
+        data = {"model": "non_existent_model_xyz"}
+        response = api_client.post(f"{config.API_V1_PREFIX}/analyze", files=files, data=data)
+        assert response.status_code == 400
+        payload = response.json()
+        assert payload["status"] == "error"
+        assert "Unsupported model" in payload["detail"]

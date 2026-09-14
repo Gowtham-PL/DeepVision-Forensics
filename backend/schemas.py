@@ -11,6 +11,8 @@ class HealthResponse(BaseModel):
     status: str = Field(..., description="System operational status", examples=["healthy"])
     model_loaded: bool = Field(..., description="Whether the model is loaded in memory", examples=[True])
     model_name: str = Field(..., description="Active model architecture name", examples=["DeepVision-E1-Spatial"])
+    active_model: Optional[str] = Field(None, description="Active model key identifier", examples=["e1_spatial"])
+    available_models: Optional[List[str]] = Field(None, description="List of supported model identifiers", examples=[["e1_spatial", "e3_std"]])
     device: str = Field(..., description="Compute device being utilized", examples=["cuda"])
     gpu_name: Optional[str] = Field(None, description="Physical GPU name if CUDA is enabled", examples=["NVIDIA GeForce RTX 3050 Laptop GPU"])
 
@@ -18,9 +20,28 @@ class HealthResponse(BaseModel):
 class ModelInfo(BaseModel):
     """Metadata regarding the deployed inference model."""
     name: str = Field(..., examples=["DeepVision-E1-Spatial"])
+    model_id: Optional[str] = Field(None, description="Model identifier key", examples=["e1_spatial"])
     backbone: str = Field(..., examples=["EfficientNet-B3"])
     parameters: int = Field(..., examples=[11549993])
     device: str = Field(..., examples=["cuda"])
+    description: Optional[str] = Field(None, examples=["Spatial-only baseline (EfficientNet-B3)"])
+
+
+class ModelOption(BaseModel):
+    """Available model specification."""
+    id: str = Field(..., examples=["e1_spatial"])
+    name: str = Field(..., examples=["DeepVision-E1-Spatial"])
+    backbone: str = Field(..., examples=["EfficientNet-B3"])
+    description: str = Field(..., examples=["Spatial-only baseline (EfficientNet-B3 backbone)"])
+    is_default: bool = Field(False, examples=[True])
+    benchmark_unseen_auc: Optional[float] = Field(None, examples=[0.8991])
+
+
+class ModelsListResponse(BaseModel):
+    """List of selectable models and current active default."""
+    status: str = Field("success", examples=["success"])
+    active_model: str = Field(..., examples=["e1_spatial"])
+    models: List[ModelOption]
 
 
 class PredictionResult(BaseModel):

@@ -30,6 +30,11 @@ const previewFilesize = document.getElementById('previewFilesize');
 const removeFileBtn = document.getElementById('removeFileBtn');
 
 const fftToggle = document.getElementById('fftToggle');
+const modelSelect = document.getElementById('modelSelect');
+const metaModelName = document.getElementById('metaModelName');
+const metaBackbone = document.getElementById('metaBackbone');
+const metaBenchmark = document.getElementById('metaBenchmark');
+
 const analyzeBtn = document.getElementById('analyzeBtn');
 const btnText = analyzeBtn.querySelector('.btn-text');
 const btnSpinner = analyzeBtn.querySelector('.btn-spinner');
@@ -56,6 +61,26 @@ const vizOriginalImage = document.getElementById('vizOriginalImage');
 const vizGradCamImage = document.getElementById('vizGradCamImage');
 const vizFftImage = document.getElementById('vizFftImage');
 const disclaimerText = document.getElementById('disclaimerText');
+
+const MODEL_SPECS = {
+  e1_spatial: {
+    name: 'DeepVision-E1-Spatial',
+    backbone: 'EfficientNet-B3 (Pretrained)',
+    benchmark: '0.8991 ROC-AUC (Unseen Test)',
+  },
+  e3_std: {
+    name: 'DeepVision-E3-Std',
+    backbone: 'EfficientNet-B3 + 4-Block Spectral CNN (Standardized)',
+    benchmark: '0.8959 ROC-AUC (Unseen Test) / 0.9511 BigGAN',
+  },
+};
+
+function updateModelMetaCard(modelKey) {
+  const spec = MODEL_SPECS[modelKey] || MODEL_SPECS.e1_spatial;
+  if (metaModelName) metaModelName.textContent = spec.name;
+  if (metaBackbone) metaBackbone.textContent = spec.backbone;
+  if (metaBenchmark) metaBenchmark.textContent = spec.benchmark;
+}
 
 /**
  * Initialize application
@@ -158,6 +183,13 @@ function setupEventListeners() {
   // Visualization Tabs
   tabGradCam.addEventListener('click', () => switchVizTab('gradcam'));
   tabFft.addEventListener('click', () => switchVizTab('fft'));
+
+  // Model Selector
+  if (modelSelect) {
+    modelSelect.addEventListener('change', () => {
+      updateModelMetaCard(modelSelect.value);
+    });
+  }
 }
 
 /**
@@ -268,6 +300,9 @@ async function performAnalysis() {
   const formData = new FormData();
   formData.append('file', selectedFile);
   formData.append('include_fft', fftToggle.checked ? 'true' : 'false');
+  if (modelSelect && modelSelect.value) {
+    formData.append('model', modelSelect.value);
+  }
 
   try {
     const response = await fetch(`${API_BASE}/analyze`, {
@@ -318,6 +353,16 @@ function renderAnalysisResults(report) {
   // 3. Assessment & Explanations
   authenticityAssessment.textContent = pred.authenticity_assessment;
   spatialSummary.textContent = report.evidence.spatial_summary;
+
+  // Update Model Metadata Card with reported model
+  if (report.model_info) {
+    if (metaModelName) metaModelName.textContent = report.model_info.name;
+    if (metaBackbone) metaBackbone.textContent = report.model_info.backbone;
+    const modelId = report.model_info.model_id;
+    if (modelId && MODEL_SPECS[modelId] && metaBenchmark) {
+      metaBenchmark.textContent = MODEL_SPECS[modelId].benchmark;
+    }
+  }
 
   // 4. Visualizations
   vizOriginalImage.src = previewImage.src;

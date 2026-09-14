@@ -9,7 +9,7 @@ import base64
 import io
 import threading
 from pathlib import Path
-from typing import Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 import cv2
 import numpy as np
 from PIL import Image
@@ -22,6 +22,8 @@ from backend.schemas import (
     AnalyzeResponse,
     EvidenceSummary,
     ModelInfo,
+    ModelOption,
+    ModelsListResponse,
     PredictionResult,
     Visualizations,
 )
@@ -31,7 +33,9 @@ from models.fusion import build_model
 
 class ModelService:
     """
-    Singleton service managing the deployed E1 SpatialClassifier model.
+    Singleton service managing deployed forensic detection models.
+    Supports on-demand loading, memory caching, and runtime selection between
+    E1 Spatial and E3-Std Dual-Domain architectures.
     """
     _instance: Optional["ModelService"] = None
     _lock = threading.Lock()
@@ -47,24 +51,49 @@ class ModelService:
     def __init__(self) -> None:
         if getattr(self, "_initialized", False):
             return
-        self.model: Optional[nn.Module] = None
+        self.models: Dict[str, nn.Module] = {}
+        self.model_params: Dict[str, int] = {}
+        self.model_checkpoints: Dict[str, Path] = {}
+        self.active_model_key: str = config.DEFAULT_MODEL_KEY
         self.device: torch.device = torch.device(config.DEVICE)
         self.checkpoint_path: Path = config.MODEL_CHECKPOINT_PATH
         self.param_count: int = 0
+        self.model: Optional[nn.Module] = None
         self.infer_lock = threading.Lock()
+        self.load_lock = threading.Lock()
         self._initialized = True
+
+    @staticmethod
+    def normalize_model_key(key: Optional[str]) -> str:
+        """
+        Normalizes aliases and case variations to standard model IDs.
+        Defaults to config.DEFAULT_MODEL_KEY if key is None or empty.
+        """
+        if not key:
+            return config.DEFAULT_MODEL_KEY
+        k = str(key).strip().lower().replace("-", "_")
+        if k in {"e1", "e1_spatial", "deepvision_e1_spatial", "spatial"}:
+            return "e1_spatial"
+        if k in {"e3", "e3_std", "deepvision_e3_std", "candidate_standardize", "dual", "dual_domain"}:
+            return "e3_std"
+        return k
 
     def load_model(
         self,
+        model_key: Optional[str] = None,
         checkpoint_path: Optional[Path] = None,
         device_str: Optional[str] = None,
-    ) -> None:
+    ) -> nn.Module:
         """
-        Loads the E1 SpatialClassifier model weights into memory.
+        Loads the specified model architecture and checkpoint into memory.
         
         Args:
-            checkpoint_path: Path to checkpoint .pt file.
+            model_key: Target model key ('e1_spatial' or 'e3_std'). Defaults to DEFAULT_MODEL_KEY.
+            checkpoint_path: Path to checkpoint .pt file (optional override).
             device_str: Target device string ('cuda', 'cpu', etc.).
+
+        Returns:
+            Loaded PyTorch nn.Module in eval mode.
         """
         if device_str is not None:
             self.device = torch.device(device_str)
@@ -73,50 +102,128 @@ class ModelService:
         else:
             self.device = torch.device("cpu")
 
-        target_ckpt = checkpoint_path or self.checkpoint_path
+        target_key = self.normalize_model_key(model_key)
+        if target_key not in config.SUPPORTED_MODELS:
+            supported = list(config.SUPPORTED_MODELS.keys())
+            raise ValueError(f"Unknown model key '{model_key}'. Supported models: {supported}")
 
-        if not target_ckpt.exists():
+        model_cfg = config.SUPPORTED_MODELS[target_key]
+        target_ckpt = checkpoint_path or model_cfg["checkpoint_path"]
+
+        if not Path(target_ckpt).exists():
             raise FileNotFoundError(
                 f"Model checkpoint not found at: {target_ckpt}. "
-                "Ensure experiments/e1_spatial/best_model.pt exists or configure MODEL_CHECKPOINT_PATH."
+                f"Ensure {model_cfg['checkpoint_rel']} exists."
             )
 
-        # Build E1 spatial model architecture
-        model = build_model(experiment="E1", pretrained=False)
-        
-        # Load weights safely
-        ckpt = torch.load(target_ckpt, map_location=self.device)
-        model.load_state_dict(ckpt["model_state_dict"])
-        model.to(self.device)
-        model.eval()
+        with self.load_lock:
+            # Build corresponding model architecture
+            if target_key == "e1_spatial":
+                model = build_model(experiment="E1", pretrained=False)
+            elif target_key == "e3_std":
+                model = build_model(
+                    experiment="E3",
+                    pretrained=False,
+                    freq_norm_strategy="standardize",
+                )
+            else:
+                raise ValueError(f"No architecture builder configured for '{target_key}'")
 
-        # Freeze parameter gradients for inference safety
-        for param in model.parameters():
-            param.requires_grad = False
+            # Load checkpoint weights safely
+            ckpt = torch.load(target_ckpt, map_location=self.device)
+            state_dict = ckpt["model_state_dict"] if "model_state_dict" in ckpt else ckpt
+            model.load_state_dict(state_dict)
+            model.to(self.device)
+            model.eval()
 
+            # Freeze parameter gradients for inference safety
+            for param in model.parameters():
+                param.requires_grad = False
+
+            param_count = sum(p.numel() for p in model.parameters())
+
+            # Warmup pass to initialize CUDA kernels if available
+            try:
+                dummy_input = torch.zeros((1, 3, 224, 224), dtype=torch.float32, device=self.device)
+                with torch.no_grad():
+                    _ = model(dummy_input)
+            except Exception:
+                pass
+
+            # Cache loaded model
+            self.models[target_key] = model
+            self.model_params[target_key] = param_count
+            self.model_checkpoints[target_key] = Path(target_ckpt)
+
+            # Update default active model references for backward compatibility
+            if target_key == self.active_model_key or self.model is None:
+                self.model = model
+                self.param_count = param_count
+                self.checkpoint_path = Path(target_ckpt)
+
+            return model
+
+    def get_or_load_model(self, model_key: Optional[str] = None) -> Tuple[str, nn.Module]:
+        """
+        Retrieves a cached model instance, loading it on demand if not yet cached.
+
+        Returns:
+            Tuple of (normalized_model_key, model_instance).
+        """
+        target_key = self.normalize_model_key(model_key or self.active_model_key)
+        if target_key not in self.models:
+            self.load_model(model_key=target_key)
+        return target_key, self.models[target_key]
+
+    def set_active_model(self, model_key: str) -> None:
+        """Sets the system default active model."""
+        target_key = self.normalize_model_key(model_key)
+        _, model = self.get_or_load_model(target_key)
+        self.active_model_key = target_key
         self.model = model
-        self.checkpoint_path = target_ckpt
-        self.param_count = sum(p.numel() for p in model.parameters())
+        self.param_count = self.model_params[target_key]
+        self.checkpoint_path = self.model_checkpoints[target_key]
 
-        # Perform one-time warmup pass to initialize CUDA kernels
-        try:
-            dummy_input = torch.zeros((1, 3, 224, 224), dtype=torch.float32, device=self.device)
-            with torch.no_grad():
-                _ = self.model(dummy_input)
-        except Exception:
-            pass
+    def is_loaded(self, model_key: Optional[str] = None) -> bool:
+        """Returns True if the requested model (or default model) is loaded."""
+        if model_key is None:
+            return self.model is not None or len(self.models) > 0
+        target_key = self.normalize_model_key(model_key)
+        return target_key in self.models
 
-    def is_loaded(self) -> bool:
-        """Returns True if the model is loaded and ready for inference."""
-        return self.model is not None
+    def get_model_info(self, model_key: Optional[str] = None) -> ModelInfo:
+        """Returns metadata about the requested or active inference model."""
+        target_key = self.normalize_model_key(model_key or self.active_model_key)
+        model_cfg = config.SUPPORTED_MODELS.get(target_key, {})
+        param_count = self.model_params.get(target_key, self.param_count)
 
-    def get_model_info(self) -> ModelInfo:
-        """Returns metadata about the active inference model."""
         return ModelInfo(
-            name=config.MODEL_NAME,
-            backbone=config.BACKBONE_NAME,
-            parameters=self.param_count,
+            name=model_cfg.get("name", config.MODEL_NAME),
+            model_id=target_key,
+            backbone=model_cfg.get("backbone", config.BACKBONE_NAME),
+            parameters=param_count,
             device=str(self.device),
+            description=model_cfg.get("description"),
+        )
+
+    def list_available_models(self) -> ModelsListResponse:
+        """Lists all supported models with metadata and current active state."""
+        options = []
+        for key, info in config.SUPPORTED_MODELS.items():
+            options.append(
+                ModelOption(
+                    id=key,
+                    name=info["name"],
+                    backbone=info["backbone"],
+                    description=info["description"],
+                    is_default=(key == self.active_model_key),
+                    benchmark_unseen_auc=info.get("benchmark_unseen_auc"),
+                )
+            )
+        return ModelsListResponse(
+            status="success",
+            active_model=self.active_model_key,
+            models=options,
         )
 
     def validate_and_decode_image(self, image_bytes: bytes) -> Image.Image:
@@ -195,6 +302,7 @@ class ModelService:
         self,
         image: Image.Image,
         include_fft: bool = True,
+        model_key: Optional[str] = None,
     ) -> AnalyzeResponse:
         """
         Executes end-to-end forensic inference on a validated PIL RGB image.
@@ -202,12 +310,12 @@ class ModelService:
         Args:
             image: Decoded RGB PIL image.
             include_fft: Whether to generate diagnostic 2D FFT visualization.
+            model_key: Identifier of model to use ('e1_spatial' or 'e3_std').
             
         Returns:
             Structured AnalyzeResponse.
         """
-        if not self.is_loaded():
-            raise RuntimeError("Model service is not loaded. Call load_model() first.")
+        target_key, target_model = self.get_or_load_model(model_key)
 
         orig_w, orig_h = image.size
         orig_rgb_np = np.array(image)
@@ -222,7 +330,7 @@ class ModelService:
         with self.infer_lock:
             # 1. Forward inference for classification
             with torch.no_grad():
-                logit = self.model(input_tensor)
+                logit = target_model(input_tensor)
                 if isinstance(logit, dict):
                     logit = logit["logit"]
                 ai_prob = float(torch.sigmoid(logit).item())
@@ -243,15 +351,13 @@ class ModelService:
             )
 
             # 3. Generate Grad-CAM spatial explainability
-            gradcam = GradCAM(self.model)
+            gradcam = GradCAM(target_model)
             try:
-                # Grad-CAM requires localized gradient tracking through features
                 with torch.enable_grad():
-                    # Enable gradient tracking on input tensor so feature activations receive gradients
                     cam_tensor = input_tensor.clone().detach().requires_grad_(True)
                     cam_heatmap = gradcam.generate_heatmap(cam_tensor)
                 
-                # Overlay heatmap onto original un-resized image (resizing heatmap to match original dims if needed)
+                # Resize heatmap to match original image dimensions if needed
                 if cam_heatmap.shape != (orig_h, orig_w):
                     cam_heatmap = cv2.resize(
                         cam_heatmap, (orig_w, orig_h), interpolation=cv2.INTER_LINEAR
@@ -266,19 +372,41 @@ class ModelService:
                 gradcam_b64 = self._encode_rgb_to_base64_png(blended_overlay)
             finally:
                 gradcam.remove_hooks()
-                self.model.zero_grad()
+                target_model.zero_grad()
 
-            # 4. Optional Diagnostic Frequency Spectrum
+            # 4. Diagnostic Frequency Spectrum (always minmax scaled for visual contrast)
             fft_b64: Optional[str] = None
             if include_fft:
-                # Extract log magnitude spectrum on unnormalized [0, 1] tensor
                 spec_norm = compute_log_magnitude_spectrum(input_tensor, norm_strategy="minmax")
                 fft_b64 = self._encode_spectrum_to_base64_png(spec_norm, colormap=cv2.COLORMAP_VIRIDIS)
 
-        # 5. Compile structured response
+        # 5. Model-specific evidence summaries
+        if target_key == "e3_std":
+            spatial_summary = (
+                "Grad-CAM spatial visualization highlighting regions receiving primary attention in the dual-branch backbone. "
+                "Note: Saliency heatmaps indicate model attention patterns rather than pixel-exact forgery boundaries."
+            )
+            frequency_summary = (
+                "Diagnostic 2D Fast Fourier Transform (FFT) log-magnitude spectrum illustrating frequency energy distribution. "
+                "The dual-branch model uses standardized frequency features to identify periodic synthesis artifacts."
+                if include_fft
+                else None
+            )
+        else:
+            spatial_summary = (
+                "Grad-CAM visualization showing spatial regions receiving stronger model attention in the EfficientNet-B3 backbone. "
+                "Note: Saliency heatmaps indicate model attention patterns rather than pixel-exact forgery boundaries."
+            )
+            frequency_summary = (
+                "Diagnostic 2D Fast Fourier Transform (FFT) log-magnitude spectrum showing spectral energy distribution."
+                if include_fft
+                else None
+            )
+
+        # 6. Compile structured response
         return AnalyzeResponse(
             status="success",
-            model_info=self.get_model_info(),
+            model_info=self.get_model_info(target_key),
             prediction=PredictionResult(
                 classification_label=classification_label,
                 ai_probability=round(ai_prob, 4),
@@ -287,14 +415,8 @@ class ModelService:
                 threshold_used=config.CLASSIFICATION_THRESHOLD,
             ),
             evidence=EvidenceSummary(
-                spatial_summary=(
-                    "Grad-CAM visualization showing spatial regions receiving stronger model attention."
-                ),
-                frequency_summary=(
-                    "Diagnostic 2D Fast Fourier Transform (FFT) log-magnitude spectrum showing spectral energy distribution."
-                    if include_fft
-                    else None
-                ),
+                spatial_summary=spatial_summary,
+                frequency_summary=frequency_summary,
             ),
             visualizations=Visualizations(
                 gradcam_heatmap=gradcam_b64,

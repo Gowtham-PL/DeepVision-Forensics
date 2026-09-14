@@ -109,6 +109,20 @@
             </div>
           </div>
 
+          <!-- Model Selection -->
+          <div class="model-select-group">
+            <label for="modelSelect" class="control-label">
+              <strong>Detection Model</strong>
+              <span class="control-sub">Select active forensic neural network architecture</span>
+            </label>
+            <div class="select-wrapper">
+              <select id="modelSelect" class="form-select">
+                <option value="e1_spatial" selected>DeepVision-E1 Spatial (EfficientNet-B3 Baseline)</option>
+                <option value="e3_std">DeepVision-E3-Std Dual-Domain (Spatial + Frequency Fusion)</option>
+              </select>
+            </div>
+          </div>
+
           <!-- Diagnostic Options -->
           <div class="options-group">
             <label class="toggle-control">
@@ -148,11 +162,11 @@
           <div class="meta-grid">
             <div class="meta-item">
               <span class="meta-label">Model Architecture</span>
-              <span class="meta-value">DeepVision-E1-Spatial</span>
+              <span class="meta-value" id="metaModelName">DeepVision-E1-Spatial</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Backbone</span>
-              <span class="meta-value">EfficientNet-B3 (Pretrained)</span>
+              <span class="meta-value" id="metaBackbone">EfficientNet-B3 (Pretrained)</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Input Resolution</span>
@@ -160,7 +174,7 @@
             </div>
             <div class="meta-item">
               <span class="meta-label">Research Benchmark</span>
-              <span class="meta-value text-accent">0.8991 ROC-AUC (Unseen Test)</span>
+              <span class="meta-value text-accent" id="metaBenchmark">0.8991 ROC-AUC (Unseen Test)</span>
             </div>
           </div>
         </section>
