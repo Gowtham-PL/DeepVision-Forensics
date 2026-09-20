@@ -30,6 +30,11 @@ const previewFilesize = document.getElementById('previewFilesize');
 const removeFileBtn = document.getElementById('removeFileBtn');
 
 const fftToggle = document.getElementById('fftToggle');
+const modelSelect = document.getElementById('modelSelect');
+const metaModelName = document.getElementById('metaModelName');
+const metaBackbone = document.getElementById('metaBackbone');
+const metaBenchmark = document.getElementById('metaBenchmark');
+
 const analyzeBtn = document.getElementById('analyzeBtn');
 const btnText = analyzeBtn.querySelector('.btn-text');
 const btnSpinner = analyzeBtn.querySelector('.btn-spinner');
@@ -56,6 +61,36 @@ const vizOriginalImage = document.getElementById('vizOriginalImage');
 const vizGradCamImage = document.getElementById('vizGradCamImage');
 const vizFftImage = document.getElementById('vizFftImage');
 const disclaimerText = document.getElementById('disclaimerText');
+
+const MODEL_SPECS = {
+  e6c_multiview: {
+    name: 'DeepVision-E6-C Multi-View Forensics',
+    backbone: 'EfficientNet-B3 + Spectral CNN (5-View Multi-Scale)',
+    benchmark: '0.9936 ROC-AUC / 96.16% Accuracy (Learned Attention)',
+  },
+  e5_generalization: {
+    name: 'DeepVision-E5-Generalization',
+    backbone: 'EfficientNet-B3 + 4-Block Spectral CNN (Standardized)',
+    benchmark: '0.9195 ROC-AUC (Unseen Test) / 0.7715 V2 Real-World',
+  },
+  e3_std: {
+    name: 'DeepVision-E3-Std',
+    backbone: 'EfficientNet-B3 + 4-Block Spectral CNN (Standardized)',
+    benchmark: '0.8959 ROC-AUC (Unseen Test) / 0.9511 BigGAN',
+  },
+  e1_spatial: {
+    name: 'DeepVision-E1-Spatial',
+    backbone: 'EfficientNet-B3 (Pretrained)',
+    benchmark: '0.8991 ROC-AUC (Unseen Test)',
+  },
+};
+
+function updateModelMetaCard(modelKey) {
+  const spec = MODEL_SPECS[modelKey] || MODEL_SPECS.e6c_multiview;
+  if (metaModelName) metaModelName.textContent = spec.name;
+  if (metaBackbone) metaBackbone.textContent = spec.backbone;
+  if (metaBenchmark) metaBenchmark.textContent = spec.benchmark;
+}
 
 /**
  * Initialize application
@@ -158,6 +193,13 @@ function setupEventListeners() {
   // Visualization Tabs
   tabGradCam.addEventListener('click', () => switchVizTab('gradcam'));
   tabFft.addEventListener('click', () => switchVizTab('fft'));
+
+  // Model Selector
+  if (modelSelect) {
+    modelSelect.addEventListener('change', () => {
+      updateModelMetaCard(modelSelect.value);
+    });
+  }
 }
 
 /**
@@ -268,6 +310,9 @@ async function performAnalysis() {
   const formData = new FormData();
   formData.append('file', selectedFile);
   formData.append('include_fft', fftToggle.checked ? 'true' : 'false');
+  if (modelSelect && modelSelect.value) {
+    formData.append('model', modelSelect.value);
+  }
 
   try {
     const response = await fetch(`${API_BASE}/analyze`, {
@@ -318,6 +363,54 @@ function renderAnalysisResults(report) {
   // 3. Assessment & Explanations
   authenticityAssessment.textContent = pred.authenticity_assessment;
   spatialSummary.textContent = report.evidence.spatial_summary;
+
+  // Multi-View Localized Diagnostics (E6-C)
+  const diagCard = document.getElementById('diagnosticsCard');
+  const strongestLocalVal = document.getElementById('strongestLocalVal');
+  const strongestLocalBadge = document.getElementById('strongestLocalBadge');
+
+  if (report.diagnostics) {
+    if (diagCard) diagCard.style.display = 'block';
+    const d = report.diagnostics;
+    const localPct = (d.strongest_local_prob * 100).toFixed(1) + '%';
+    if (strongestLocalVal) strongestLocalVal.textContent = localPct;
+    if (strongestLocalBadge) {
+      if (d.strongest_local_prob >= 0.50) {
+        strongestLocalBadge.textContent = 'EVIDENCE DETECTED';
+        strongestLocalBadge.className = 'local-pill flagged';
+      } else {
+        strongestLocalBadge.textContent = 'LOW LOCAL RISK';
+        strongestLocalBadge.className = 'local-pill clear';
+      }
+    }
+
+    // Populate the 5 views
+    const viewProbs = [d.global_view_prob, d.top_left_prob, d.top_right_prob, d.bottom_left_prob, d.bottom_right_prob];
+    const weights = d.attention_weights || [];
+    for (let i = 0; i < 5; i++) {
+      const pEl = document.getElementById(`viewProb${i}`);
+      const wEl = document.getElementById(`viewWeight${i}`);
+      if (pEl && viewProbs[i] !== undefined) {
+        pEl.textContent = (viewProbs[i] * 100).toFixed(1) + '%';
+        pEl.className = `view-prob ${viewProbs[i] >= 0.50 ? 'high' : 'low'}`;
+      }
+      if (wEl && weights[i] !== undefined) {
+        wEl.textContent = `Weight: ${(weights[i] * 100).toFixed(1)}%`;
+      }
+    }
+  } else {
+    if (diagCard) diagCard.style.display = 'none';
+  }
+
+  // Update Model Metadata Card with reported model
+  if (report.model_info) {
+    if (metaModelName) metaModelName.textContent = report.model_info.name;
+    if (metaBackbone) metaBackbone.textContent = report.model_info.backbone;
+    const modelId = report.model_info.model_id;
+    if (modelId && MODEL_SPECS[modelId] && metaBenchmark) {
+      metaBenchmark.textContent = MODEL_SPECS[modelId].benchmark;
+    }
+  }
 
   // 4. Visualizations
   vizOriginalImage.src = previewImage.src;

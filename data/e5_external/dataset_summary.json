@@ -1,0 +1,118 @@
+{
+  "dataset_name": "DeepVision-Forensics E5 Multi-Domain Dataset",
+  "version": "1.0-planned",
+  "created_at": "2026-09-15T16:21:00Z",
+  "planned_subsets": {
+    "modern_ai": {
+      "flux_dev": {
+        "source": "Hugging Face (LukasT9/Flux-1-Dev-Images-1k)",
+        "generator": "FLUX.1 [dev]",
+        "train_count": 500,
+        "val_count": 250,
+        "eval_count": 0,
+        "total": 750,
+        "license": "Apache-2.0",
+        "resolution": "1024x1024",
+        "format": "PNG/JPEG",
+        "relative_dir": "modern_ai/flux_dev"
+      },
+      "flux_schnell": {
+        "source": "Hugging Face (LukasT9/Flux-1-Schnell-Images-1k)",
+        "generator": "FLUX.1 [schnell]",
+        "train_count": 500,
+        "val_count": 250,
+        "eval_count": 0,
+        "total": 750,
+        "license": "Apache-2.0",
+        "resolution": "1024x1024",
+        "format": "PNG/JPEG",
+        "relative_dir": "modern_ai/flux_schnell"
+      },
+      "sdxl": {
+        "source": "Zenodo (Synthbuster - DOI 10.5281/zenodo.10066460)",
+        "generator": "Stable Diffusion XL (SDXL)",
+        "train_count": 1000,
+        "val_count": 0,
+        "eval_count": 0,
+        "total": 1000,
+        "license": "CC BY-NC-SA 4.0",
+        "resolution": "1024x1024",
+        "format": "PNG",
+        "relative_dir": "modern_ai/sdxl"
+      },
+      "dalle3_eval": {
+        "source": "Zenodo (Synthbuster - DOI 10.5281/zenodo.10066460)",
+        "generator": "DALL-E 3",
+        "train_count": 0,
+        "val_count": 0,
+        "eval_count": 500,
+        "total": 500,
+        "license": "CC BY-NC-SA 4.0",
+        "resolution": "1024x1024",
+        "format": "PNG",
+        "relative_dir": "modern_ai/dalle3_eval",
+        "role": "strictly_evaluation_only"
+      }
+    },
+    "real_camera": {
+      "apple_iphone": {
+        "source": "University of Florence (VISION Dataset)",
+        "device_group": "Apple iPhone (D02, D05, D06, D14, D19)",
+        "train_count": 1000,
+        "val_count": 250,
+        "eval_count": 0,
+        "total": 1250,
+        "compression_balance": "50% native / 50% WhatsApp",
+        "license": "Academic Research",
+        "relative_dir": "real_camera/apple"
+      },
+      "samsung_android": {
+        "source": "University of Florence (VISION Dataset)",
+        "device_group": "Samsung / Android (D01, D11, D24, D25, D27, D31)",
+        "train_count": 1000,
+        "val_count": 250,
+        "eval_count": 0,
+        "total": 1250,
+        "compression_balance": "50% native / 50% WhatsApp",
+        "license": "Academic Research",
+        "relative_dir": "real_camera/android"
+      }
+    }
+  },
+  "planned_split_totals": {
+    "e5_external_only": {
+      "train": 4000,
+      "val": 1000,
+      "eval_modern_unseen": 500,
+      "total_external_samples": 5500
+    },
+    "e5_full_training_mix": {
+      "train_total": 24000,
+      "train_breakdown": {
+        "genimage_real_nature": 10000,
+        "genimage_ai_classical": 10000,
+        "vision_smartphone_real": 2000,
+        "modern_ai": 2000
+      },
+      "val_total": 6000,
+      "val_breakdown": {
+        "genimage_real_nature": 2500,
+        "genimage_ai_classical": 2500,
+        "vision_smartphone_real": 500,
+        "modern_ai": 500
+      },
+      "eval_classical_unseen_total": 9999,
+      "eval_modern_unseen_total": 500,
+      "frozen_real_world_test_v2": 76
+    }
+  },
+  "storage_audit": {
+    "synthbuster_full_zip_size_bytes": 12372557226,
+    "synthbuster_range_request_supported": false,
+    "synthbuster_requires_full_download_for_extraction": true,
+    "vision_selective_http_supported": true,
+    "flux_huggingface_selective_api_supported": true,
+    "estimated_download_size_if_synthbuster_zip_downloaded": "16.8 GB",
+    "estimated_extracted_preprocessed_disk_footprint": "2.8 GB"
+  }
+}

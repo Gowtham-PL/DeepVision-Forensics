@@ -1,0 +1,19 @@
+{
+  "smoke_test_name": "E6-B Multi-View Training Smoke Test",
+  "checkpoint_init": "d:\\DeepVision-Forensics\\experiments\\e5_generalization\\best_model.pt",
+  "device": "cuda",
+  "n_smoke_images": 500,
+  "smoke_test_runtime_sec": 1183.93,
+  "images_per_sec": 0.42,
+  "peak_vram_mb": 8082.01,
+  "full_dataset_size": 23165,
+  "est_full_10epoch_runtime_hours": 64.35,
+  "implementation_errors": [],
+  "gradient_checks": {
+    "spatial_branch": true,
+    "frequency_branch": true,
+    "view_attention": true,
+    "classifier": true
+  },
+  "timestamp": "2026-09-15T19:56:12Z"
+}

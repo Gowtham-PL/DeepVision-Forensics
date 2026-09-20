@@ -1,0 +1,4 @@
+epoch,train_loss,val_loss,val_accuracy,val_roc_auc,val_pr_auc,val_f1,val_precision,val_recall,val_fpr,val_fnr,train_time_sec,val_time_sec,peak_vram_gb,gate_passed
+1,0.0773,0.1244,0.9577,0.9919,0.9913,0.9576,0.9461,0.9694,0.0535,0.0306,410.5,106.9,0.79,False
+2,0.0487,0.116,0.9661,0.9931,0.9927,0.9656,0.9635,0.9676,0.0354,0.0324,404.2,98.7,0.79,True
+3,0.0344,0.1259,0.9643,0.9926,0.9913,0.9638,0.9631,0.9644,0.0358,0.0356,340.3,103.2,0.79,False

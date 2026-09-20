@@ -1,0 +1,2 @@
+group_field,group_value,n,n_real,n_ai,e6c_acc,e20_acc,e21_acc,e21_vs_e20_acc_delta,e21_vs_e6c_acc_delta,e6c_f1,e20_f1,e21_f1,e6c_recall,e20_recall,e21_recall,e6c_fpr,e20_fpr,e21_fpr,e6c_auc,e20_auc,e21_auc
+degradation_type,clean,200,100,100,0.755,0.65,0.64,-0.010000000000000009,-0.11499999999999999,0.7512690355329948,0.4927536231884058,0.7251908396946565,0.74,0.34,0.95,0.23,0.04,0.67,0.84265,0.77655,0.83695

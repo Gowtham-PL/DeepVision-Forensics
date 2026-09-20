@@ -1,0 +1,227 @@
+{
+  "experiment_name": "E6-C Controlled Multi-View Backbone Fine-Tuning Benchmark",
+  "best_epoch": 2,
+  "best_val_roc_auc": 0.9936,
+  "overall_val_metrics": {
+    "n_samples": 5775,
+    "n_real": 2934,
+    "n_ai": 2841,
+    "tp": 2706,
+    "fp": 87,
+    "tn": 2847,
+    "fn": 135,
+    "accuracy": 0.9616,
+    "precision": 0.9689,
+    "recall": 0.9525,
+    "f1": 0.9606,
+    "fpr": 0.0297,
+    "fnr": 0.0475,
+    "roc_auc": 0.9936,
+    "pr_auc": 0.9937
+  },
+  "baselines": {
+    "e5_baseline": {
+      "roc_auc": 0.982,
+      "pr_auc": 0.9817,
+      "accuracy": 0.9276,
+      "f1": 0.9244
+    },
+    "e6b_frozen": {
+      "roc_auc": 0.989,
+      "pr_auc": 0.9884,
+      "accuracy": 0.9496,
+      "f1": 0.9485,
+      "fpr": 0.044
+    }
+  },
+  "epoch_history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.1815,
+      "train_acc": 0.9298,
+      "val_loss": 0.1446,
+      "val_roc_auc": 0.9916,
+      "val_pr_auc": 0.992,
+      "val_acc": 0.9553,
+      "val_precision": 0.976,
+      "val_recall": 0.9321,
+      "val_f1": 0.9535,
+      "val_fpr": 0.0222,
+      "val_fnr": 0.0679,
+      "epoch_time_sec": 7895.09
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.1507,
+      "train_acc": 0.9425,
+      "val_loss": 0.1034,
+      "val_roc_auc": 0.9936,
+      "val_pr_auc": 0.9937,
+      "val_acc": 0.9616,
+      "val_precision": 0.9689,
+      "val_recall": 0.9525,
+      "val_f1": 0.9606,
+      "val_fpr": 0.0297,
+      "val_fnr": 0.0475,
+      "epoch_time_sec": 7874.97
+    }
+  ],
+  "source_breakdown": {
+    "GenImage": {
+      "n_samples": 5000,
+      "n_real": 2500,
+      "n_ai": 2500,
+      "tp": 2384,
+      "fp": 81,
+      "tn": 2419,
+      "fn": 116,
+      "accuracy": 0.9606,
+      "precision": 0.9671,
+      "recall": 0.9536,
+      "f1": 0.9603,
+      "fpr": 0.0324,
+      "fnr": 0.0464,
+      "roc_auc": 0.9937,
+      "pr_auc": 0.9938
+    },
+    "FLUX dev": {
+      "n_samples": 72,
+      "n_real": 0,
+      "n_ai": 72,
+      "tp": 67,
+      "fp": 0,
+      "tn": 0,
+      "fn": 5,
+      "accuracy": 0.9306,
+      "precision": 1.0,
+      "recall": 0.9306,
+      "f1": 0.964,
+      "fpr": 0.0,
+      "fnr": 0.0694,
+      "roc_auc": 0.5,
+      "pr_auc": 1.0
+    },
+    "FLUX schnell": {
+      "n_samples": 77,
+      "n_real": 0,
+      "n_ai": 77,
+      "tp": 74,
+      "fp": 0,
+      "tn": 0,
+      "fn": 3,
+      "accuracy": 0.961,
+      "precision": 1.0,
+      "recall": 0.961,
+      "f1": 0.9801,
+      "fpr": 0.0,
+      "fnr": 0.039,
+      "roc_auc": 0.5,
+      "pr_auc": 1.0
+    },
+    "SDXL": {
+      "n_samples": 192,
+      "n_real": 0,
+      "n_ai": 192,
+      "tp": 181,
+      "fp": 0,
+      "tn": 0,
+      "fn": 11,
+      "accuracy": 0.9427,
+      "precision": 1.0,
+      "recall": 0.9427,
+      "f1": 0.9705,
+      "fpr": 0.0,
+      "fnr": 0.0573,
+      "roc_auc": 0.5,
+      "pr_auc": 1.0
+    },
+    "VISION Apple": {
+      "n_samples": 231,
+      "n_real": 231,
+      "n_ai": 0,
+      "tp": 0,
+      "fp": 4,
+      "tn": 227,
+      "fn": 0,
+      "accuracy": 0.9827,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0173,
+      "fnr": 0.0,
+      "roc_auc": 0.5,
+      "pr_auc": 0.5
+    },
+    "VISION Android": {
+      "n_samples": 203,
+      "n_real": 203,
+      "n_ai": 0,
+      "tp": 0,
+      "fp": 2,
+      "tn": 201,
+      "fn": 0,
+      "accuracy": 0.9901,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0099,
+      "fnr": 0.0,
+      "roc_auc": 0.5,
+      "pr_auc": 0.5
+    }
+  },
+  "hard_case_evaluation": {
+    "original_ai_edit.png": {
+      "filename": "original_ai_edit.png",
+      "filepath": "d:\\DeepVision-Forensics\\data\\e6_hard_cases\\original_ai_edit.png",
+      "e6c_ai_prob": 0.8638,
+      "predicted_class_0_50": "AI Generated (1)",
+      "global_view_prob": 0.8633,
+      "local_view_probs": [
+        0.4153,
+        0.9595,
+        0.7583,
+        0.7896
+      ],
+      "learned_attention_weights": [
+        0.2148,
+        0.2041,
+        0.2061,
+        0.1983,
+        0.1767
+      ],
+      "final_aggregated_prob": 0.8638
+    },
+    "whatsapp_download.jpeg": {
+      "filename": "whatsapp_download.jpeg",
+      "filepath": "d:\\DeepVision-Forensics\\data\\e6_hard_cases\\whatsapp_download.jpeg",
+      "e6c_ai_prob": 0.1128,
+      "predicted_class_0_50": "Real Photo (0)",
+      "global_view_prob": 0.0549,
+      "local_view_probs": [
+        0.0008,
+        0.7471,
+        0.0793,
+        0.2394
+      ],
+      "learned_attention_weights": [
+        0.2175,
+        0.1988,
+        0.2205,
+        0.1878,
+        0.1754
+      ],
+      "final_aggregated_prob": 0.1128
+    }
+  },
+  "computational_metrics": {
+    "total_training_time_sec": 15770.89,
+    "total_training_time_min": 262.85,
+    "avg_epoch_time_sec": 7885.45,
+    "throughput_img_per_sec": 2.94,
+    "peak_vram_mb": 4256.78,
+    "peak_vram_gb": 4.16,
+    "estimated_10_epoch_time_hours": 21.9
+  },
+  "timestamp": "2026-09-16T15:10:07Z"
+}

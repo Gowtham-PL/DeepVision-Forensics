@@ -1,0 +1,20 @@
+{
+  "experiment_name": "E6-C Controlled Multi-View Backbone Fine-Tuning Benchmark",
+  "checkpoint_init": "d:\\DeepVision-Forensics\\experiments\\e6_multiscale_training\\e6b_frozen_best.pt",
+  "num_views": 5,
+  "batch_size": 8,
+  "num_epochs": 2,
+  "lr_backbones": 1e-05,
+  "lr_multiview": 0.0001,
+  "weight_decay": 0.0001,
+  "optimizer": "AdamW",
+  "amp_enabled": true,
+  "frozen_backbone": false,
+  "n_backbone_params": 11150856,
+  "n_multiview_params": 1214466,
+  "n_total_trainable_params": 12365322,
+  "train_samples": 23165,
+  "val_samples": 5775,
+  "device": "cuda",
+  "seed": 42
+}

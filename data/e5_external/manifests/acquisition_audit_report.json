@@ -1,0 +1,93 @@
+{
+  "timestamp": "2026-09-15T14:28:28Z",
+  "total_downloaded_attempted": 5000,
+  "successfully_accepted_count": 4432,
+  "rejected_count": 568,
+  "v2_collision_count": 7,
+  "internal_duplicate_count": 559,
+  "corrupt_or_error_count": 2,
+  "counts_by_source": {
+    "FLUX.1 [dev]": 372,
+    "FLUX.1 [schnell]": 406,
+    "Stable Diffusion XL (SDXL)": 981,
+    "DALL-E 3": 492,
+    "VISION_D02_Apple_iPhone4s": 183,
+    "VISION_D05_Apple_iPhone5c": 227,
+    "VISION_D06_Apple_iPhone6": 95,
+    "VISION_D09_Apple_iPhone4": 162,
+    "VISION_D10_Apple_iPhone4s": 145,
+    "VISION_D14_Apple_iPhone5c": 185,
+    "VISION_D19_Apple_iPhone6Plus": 137,
+    "VISION_D01_Samsung_GalaxyS3Mini": 164,
+    "VISION_D11_Samsung_GalaxyS3": 181,
+    "VISION_D22_Samsung_GalaxyTrendPlus": 129,
+    "VISION_D24_Xiaomi_RedmiNote3": 257,
+    "VISION_D25_OnePlus_A3000": 188,
+    "VISION_D27_Samsung_GalaxyS5": 128
+  },
+  "counts_by_split": {
+    "train": 3165,
+    "val": 775,
+    "eval_modern": 492
+  },
+  "counts_by_role": {
+    "training": 3165,
+    "validation": 775,
+    "evaluation_only": 492
+  },
+  "counts_by_label": {
+    "ai": 2251,
+    "real": 2181
+  },
+  "actual_image_files_on_disk": 4432,
+  "total_image_bytes_on_disk": 7835001603,
+  "total_image_megabytes_on_disk": 7472.04,
+  "total_image_gigabytes_on_disk": 7.3,
+  "archive_metadata": {
+    "synthbuster_zenodo_record": "10066460",
+    "synthbuster_zenodo_url": "https://zenodo.org/records/10066460",
+    "synthbuster_official_md5": "0695bd328e16ea21c5c9cc2ae1d994ff",
+    "synthbuster_archive_sha256": "Zenodo record 10066460 (12,372,557,226 bytes); Verified via zip Central Directory and exact HTTP byte-range extraction without extraneous extraction.",
+    "synthbuster_full_archive_size_bytes": 12372557226,
+    "selective_range_extraction_used": true
+  },
+  "integrity_verifications": {
+    "v2_collision_count": 7,
+    "internal_accepted_duplicate_count": 0,
+    "dalle3_strictly_evaluation_only": true,
+    "dalle3_evaluation_count": 492,
+    "v2_dataset_untouched": true,
+    "genimage_dataset_untouched": true,
+    "main_manifest_untouched": true,
+    "model_code_untouched": true,
+    "checkpoints_untouched": true
+  },
+  "licensing_summary": {
+    "flux_dev": {
+      "dataset_label": "Apache-2.0 (LukasT9)",
+      "base_model_license": "FLUX.1-dev Non-Commercial License (Black Forest Labs)",
+      "permissible_use": "Academic non-commercial research and model development only.",
+      "commercial_claim_avoidance": "Confirmed: Not claimed as Apache-2.0."
+    },
+    "flux_schnell": {
+      "dataset_label": "Apache-2.0",
+      "base_model_license": "Apache License 2.0 (Black Forest Labs & LukasT9)",
+      "permissible_use": "Permissive research and development."
+    },
+    "synthbuster_sdxl": {
+      "license": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)",
+      "author": "Quentin Bammey, ENS Paris-Saclay / Centre Borelli",
+      "permissible_use": "Academic research and non-commercial model development."
+    },
+    "synthbuster_dalle3": {
+      "license": "CC BY-NC-SA 4.0",
+      "author": "Quentin Bammey, ENS Paris-Saclay / Centre Borelli",
+      "permissible_use": "Academic research evaluation only."
+    },
+    "vision_smartphone": {
+      "license": "Academic / Scientific Community Research License",
+      "institution": "University of Florence (MICC / LESC)",
+      "permissible_use": "Academic forensics research and model development."
+    }
+  }
+}

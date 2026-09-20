@@ -52,7 +52,7 @@ class TestModelServiceLoading:
     def test_model_loading_and_singleton(self, loaded_service):
         assert loaded_service.is_loaded() is True
         assert loaded_service.model is not None
-        assert loaded_service.param_count == 11549993
+        assert loaded_service.param_count == 12365322
 
         # Verify singleton pattern
         service2 = ModelService()
@@ -130,7 +130,7 @@ class TestInferenceAndExplainability:
         assert isinstance(response, AnalyzeResponse)
         assert response.status == "success"
         assert response.model_info.name == config.MODEL_NAME
-        assert response.model_info.parameters == 11549993
+        assert response.model_info.parameters == 12365322
         
         # Probabilities and labels
         assert 0.0 <= response.prediction.ai_probability <= 1.0
@@ -143,6 +143,15 @@ class TestInferenceAndExplainability:
         # Evidence summaries
         assert "Grad-CAM" in response.evidence.spatial_summary
         assert response.evidence.frequency_summary is not None
+
+        # Multi-view diagnostics
+        assert response.diagnostics is not None
+        assert 0.0 <= response.diagnostics.global_view_prob <= 1.0
+        assert 0.0 <= response.diagnostics.strongest_local_prob <= 1.0
+        assert len(response.diagnostics.attention_weights) == 5
+        assert response.diagnostics.aggregation_strategy == "learned_attention"
+        assert response.prediction.strongest_local_probability is not None
+        assert response.prediction.inference_time_ms is not None
 
         # Visualizations
         assert response.visualizations.gradcam_heatmap is not None
@@ -227,3 +236,94 @@ class TestFastAPIEndpoints:
         payload = response.json()
         assert payload["status"] == "error"
         assert "detail" in payload
+
+
+class TestModelSelection:
+    """Tests for model selection between E6-C Multi-View, E5 Generalization, E1 Spatial, and E3-Std Dual-Domain."""
+
+    def test_e6c_is_default_model(self, loaded_service):
+        assert loaded_service.active_model_key == "e6c_multiview"
+        info = loaded_service.get_model_info()
+        assert info.name == "DeepVision-E6-C Multi-View Forensics"
+        assert info.parameters == 12365322
+
+    def test_load_e5_generalization_model(self, loaded_service):
+        e5_model = loaded_service.load_model("e5_generalization")
+        assert e5_model is not None
+        assert loaded_service.is_loaded("e5_generalization") is True
+        e5_info = loaded_service.get_model_info("e5_generalization")
+        assert e5_info.name == "DeepVision-E5-Generalization"
+        assert e5_info.parameters == 12135689
+
+    def test_load_e1_spatial_model(self, loaded_service):
+        e1_model = loaded_service.load_model("e1_spatial")
+        assert e1_model is not None
+        assert loaded_service.is_loaded("e1_spatial") is True
+        e1_info = loaded_service.get_model_info("e1_spatial")
+        assert e1_info.name == "DeepVision-E1-Spatial"
+        assert e1_info.parameters == 11549993
+
+    def test_load_e3_std_model(self, loaded_service):
+        e3_model = loaded_service.load_model("e3_std")
+        assert e3_model is not None
+        assert loaded_service.is_loaded("e3_std") is True
+        e3_info = loaded_service.get_model_info("e3_std")
+        assert e3_info.name == "DeepVision-E3-Std"
+        assert e3_info.parameters == 12135689
+
+    def test_predict_and_analyze_e5_generalization(self, loaded_service):
+        img = Image.new("RGB", (128, 128), color=(220, 180, 100))
+        resp = loaded_service.predict_and_analyze(img, include_fft=True, model_key="e5_generalization")
+        assert resp.status == "success"
+        assert resp.model_info.name == "DeepVision-E5-Generalization"
+        assert resp.model_info.parameters == 12135689
+        assert 0.0 <= resp.prediction.ai_probability <= 1.0
+        assert resp.visualizations.gradcam_heatmap.startswith("data:image/png;base64,")
+        assert resp.visualizations.fft_spectrum.startswith("data:image/png;base64,")
+
+    def test_models_list_endpoint(self, api_client):
+        response = api_client.get(f"{config.API_V1_PREFIX}/models")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["status"] == "success"
+        assert "models" in data
+        model_ids = [m["id"] for m in data["models"]]
+        assert "e6c_multiview" in model_ids
+        assert "e5_generalization" in model_ids
+        assert "e1_spatial" in model_ids
+        assert "e3_std" in model_ids
+        assert data["active_model"] == "e6c_multiview"
+
+    def test_analyze_endpoint_with_explicit_model_selection(self, api_client):
+        img_bytes = create_synthetic_image_bytes(64, 64, fmt="PNG", color=(75, 150, 225))
+        files = {"file": ("test_e1.png", img_bytes, "image/png")}
+        data = {"include_fft": "true", "model": "e1_spatial"}
+
+        response = api_client.post(f"{config.API_V1_PREFIX}/analyze", files=files, data=data)
+        assert response.status_code == 200
+        payload = response.json()
+        assert payload["model_info"]["name"] == "DeepVision-E1-Spatial"
+        assert payload["model_info"]["parameters"] == 11549993
+
+    def test_analyze_endpoint_default_fallback(self, api_client):
+        """Omitting the model parameter must use default E6-C Multi-View behavior."""
+        img_bytes = create_synthetic_image_bytes(64, 64, fmt="PNG", color=(100, 100, 100))
+        files = {"file": ("test_default.png", img_bytes, "image/png")}
+        response = api_client.post(f"{config.API_V1_PREFIX}/analyze", files=files)
+        assert response.status_code == 200
+        payload = response.json()
+        assert payload["model_info"]["name"] == "DeepVision-E6-C Multi-View Forensics"
+        assert payload["model_info"]["parameters"] == 12365322
+        assert payload["diagnostics"] is not None
+        assert payload["diagnostics"]["aggregation_strategy"] == "learned_attention"
+        assert payload["prediction"]["strongest_local_probability"] is not None
+
+    def test_analyze_endpoint_invalid_model_rejected(self, api_client):
+        img_bytes = create_synthetic_image_bytes(64, 64, fmt="PNG")
+        files = {"file": ("test.png", img_bytes, "image/png")}
+        data = {"model": "non_existent_model_xyz"}
+        response = api_client.post(f"{config.API_V1_PREFIX}/analyze", files=files, data=data)
+        assert response.status_code == 400
+        payload = response.json()
+        assert payload["status"] == "error"
+        assert "Unsupported model" in payload["detail"]

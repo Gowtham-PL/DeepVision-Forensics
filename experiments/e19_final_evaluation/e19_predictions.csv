@@ -1,0 +1,601 @@
+image_id,label,device_family,generator,whatsapp_processed,model,probability_ai,prediction,correct
+e19_real_phone_001_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.0011,Real,True
+e19_real_phone_002_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.9883,AI,False
+e19_real_phone_003_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.5815,AI,False
+e19_real_phone_004_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.4875,Real,True
+e19_real_phone_005_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.1028,Real,True
+e19_real_phone_006_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.1521,Real,True
+e19_real_phone_007_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.0003,Real,True
+e19_real_phone_008_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.5405,AI,False
+e19_real_phone_009_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.9414,AI,False
+e19_real_phone_010_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.9746,AI,False
+e19_real_phone_011_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.0017,Real,True
+e19_real_phone_012_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.0519,Real,True
+e19_real_phone_013_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.9214,AI,False
+e19_real_phone_014_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.0051,Real,True
+e19_real_phone_015_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.0345,Real,True
+e19_real_phone_016_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.5625,AI,False
+e19_real_phone_017_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.9409,AI,False
+e19_real_phone_018_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.3481,Real,True
+e19_real_phone_019_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.2179,Real,True
+e19_real_phone_020_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.9473,AI,False
+e19_real_phone_021_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.3625,Real,True
+e19_real_phone_022_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.2571,Real,True
+e19_real_phone_023_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.2177,Real,True
+e19_real_phone_024_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.9824,AI,False
+e19_real_phone_025_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.8848,AI,False
+e19_real_phone_026_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.0953,Real,True
+e19_real_phone_027_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.9956,AI,False
+e19_real_phone_028_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.0471,Real,True
+e19_real_phone_029_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.979,AI,False
+e19_real_phone_030_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E6-C,0.033,Real,True
+e19_real_phone_031_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.1797,Real,True
+e19_real_phone_032_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0032,Real,True
+e19_real_phone_033_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0003,Real,True
+e19_real_phone_034_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0,Real,True
+e19_real_phone_035_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0045,Real,True
+e19_real_phone_036_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0002,Real,True
+e19_real_phone_037_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.1616,Real,True
+e19_real_phone_038_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.6704,AI,False
+e19_real_phone_039_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0021,Real,True
+e19_real_phone_040_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0041,Real,True
+e19_real_phone_041_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.001,Real,True
+e19_real_phone_042_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0013,Real,True
+e19_real_phone_043_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0053,Real,True
+e19_real_phone_044_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0514,Real,True
+e19_real_phone_045_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.003,Real,True
+e19_real_phone_046_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.2812,Real,True
+e19_real_phone_047_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0009,Real,True
+e19_real_phone_048_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0005,Real,True
+e19_real_phone_049_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0005,Real,True
+e19_real_phone_050_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0207,Real,True
+e19_real_phone_051_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0001,Real,True
+e19_real_phone_052_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0118,Real,True
+e19_real_phone_053_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0031,Real,True
+e19_real_phone_054_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0,Real,True
+e19_real_phone_055_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0449,Real,True
+e19_real_phone_056_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.8184,AI,False
+e19_real_phone_057_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.001,Real,True
+e19_real_phone_058_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0008,Real,True
+e19_real_phone_059_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0002,Real,True
+e19_real_phone_060_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0407,Real,True
+e19_real_phone_061_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0092,Real,True
+e19_real_phone_062_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.017,Real,True
+e19_real_phone_063_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0193,Real,True
+e19_real_phone_064_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0009,Real,True
+e19_real_phone_065_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E6-C,0.0024,Real,True
+e19_real_phone_066_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0099,Real,True
+e19_real_phone_067_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0003,Real,True
+e19_real_phone_068_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0108,Real,True
+e19_real_phone_069_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0146,Real,True
+e19_real_phone_070_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.2114,Real,True
+e19_real_phone_071_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.023,Real,True
+e19_real_phone_072_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.032,Real,True
+e19_real_phone_073_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0064,Real,True
+e19_real_phone_074_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0805,Real,True
+e19_real_phone_075_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0018,Real,True
+e19_real_phone_076_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0459,Real,True
+e19_real_phone_077_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0098,Real,True
+e19_real_phone_078_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.014,Real,True
+e19_real_phone_079_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0421,Real,True
+e19_real_phone_080_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.059,Real,True
+e19_real_phone_081_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0692,Real,True
+e19_real_phone_082_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.2546,Real,True
+e19_real_phone_083_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0024,Real,True
+e19_real_phone_084_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.026,Real,True
+e19_real_phone_085_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.1582,Real,True
+e19_real_phone_086_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.5747,AI,False
+e19_real_phone_087_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0,Real,True
+e19_real_phone_088_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0119,Real,True
+e19_real_phone_089_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0006,Real,True
+e19_real_phone_090_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.1803,Real,True
+e19_real_phone_091_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0804,Real,True
+e19_real_phone_092_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.013,Real,True
+e19_real_phone_093_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0035,Real,True
+e19_real_phone_094_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0001,Real,True
+e19_real_phone_095_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0262,Real,True
+e19_real_phone_096_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.1475,Real,True
+e19_real_phone_097_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.1741,Real,True
+e19_real_phone_098_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.4578,Real,True
+e19_real_phone_099_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0885,Real,True
+e19_real_phone_100_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E6-C,0.0716,Real,True
+e19_ai_001_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.0043,Real,False
+e19_ai_002_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.3418,Real,False
+e19_ai_003_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.293,Real,False
+e19_ai_004_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.0242,Real,False
+e19_ai_005_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.02,Real,False
+e19_ai_006_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.1719,Real,False
+e19_ai_007_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.0241,Real,False
+e19_ai_008_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.001,Real,False
+e19_ai_009_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.009,Real,False
+e19_ai_010_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.033,Real,False
+e19_ai_011_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.0246,Real,False
+e19_ai_012_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.604,AI,True
+e19_ai_013_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.0701,Real,False
+e19_ai_014_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.0426,Real,False
+e19_ai_015_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.1103,Real,False
+e19_ai_016_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.5703,AI,True
+e19_ai_017_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.0238,Real,False
+e19_ai_018_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.0626,Real,False
+e19_ai_019_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.0144,Real,False
+e19_ai_020_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E6-C,0.1578,Real,False
+e19_ai_021_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E6-C,0.5464,AI,True
+e19_ai_022_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E6-C,0.4731,Real,False
+e19_ai_023_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E6-C,0.7178,AI,True
+e19_ai_024_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E6-C,0.0183,Real,False
+e19_ai_025_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E6-C,0.0687,Real,False
+e19_ai_026_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E6-C,0.0132,Real,False
+e19_ai_027_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E6-C,0.2222,Real,False
+e19_ai_028_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E6-C,0.1122,Real,False
+e19_ai_029_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E6-C,0.8032,AI,True
+e19_ai_030_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E6-C,0.0169,Real,False
+e19_ai_031_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E6-C,0.8569,AI,True
+e19_ai_032_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E6-C,0.028,Real,False
+e19_ai_033_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E6-C,0.9956,AI,True
+e19_ai_034_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E6-C,0.2866,Real,False
+e19_ai_035_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E6-C,0.0266,Real,False
+e19_ai_036_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E6-C,0.0001,Real,False
+e19_ai_037_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E6-C,0.7446,AI,True
+e19_ai_038_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E6-C,0.0614,Real,False
+e19_ai_039_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E6-C,0.0831,Real,False
+e19_ai_040_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E6-C,0.1814,Real,False
+e19_ai_041_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.999,AI,True
+e19_ai_042_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.9995,AI,True
+e19_ai_043_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.9922,AI,True
+e19_ai_044_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.999,AI,True
+e19_ai_045_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.9355,AI,True
+e19_ai_046_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.999,AI,True
+e19_ai_047_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.0964,Real,False
+e19_ai_048_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.9487,AI,True
+e19_ai_049_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.4475,Real,False
+e19_ai_050_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.832,AI,True
+e19_ai_051_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.9229,AI,True
+e19_ai_052_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.999,AI,True
+e19_ai_053_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.9106,AI,True
+e19_ai_054_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.9795,AI,True
+e19_ai_055_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.9805,AI,True
+e19_ai_056_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.9941,AI,True
+e19_ai_057_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.9829,AI,True
+e19_ai_058_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.9443,AI,True
+e19_ai_059_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.3447,Real,False
+e19_ai_060_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E6-C,0.9175,AI,True
+e19_ai_061_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.9863,AI,True
+e19_ai_062_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.9907,AI,True
+e19_ai_063_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.9834,AI,True
+e19_ai_064_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.7578,AI,True
+e19_ai_065_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.9038,AI,True
+e19_ai_066_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.9756,AI,True
+e19_ai_067_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.2322,Real,False
+e19_ai_068_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.9502,AI,True
+e19_ai_069_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.9888,AI,True
+e19_ai_070_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.7778,AI,True
+e19_ai_071_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.1925,Real,False
+e19_ai_072_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.2135,Real,False
+e19_ai_073_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.9834,AI,True
+e19_ai_074_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.9067,AI,True
+e19_ai_075_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.1172,Real,False
+e19_ai_076_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.0127,Real,False
+e19_ai_077_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.9941,AI,True
+e19_ai_078_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.5986,AI,True
+e19_ai_079_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.9834,AI,True
+e19_ai_080_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E6-C,0.1924,Real,False
+e19_ai_081_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.999,AI,True
+e19_ai_082_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.9341,AI,True
+e19_ai_083_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.8232,AI,True
+e19_ai_084_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.8354,AI,True
+e19_ai_085_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.6738,AI,True
+e19_ai_086_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.9746,AI,True
+e19_ai_087_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.162,Real,False
+e19_ai_088_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.6748,AI,True
+e19_ai_089_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.8408,AI,True
+e19_ai_090_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.9985,AI,True
+e19_ai_091_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.751,AI,True
+e19_ai_092_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.9985,AI,True
+e19_ai_093_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.4207,Real,False
+e19_ai_094_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.9912,AI,True
+e19_ai_095_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.9976,AI,True
+e19_ai_096_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.2124,Real,False
+e19_ai_097_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.0739,Real,False
+e19_ai_098_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.9741,AI,True
+e19_ai_099_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.9937,AI,True
+e19_ai_100_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E6-C,0.7617,AI,True
+e19_real_phone_001_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.0227,Real,True
+e19_real_phone_002_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.9956,AI,False
+e19_real_phone_003_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.709,AI,False
+e19_real_phone_004_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.6919,AI,False
+e19_real_phone_005_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.5322,AI,False
+e19_real_phone_006_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.4358,Real,True
+e19_real_phone_007_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.0524,Real,True
+e19_real_phone_008_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.5396,AI,False
+e19_real_phone_009_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.9707,AI,False
+e19_real_phone_010_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.9868,AI,False
+e19_real_phone_011_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.1425,Real,True
+e19_real_phone_012_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.3516,Real,True
+e19_real_phone_013_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.9824,AI,False
+e19_real_phone_014_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.0955,Real,True
+e19_real_phone_015_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.3044,Real,True
+e19_real_phone_016_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.7524,AI,False
+e19_real_phone_017_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.9102,AI,False
+e19_real_phone_018_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.6899,AI,False
+e19_real_phone_019_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.5103,AI,False
+e19_real_phone_020_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.9917,AI,False
+e19_real_phone_021_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.5347,AI,False
+e19_real_phone_022_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.9507,AI,False
+e19_real_phone_023_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.4368,Real,True
+e19_real_phone_024_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.9941,AI,False
+e19_real_phone_025_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.9531,AI,False
+e19_real_phone_026_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.5059,AI,False
+e19_real_phone_027_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.998,AI,False
+e19_real_phone_028_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.1593,Real,True
+e19_real_phone_029_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.9849,AI,False
+e19_real_phone_030_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E15,0.2881,Real,True
+e19_real_phone_031_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.4202,Real,True
+e19_real_phone_032_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.035,Real,True
+e19_real_phone_033_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0086,Real,True
+e19_real_phone_034_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0018,Real,True
+e19_real_phone_035_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.066,Real,True
+e19_real_phone_036_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0058,Real,True
+e19_real_phone_037_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.3401,Real,True
+e19_real_phone_038_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.958,AI,False
+e19_real_phone_039_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0242,Real,True
+e19_real_phone_040_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.097,Real,True
+e19_real_phone_041_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0262,Real,True
+e19_real_phone_042_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0659,Real,True
+e19_real_phone_043_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0467,Real,True
+e19_real_phone_044_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.1082,Real,True
+e19_real_phone_045_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0391,Real,True
+e19_real_phone_046_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.7578,AI,False
+e19_real_phone_047_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0359,Real,True
+e19_real_phone_048_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.018,Real,True
+e19_real_phone_049_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0262,Real,True
+e19_real_phone_050_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.083,Real,True
+e19_real_phone_051_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0116,Real,True
+e19_real_phone_052_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.239,Real,True
+e19_real_phone_053_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0574,Real,True
+e19_real_phone_054_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0023,Real,True
+e19_real_phone_055_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.5146,AI,False
+e19_real_phone_056_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.9741,AI,False
+e19_real_phone_057_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0236,Real,True
+e19_real_phone_058_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0157,Real,True
+e19_real_phone_059_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0035,Real,True
+e19_real_phone_060_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.6138,AI,False
+e19_real_phone_061_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.1659,Real,True
+e19_real_phone_062_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0953,Real,True
+e19_real_phone_063_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.181,Real,True
+e19_real_phone_064_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0199,Real,True
+e19_real_phone_065_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E15,0.0914,Real,True
+e19_real_phone_066_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.0708,Real,True
+e19_real_phone_067_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.0084,Real,True
+e19_real_phone_068_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.0565,Real,True
+e19_real_phone_069_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.1783,Real,True
+e19_real_phone_070_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.665,AI,False
+e19_real_phone_071_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.0991,Real,True
+e19_real_phone_072_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.5171,AI,False
+e19_real_phone_073_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.1974,Real,True
+e19_real_phone_074_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.2646,Real,True
+e19_real_phone_075_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.0309,Real,True
+e19_real_phone_076_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.1746,Real,True
+e19_real_phone_077_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.1248,Real,True
+e19_real_phone_078_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.1021,Real,True
+e19_real_phone_079_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.377,Real,True
+e19_real_phone_080_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.4858,Real,True
+e19_real_phone_081_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.3945,Real,True
+e19_real_phone_082_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.3489,Real,True
+e19_real_phone_083_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.0353,Real,True
+e19_real_phone_084_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.1659,Real,True
+e19_real_phone_085_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.4807,Real,True
+e19_real_phone_086_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.771,AI,False
+e19_real_phone_087_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.0016,Real,True
+e19_real_phone_088_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.0462,Real,True
+e19_real_phone_089_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.0143,Real,True
+e19_real_phone_090_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.3281,Real,True
+e19_real_phone_091_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.4243,Real,True
+e19_real_phone_092_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.0837,Real,True
+e19_real_phone_093_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.0798,Real,True
+e19_real_phone_094_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.0041,Real,True
+e19_real_phone_095_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.3088,Real,True
+e19_real_phone_096_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.5215,AI,False
+e19_real_phone_097_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.4023,Real,True
+e19_real_phone_098_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.7026,AI,False
+e19_real_phone_099_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.223,Real,True
+e19_real_phone_100_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E15,0.2449,Real,True
+e19_ai_001_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.1289,Real,False
+e19_ai_002_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.4939,Real,False
+e19_ai_003_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.4697,Real,False
+e19_ai_004_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.3066,Real,False
+e19_ai_005_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.5859,AI,True
+e19_ai_006_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.5381,AI,True
+e19_ai_007_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.1671,Real,False
+e19_ai_008_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.049,Real,False
+e19_ai_009_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.2542,Real,False
+e19_ai_010_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.0914,Real,False
+e19_ai_011_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.5581,AI,True
+e19_ai_012_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.8794,AI,True
+e19_ai_013_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.5532,AI,True
+e19_ai_014_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.4006,Real,False
+e19_ai_015_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.2664,Real,False
+e19_ai_016_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.6621,AI,True
+e19_ai_017_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.5068,AI,True
+e19_ai_018_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.3501,Real,False
+e19_ai_019_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.311,Real,False
+e19_ai_020_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E15,0.8188,AI,True
+e19_ai_021_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E15,0.9204,AI,True
+e19_ai_022_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E15,0.7163,AI,True
+e19_ai_023_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E15,0.9634,AI,True
+e19_ai_024_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E15,0.3889,Real,False
+e19_ai_025_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E15,0.6504,AI,True
+e19_ai_026_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E15,0.2021,Real,False
+e19_ai_027_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E15,0.3154,Real,False
+e19_ai_028_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E15,0.5967,AI,True
+e19_ai_029_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E15,0.8994,AI,True
+e19_ai_030_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E15,0.1016,Real,False
+e19_ai_031_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E15,0.9097,AI,True
+e19_ai_032_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E15,0.4131,Real,False
+e19_ai_033_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E15,0.9858,AI,True
+e19_ai_034_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E15,0.4929,Real,False
+e19_ai_035_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E15,0.2186,Real,False
+e19_ai_036_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E15,0.0016,Real,False
+e19_ai_037_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E15,0.6714,AI,True
+e19_ai_038_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E15,0.1527,Real,False
+e19_ai_039_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E15,0.179,Real,False
+e19_ai_040_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E15,0.5454,AI,True
+e19_ai_041_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.9707,AI,True
+e19_ai_042_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.9907,AI,True
+e19_ai_043_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.7949,AI,True
+e19_ai_044_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.9766,AI,True
+e19_ai_045_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.9453,AI,True
+e19_ai_046_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.978,AI,True
+e19_ai_047_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.5352,AI,True
+e19_ai_048_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.9556,AI,True
+e19_ai_049_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.6099,AI,True
+e19_ai_050_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.9062,AI,True
+e19_ai_051_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.8164,AI,True
+e19_ai_052_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.9912,AI,True
+e19_ai_053_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.9521,AI,True
+e19_ai_054_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.9443,AI,True
+e19_ai_055_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.9014,AI,True
+e19_ai_056_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.9902,AI,True
+e19_ai_057_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.9814,AI,True
+e19_ai_058_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.7842,AI,True
+e19_ai_059_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.3884,Real,False
+e19_ai_060_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E15,0.9141,AI,True
+e19_ai_061_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.9707,AI,True
+e19_ai_062_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.9917,AI,True
+e19_ai_063_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.9761,AI,True
+e19_ai_064_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.876,AI,True
+e19_ai_065_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.9468,AI,True
+e19_ai_066_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.8979,AI,True
+e19_ai_067_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.2839,Real,False
+e19_ai_068_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.9341,AI,True
+e19_ai_069_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.9946,AI,True
+e19_ai_070_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.9277,AI,True
+e19_ai_071_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.8086,AI,True
+e19_ai_072_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.75,AI,True
+e19_ai_073_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.9751,AI,True
+e19_ai_074_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.9331,AI,True
+e19_ai_075_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.7192,AI,True
+e19_ai_076_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.1176,Real,False
+e19_ai_077_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.9966,AI,True
+e19_ai_078_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.813,AI,True
+e19_ai_079_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.9766,AI,True
+e19_ai_080_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E15,0.5454,AI,True
+e19_ai_081_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.9902,AI,True
+e19_ai_082_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.9727,AI,True
+e19_ai_083_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.937,AI,True
+e19_ai_084_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.9077,AI,True
+e19_ai_085_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.7046,AI,True
+e19_ai_086_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.9492,AI,True
+e19_ai_087_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.813,AI,True
+e19_ai_088_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.7646,AI,True
+e19_ai_089_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.8574,AI,True
+e19_ai_090_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.9819,AI,True
+e19_ai_091_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.6719,AI,True
+e19_ai_092_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.9746,AI,True
+e19_ai_093_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.5342,AI,True
+e19_ai_094_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.981,AI,True
+e19_ai_095_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.9526,AI,True
+e19_ai_096_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.3328,Real,False
+e19_ai_097_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.4514,Real,False
+e19_ai_098_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.731,AI,True
+e19_ai_099_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.9434,AI,True
+e19_ai_100_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E15,0.5801,AI,True
+e19_real_phone_001_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.3726,Real,True
+e19_real_phone_002_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.8335,AI,False
+e19_real_phone_003_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.7686,AI,False
+e19_real_phone_004_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.8296,AI,False
+e19_real_phone_005_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.8052,AI,False
+e19_real_phone_006_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.7549,AI,False
+e19_real_phone_007_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.5605,AI,False
+e19_real_phone_008_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.605,AI,False
+e19_real_phone_009_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.7812,AI,False
+e19_real_phone_010_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.8457,AI,False
+e19_real_phone_011_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.5103,AI,False
+e19_real_phone_012_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.6123,AI,False
+e19_real_phone_013_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.8506,AI,False
+e19_real_phone_014_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.7021,AI,False
+e19_real_phone_015_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.7427,AI,False
+e19_real_phone_016_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.8257,AI,False
+e19_real_phone_017_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.5317,AI,False
+e19_real_phone_018_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.2944,Real,True
+e19_real_phone_019_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.5269,AI,False
+e19_real_phone_020_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.8613,AI,False
+e19_real_phone_021_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.6255,AI,False
+e19_real_phone_022_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.9082,AI,False
+e19_real_phone_023_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.7275,AI,False
+e19_real_phone_024_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.8716,AI,False
+e19_real_phone_025_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.7881,AI,False
+e19_real_phone_026_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.6367,AI,False
+e19_real_phone_027_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.8784,AI,False
+e19_real_phone_028_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.3384,Real,True
+e19_real_phone_029_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.9199,AI,False
+e19_real_phone_030_wa,Real,"Google Pixel (Pixel 7-9 family, exact model unspecified)",None (Camera ISP),True,E18,0.6353,AI,False
+e19_real_phone_031_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.4797,Real,True
+e19_real_phone_032_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.488,Real,True
+e19_real_phone_033_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.4302,Real,True
+e19_real_phone_034_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.4431,Real,True
+e19_real_phone_035_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.468,Real,True
+e19_real_phone_036_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.2563,Real,True
+e19_real_phone_037_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.5083,AI,False
+e19_real_phone_038_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.7744,AI,False
+e19_real_phone_039_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.2874,Real,True
+e19_real_phone_040_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.7056,AI,False
+e19_real_phone_041_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.4006,Real,True
+e19_real_phone_042_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.5093,AI,False
+e19_real_phone_043_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.2289,Real,True
+e19_real_phone_044_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.1714,Real,True
+e19_real_phone_045_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.3953,Real,True
+e19_real_phone_046_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.6016,AI,False
+e19_real_phone_047_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.2905,Real,True
+e19_real_phone_048_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.3152,Real,True
+e19_real_phone_049_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.3193,Real,True
+e19_real_phone_050_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.2544,Real,True
+e19_real_phone_051_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.2413,Real,True
+e19_real_phone_052_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.4946,Real,True
+e19_real_phone_053_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.5806,AI,False
+e19_real_phone_054_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.2213,Real,True
+e19_real_phone_055_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.603,AI,False
+e19_real_phone_056_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.7393,AI,False
+e19_real_phone_057_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.3704,Real,True
+e19_real_phone_058_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.3518,Real,True
+e19_real_phone_059_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.2664,Real,True
+e19_real_phone_060_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.6182,AI,False
+e19_real_phone_061_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.6782,AI,False
+e19_real_phone_062_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.4048,Real,True
+e19_real_phone_063_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.666,AI,False
+e19_real_phone_064_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.522,AI,False
+e19_real_phone_065_raw,Real,Apple iPhone (iPhone X),None (Camera ISP),False,E18,0.1821,Real,True
+e19_real_phone_066_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.3533,Real,True
+e19_real_phone_067_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.5127,AI,False
+e19_real_phone_068_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.302,Real,True
+e19_real_phone_069_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.5098,AI,False
+e19_real_phone_070_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.6499,AI,False
+e19_real_phone_071_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.6382,AI,False
+e19_real_phone_072_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.6812,AI,False
+e19_real_phone_073_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.8218,AI,False
+e19_real_phone_074_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.5454,AI,False
+e19_real_phone_075_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.2712,Real,True
+e19_real_phone_076_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.4155,Real,True
+e19_real_phone_077_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.3455,Real,True
+e19_real_phone_078_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.4429,Real,True
+e19_real_phone_079_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.8257,AI,False
+e19_real_phone_080_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.4924,Real,True
+e19_real_phone_081_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.7979,AI,False
+e19_real_phone_082_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.749,AI,False
+e19_real_phone_083_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.1752,Real,True
+e19_real_phone_084_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.4531,Real,True
+e19_real_phone_085_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.6816,AI,False
+e19_real_phone_086_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.707,AI,False
+e19_real_phone_087_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.3474,Real,True
+e19_real_phone_088_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.1434,Real,True
+e19_real_phone_089_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.2783,Real,True
+e19_real_phone_090_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.6548,AI,False
+e19_real_phone_091_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.4631,Real,True
+e19_real_phone_092_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.4551,Real,True
+e19_real_phone_093_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.4956,Real,True
+e19_real_phone_094_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.605,AI,False
+e19_real_phone_095_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.7427,AI,False
+e19_real_phone_096_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.5239,AI,False
+e19_real_phone_097_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.8291,AI,False
+e19_real_phone_098_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.8682,AI,False
+e19_real_phone_099_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.4148,Real,True
+e19_real_phone_100_raw,Real,Samsung Galaxy (Galaxy S9),None (Camera ISP),False,E18,0.4795,Real,True
+e19_ai_001_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.5352,AI,True
+e19_ai_002_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.3594,Real,False
+e19_ai_003_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.4146,Real,False
+e19_ai_004_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.5029,AI,True
+e19_ai_005_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.6997,AI,True
+e19_ai_006_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.7119,AI,True
+e19_ai_007_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.6973,AI,True
+e19_ai_008_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.3928,Real,False
+e19_ai_009_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.5317,AI,True
+e19_ai_010_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.2277,Real,False
+e19_ai_011_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.6113,AI,True
+e19_ai_012_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.8291,AI,True
+e19_ai_013_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.7075,AI,True
+e19_ai_014_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.665,AI,True
+e19_ai_015_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.5537,AI,True
+e19_ai_016_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.4163,Real,False
+e19_ai_017_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.729,AI,True
+e19_ai_018_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.4512,Real,False
+e19_ai_019_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.4922,Real,False
+e19_ai_020_wa,AI,Synthetic (None),"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",True,E18,0.8188,AI,True
+e19_ai_021_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E18,0.8604,AI,True
+e19_ai_022_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E18,0.7812,AI,True
+e19_ai_023_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E18,0.6875,AI,True
+e19_ai_024_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E18,0.3665,Real,False
+e19_ai_025_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E18,0.6465,AI,True
+e19_ai_026_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E18,0.3096,Real,False
+e19_ai_027_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E18,0.6914,AI,True
+e19_ai_028_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E18,0.6602,AI,True
+e19_ai_029_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E18,0.5127,AI,True
+e19_ai_030_wa,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),True,E18,0.251,Real,False
+e19_ai_031_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E18,0.6367,AI,True
+e19_ai_032_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E18,0.4587,Real,False
+e19_ai_033_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E18,0.8271,AI,True
+e19_ai_034_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E18,0.751,AI,True
+e19_ai_035_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E18,0.6157,AI,True
+e19_ai_036_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E18,0.3394,Real,False
+e19_ai_037_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E18,0.5098,AI,True
+e19_ai_038_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E18,0.5996,AI,True
+e19_ai_039_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E18,0.1688,Real,False
+e19_ai_040_raw,AI,Synthetic (None),Google Gemini (exact underlying model unspecified),False,E18,0.6255,AI,True
+e19_ai_041_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.8364,AI,True
+e19_ai_042_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.7222,AI,True
+e19_ai_043_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.3723,Real,False
+e19_ai_044_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.7207,AI,True
+e19_ai_045_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.8325,AI,True
+e19_ai_046_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.7803,AI,True
+e19_ai_047_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.7168,AI,True
+e19_ai_048_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.7012,AI,True
+e19_ai_049_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.4138,Real,False
+e19_ai_050_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.689,AI,True
+e19_ai_051_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.7583,AI,True
+e19_ai_052_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.8994,AI,True
+e19_ai_053_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.8076,AI,True
+e19_ai_054_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.752,AI,True
+e19_ai_055_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.563,AI,True
+e19_ai_056_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.8662,AI,True
+e19_ai_057_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.8384,AI,True
+e19_ai_058_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.5151,AI,True
+e19_ai_059_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.6333,AI,True
+e19_ai_060_raw,AI,Synthetic (None),Midjourney (exact version unspecified),False,E18,0.834,AI,True
+e19_ai_061_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.7788,AI,True
+e19_ai_062_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.7759,AI,True
+e19_ai_063_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.7246,AI,True
+e19_ai_064_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.6968,AI,True
+e19_ai_065_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.6816,AI,True
+e19_ai_066_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.6577,AI,True
+e19_ai_067_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.4575,Real,False
+e19_ai_068_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.4043,Real,False
+e19_ai_069_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.7476,AI,True
+e19_ai_070_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.7783,AI,True
+e19_ai_071_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.666,AI,True
+e19_ai_072_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.6484,AI,True
+e19_ai_073_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.8779,AI,True
+e19_ai_074_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.6426,AI,True
+e19_ai_075_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.3718,Real,False
+e19_ai_076_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.4084,Real,False
+e19_ai_077_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.8877,AI,True
+e19_ai_078_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.7539,AI,True
+e19_ai_079_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.5454,AI,True
+e19_ai_080_raw,AI,Synthetic (None),OpenAI DALL-E (DALL-E 3),False,E18,0.3425,Real,False
+e19_ai_081_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.8359,AI,True
+e19_ai_082_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.6763,AI,True
+e19_ai_083_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.6455,AI,True
+e19_ai_084_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.8101,AI,True
+e19_ai_085_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.5791,AI,True
+e19_ai_086_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.7876,AI,True
+e19_ai_087_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.3784,Real,False
+e19_ai_088_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.6743,AI,True
+e19_ai_089_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.625,AI,True
+e19_ai_090_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.7764,AI,True
+e19_ai_091_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.6504,AI,True
+e19_ai_092_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.8784,AI,True
+e19_ai_093_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.448,Real,False
+e19_ai_094_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.7534,AI,True
+e19_ai_095_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.7261,AI,True
+e19_ai_096_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.7783,AI,True
+e19_ai_097_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.5972,AI,True
+e19_ai_098_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.354,Real,False
+e19_ai_099_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.6875,AI,True
+e19_ai_100_raw,AI,Synthetic (None),Stability AI Stable Diffusion (exact version unspecified),False,E18,0.4731,Real,False

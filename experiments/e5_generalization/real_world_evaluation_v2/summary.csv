@@ -1,0 +1,2 @@
+Model,V2_AUC,PR_AUC,Accuracy,Precision,Recall,F1,FPR,FNR,TP,FP,TN,FN,AI_Detected
+E5_Generalization,0.7715,0.8284,0.7632,0.8846,0.6053,0.7188,0.0789,0.3947,23,3,35,15,23/38

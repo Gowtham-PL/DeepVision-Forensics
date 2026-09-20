@@ -1,0 +1,27 @@
+{
+  "norm_strategy": "none",
+  "held_out_generator": "SDv5",
+  "train_generators": [
+    "ADM",
+    "GLIDE",
+    "VQDM",
+    "Wukong"
+  ],
+  "train_sample_count": 16000,
+  "val_sample_count": 1000,
+  "best_epoch": 10,
+  "metrics": {
+    "sample_count": 1000,
+    "accuracy": 0.833,
+    "precision": 0.9152119700748129,
+    "recall": 0.734,
+    "f1_score": 0.8146503884572697,
+    "roc_auc": 0.9372119999999999,
+    "pr_auc": 0.9372298675623121,
+    "tp": 367,
+    "fp": 34,
+    "tn": 466,
+    "fn": 133
+  },
+  "training_time_sec": 1738.9
+}

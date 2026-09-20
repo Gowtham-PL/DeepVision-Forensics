@@ -1,0 +1,489 @@
+{
+  "protocol_config": {
+    "protocol_name": "5-Fold Leave-One-Generator-Out (LOGO) Cross-Validation",
+    "development_generators": [
+      "ADM",
+      "GLIDE",
+      "SDv5",
+      "VQDM",
+      "Wukong"
+    ],
+    "forbidden_test_generators": [
+      "BigGAN",
+      "Midjourney"
+    ],
+    "strategies": [
+      "minmax",
+      "standardize",
+      "none"
+    ],
+    "batch_size": 16,
+    "epochs": 10,
+    "warmup_epochs": 2,
+    "lr_backbone": 1e-05,
+    "lr_head": 0.0005,
+    "weight_decay": 0.0001,
+    "seed": 42,
+    "base_architecture": "E3 (Spatial EfficientNet-B3 + Spectral 4-Block CNN)"
+  },
+  "results": {
+    "minmax": {
+      "strategy": "minmax",
+      "folds": [
+        {
+          "norm_strategy": "minmax",
+          "held_out_generator": "ADM",
+          "train_generators": [
+            "GLIDE",
+            "SDv5",
+            "VQDM",
+            "Wukong"
+          ],
+          "train_sample_count": 16000,
+          "val_sample_count": 1000,
+          "best_epoch": 4,
+          "metrics": {
+            "sample_count": 1000,
+            "accuracy": 0.593,
+            "precision": 0.7268292682926829,
+            "recall": 0.298,
+            "f1_score": 0.42269503546099285,
+            "roc_auc": 0.729368,
+            "pr_auc": 0.6896948070902635,
+            "tp": 149,
+            "fp": 56,
+            "tn": 444,
+            "fn": 351
+          },
+          "training_time_sec": 1795.8
+        },
+        {
+          "norm_strategy": "minmax",
+          "held_out_generator": "GLIDE",
+          "train_generators": [
+            "ADM",
+            "SDv5",
+            "VQDM",
+            "Wukong"
+          ],
+          "train_sample_count": 16000,
+          "val_sample_count": 1000,
+          "best_epoch": 8,
+          "metrics": {
+            "sample_count": 1000,
+            "accuracy": 0.839,
+            "precision": 0.9425587467362925,
+            "recall": 0.722,
+            "f1_score": 0.8176670441676105,
+            "roc_auc": 0.9604639999999999,
+            "pr_auc": 0.9509895496130665,
+            "tp": 361,
+            "fp": 22,
+            "tn": 478,
+            "fn": 139
+          },
+          "training_time_sec": 1779.2
+        },
+        {
+          "norm_strategy": "minmax",
+          "held_out_generator": "SDv5",
+          "train_generators": [
+            "ADM",
+            "GLIDE",
+            "VQDM",
+            "Wukong"
+          ],
+          "train_sample_count": 16000,
+          "val_sample_count": 1000,
+          "best_epoch": 10,
+          "metrics": {
+            "sample_count": 1000,
+            "accuracy": 0.838,
+            "precision": 0.9225,
+            "recall": 0.738,
+            "f1_score": 0.8200000000000001,
+            "roc_auc": 0.9398879999999998,
+            "pr_auc": 0.9389402230033624,
+            "tp": 369,
+            "fp": 31,
+            "tn": 469,
+            "fn": 131
+          },
+          "training_time_sec": 1808.1
+        },
+        {
+          "norm_strategy": "minmax",
+          "held_out_generator": "VQDM",
+          "train_generators": [
+            "ADM",
+            "GLIDE",
+            "SDv5",
+            "Wukong"
+          ],
+          "train_sample_count": 16000,
+          "val_sample_count": 1000,
+          "best_epoch": 4,
+          "metrics": {
+            "sample_count": 1000,
+            "accuracy": 0.573,
+            "precision": 0.7967479674796748,
+            "recall": 0.196,
+            "f1_score": 0.3146067415730337,
+            "roc_auc": 0.7019880000000001,
+            "pr_auc": 0.6938780401329463,
+            "tp": 98,
+            "fp": 25,
+            "tn": 475,
+            "fn": 402
+          },
+          "training_time_sec": 1805.0
+        },
+        {
+          "norm_strategy": "minmax",
+          "held_out_generator": "Wukong",
+          "train_generators": [
+            "ADM",
+            "GLIDE",
+            "SDv5",
+            "VQDM"
+          ],
+          "train_sample_count": 16000,
+          "val_sample_count": 1000,
+          "best_epoch": 10,
+          "metrics": {
+            "sample_count": 1000,
+            "accuracy": 0.841,
+            "precision": 0.9011764705882352,
+            "recall": 0.766,
+            "f1_score": 0.8281081081081081,
+            "roc_auc": 0.9324399999999999,
+            "pr_auc": 0.9335837155003149,
+            "tp": 383,
+            "fp": 42,
+            "tn": 458,
+            "fn": 117
+          },
+          "training_time_sec": 1773.1
+        }
+      ],
+      "aggregate_statistics": {
+        "mean_roc_auc": 0.8528,
+        "std_roc_auc": 0.1127,
+        "worst_case_roc_auc": 0.702,
+        "best_case_roc_auc": 0.9605,
+        "mean_accuracy": 0.7368,
+        "std_accuracy": 0.1257,
+        "mean_pr_auc": 0.8414,
+        "mean_f1": 0.6406,
+        "mean_precision": 0.858,
+        "mean_recall": 0.544
+      }
+    },
+    "standardize": {
+      "strategy": "standardize",
+      "folds": [
+        {
+          "norm_strategy": "standardize",
+          "held_out_generator": "ADM",
+          "train_generators": [
+            "GLIDE",
+            "SDv5",
+            "VQDM",
+            "Wukong"
+          ],
+          "train_sample_count": 16000,
+          "val_sample_count": 1000,
+          "best_epoch": 8,
+          "metrics": {
+            "sample_count": 1000,
+            "accuracy": 0.599,
+            "precision": 0.8461538461538461,
+            "recall": 0.242,
+            "f1_score": 0.3763608087091757,
+            "roc_auc": 0.750884,
+            "pr_auc": 0.7606652210505385,
+            "tp": 121,
+            "fp": 22,
+            "tn": 478,
+            "fn": 379
+          },
+          "training_time_sec": 1718.6
+        },
+        {
+          "norm_strategy": "standardize",
+          "held_out_generator": "GLIDE",
+          "train_generators": [
+            "ADM",
+            "SDv5",
+            "VQDM",
+            "Wukong"
+          ],
+          "train_sample_count": 16000,
+          "val_sample_count": 1000,
+          "best_epoch": 6,
+          "metrics": {
+            "sample_count": 1000,
+            "accuracy": 0.824,
+            "precision": 0.95,
+            "recall": 0.684,
+            "f1_score": 0.7953488372093024,
+            "roc_auc": 0.963438,
+            "pr_auc": 0.9582039090356202,
+            "tp": 342,
+            "fp": 18,
+            "tn": 482,
+            "fn": 158
+          },
+          "training_time_sec": 1753.0
+        },
+        {
+          "norm_strategy": "standardize",
+          "held_out_generator": "SDv5",
+          "train_generators": [
+            "ADM",
+            "GLIDE",
+            "VQDM",
+            "Wukong"
+          ],
+          "train_sample_count": 16000,
+          "val_sample_count": 1000,
+          "best_epoch": 10,
+          "metrics": {
+            "sample_count": 1000,
+            "accuracy": 0.849,
+            "precision": 0.9184652278177458,
+            "recall": 0.766,
+            "f1_score": 0.8353326063249727,
+            "roc_auc": 0.9545219999999999,
+            "pr_auc": 0.9544258363027799,
+            "tp": 383,
+            "fp": 34,
+            "tn": 466,
+            "fn": 117
+          },
+          "training_time_sec": 1758.1
+        },
+        {
+          "norm_strategy": "standardize",
+          "held_out_generator": "VQDM",
+          "train_generators": [
+            "ADM",
+            "GLIDE",
+            "SDv5",
+            "Wukong"
+          ],
+          "train_sample_count": 16000,
+          "val_sample_count": 1000,
+          "best_epoch": 7,
+          "metrics": {
+            "sample_count": 1000,
+            "accuracy": 0.587,
+            "precision": 0.7959183673469388,
+            "recall": 0.234,
+            "f1_score": 0.3616692426584235,
+            "roc_auc": 0.732762,
+            "pr_auc": 0.7250762648075869,
+            "tp": 117,
+            "fp": 30,
+            "tn": 470,
+            "fn": 383
+          },
+          "training_time_sec": 1698.9
+        },
+        {
+          "norm_strategy": "standardize",
+          "held_out_generator": "Wukong",
+          "train_generators": [
+            "ADM",
+            "GLIDE",
+            "SDv5",
+            "VQDM"
+          ],
+          "train_sample_count": 16000,
+          "val_sample_count": 1000,
+          "best_epoch": 10,
+          "metrics": {
+            "sample_count": 1000,
+            "accuracy": 0.85,
+            "precision": 0.9247572815533981,
+            "recall": 0.762,
+            "f1_score": 0.8355263157894738,
+            "roc_auc": 0.93587,
+            "pr_auc": 0.9364072796795342,
+            "tp": 381,
+            "fp": 31,
+            "tn": 469,
+            "fn": 119
+          },
+          "training_time_sec": 1721.2
+        }
+      ],
+      "aggregate_statistics": {
+        "mean_roc_auc": 0.8675,
+        "std_roc_auc": 0.1032,
+        "worst_case_roc_auc": 0.7328,
+        "best_case_roc_auc": 0.9634,
+        "mean_accuracy": 0.7418,
+        "std_accuracy": 0.1219,
+        "mean_pr_auc": 0.867,
+        "mean_f1": 0.6408,
+        "mean_precision": 0.8871,
+        "mean_recall": 0.5376
+      }
+    },
+    "none": {
+      "strategy": "none",
+      "folds": [
+        {
+          "norm_strategy": "none",
+          "held_out_generator": "ADM",
+          "train_generators": [
+            "GLIDE",
+            "SDv5",
+            "VQDM",
+            "Wukong"
+          ],
+          "train_sample_count": 16000,
+          "val_sample_count": 1000,
+          "best_epoch": 4,
+          "metrics": {
+            "sample_count": 1000,
+            "accuracy": 0.578,
+            "precision": 0.7910447761194029,
+            "recall": 0.212,
+            "f1_score": 0.334384858044164,
+            "roc_auc": 0.7420040000000001,
+            "pr_auc": 0.7092483754230806,
+            "tp": 106,
+            "fp": 28,
+            "tn": 472,
+            "fn": 394
+          },
+          "training_time_sec": 1713.3
+        },
+        {
+          "norm_strategy": "none",
+          "held_out_generator": "GLIDE",
+          "train_generators": [
+            "ADM",
+            "SDv5",
+            "VQDM",
+            "Wukong"
+          ],
+          "train_sample_count": 16000,
+          "val_sample_count": 1000,
+          "best_epoch": 8,
+          "metrics": {
+            "sample_count": 1000,
+            "accuracy": 0.839,
+            "precision": 0.9312977099236641,
+            "recall": 0.732,
+            "f1_score": 0.8197088465845465,
+            "roc_auc": 0.946968,
+            "pr_auc": 0.9381290071146066,
+            "tp": 366,
+            "fp": 27,
+            "tn": 473,
+            "fn": 134
+          },
+          "training_time_sec": 1722.1
+        },
+        {
+          "norm_strategy": "none",
+          "held_out_generator": "SDv5",
+          "train_generators": [
+            "ADM",
+            "GLIDE",
+            "VQDM",
+            "Wukong"
+          ],
+          "train_sample_count": 16000,
+          "val_sample_count": 1000,
+          "best_epoch": 10,
+          "metrics": {
+            "sample_count": 1000,
+            "accuracy": 0.833,
+            "precision": 0.9152119700748129,
+            "recall": 0.734,
+            "f1_score": 0.8146503884572697,
+            "roc_auc": 0.9372119999999999,
+            "pr_auc": 0.9372298675623121,
+            "tp": 367,
+            "fp": 34,
+            "tn": 466,
+            "fn": 133
+          },
+          "training_time_sec": 1738.9
+        },
+        {
+          "norm_strategy": "none",
+          "held_out_generator": "VQDM",
+          "train_generators": [
+            "ADM",
+            "GLIDE",
+            "SDv5",
+            "Wukong"
+          ],
+          "train_sample_count": 16000,
+          "val_sample_count": 1000,
+          "best_epoch": 4,
+          "metrics": {
+            "sample_count": 1000,
+            "accuracy": 0.604,
+            "precision": 0.8376623376623377,
+            "recall": 0.258,
+            "f1_score": 0.3944954128440368,
+            "roc_auc": 0.727486,
+            "pr_auc": 0.7241418286979081,
+            "tp": 129,
+            "fp": 25,
+            "tn": 475,
+            "fn": 371
+          },
+          "training_time_sec": 1704.4
+        },
+        {
+          "norm_strategy": "none",
+          "held_out_generator": "Wukong",
+          "train_generators": [
+            "ADM",
+            "GLIDE",
+            "SDv5",
+            "VQDM"
+          ],
+          "train_sample_count": 16000,
+          "val_sample_count": 1000,
+          "best_epoch": 10,
+          "metrics": {
+            "sample_count": 1000,
+            "accuracy": 0.844,
+            "precision": 0.9134615384615384,
+            "recall": 0.76,
+            "f1_score": 0.8296943231441047,
+            "roc_auc": 0.930746,
+            "pr_auc": 0.9329530898544098,
+            "tp": 380,
+            "fp": 36,
+            "tn": 464,
+            "fn": 120
+          },
+          "training_time_sec": 1724.1
+        }
+      ],
+      "aggregate_statistics": {
+        "mean_roc_auc": 0.8569,
+        "std_roc_auc": 0.1,
+        "worst_case_roc_auc": 0.7275,
+        "best_case_roc_auc": 0.947,
+        "mean_accuracy": 0.7396,
+        "std_accuracy": 0.1217,
+        "mean_pr_auc": 0.8483,
+        "mean_f1": 0.6386,
+        "mean_precision": 0.8777,
+        "mean_recall": 0.5392
+      }
+    }
+  },
+  "total_duration_sec": 26428.3,
+  "total_duration_min": 440.47
+}

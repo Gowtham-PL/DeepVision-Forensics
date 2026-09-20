@@ -1,0 +1,2 @@
+group_field,group_value,n,n_real,n_ai,e6c_acc,e20_acc,e21_acc,e22_acc,e22_f1,e6c_recall,e20_recall,e21_recall,e22_recall,e6c_fpr,e20_fpr,e21_fpr,e22_fpr
+degradation_type,clean,200,100,100,0.755,0.65,0.64,0.67,0.738095238095238,0.74,0.34,0.95,0.93,0.23,0.04,0.67,0.59

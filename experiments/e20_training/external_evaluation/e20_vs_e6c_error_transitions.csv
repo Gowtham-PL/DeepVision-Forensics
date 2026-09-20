@@ -1,0 +1,6 @@
+dataset,total,E6C_correct__E20_correct,E6C_correct__E20_wrong,E6C_wrong__E20_correct,E6C_wrong__E20_wrong
+E14_Clean,200,109,42,21,28
+E14_Degraded,600,317,78,68,137
+E19_Smartphone_Benchmark,200,134,5,39,22
+E19_WhatsApp_Subset,60,19,3,25,13
+WhatsApp_N67_Benchmark,67,23,18,12,14

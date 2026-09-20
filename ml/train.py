@@ -16,12 +16,13 @@ Features:
 """
 
 import argparse
+import io
 import math
 import os
 import random
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Union
 
 # Ensure project root is in sys.path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -29,6 +30,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 import numpy as np
+from PIL import Image
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
@@ -60,6 +62,120 @@ def get_raw_rgb_transform() -> transforms.Compose:
         transforms.Resize(config.TARGET_IMAGE_SIZE),
         transforms.ToTensor(),
     ])
+
+
+class RandomJPEGCompression:
+    """Simulates realistic JPEG compression artifacts with random quality Q in [quality_min, quality_max]."""
+    def __init__(self, quality_min: int = 65, quality_max: int = 95, p: float = 0.5):
+        self.quality_min = quality_min
+        self.quality_max = quality_max
+        self.p = p
+
+    def __call__(self, img: Image.Image) -> Image.Image:
+        if random.random() < self.p:
+            quality = random.randint(self.quality_min, self.quality_max)
+            buf = io.BytesIO()
+            img.save(buf, format="JPEG", quality=quality)
+            buf.seek(0)
+            img = Image.open(buf)
+            img.load()
+            return img
+        return img
+
+
+class RandomResizeDownsample:
+    """Random downscale (scale in [scale_min, scale_max]) followed by bilinear/bicubic upsampling to target_size."""
+    def __init__(
+        self,
+        scale_min: float = 0.6,
+        scale_max: float = 0.95,
+        p: float = 0.4,
+        target_size: Tuple[int, int] = config.TARGET_IMAGE_SIZE,
+    ):
+        self.scale_min = scale_min
+        self.scale_max = scale_max
+        self.p = p
+        self.target_size = target_size
+
+    def __call__(self, img: Image.Image) -> Image.Image:
+        if random.random() < self.p:
+            scale = random.uniform(self.scale_min, self.scale_max)
+            w, h = self.target_size
+            down_w = max(16, int(w * scale))
+            down_h = max(16, int(h * scale))
+            resample_down = random.choice([Image.Resampling.BILINEAR, Image.Resampling.BICUBIC])
+            img_down = img.resize((down_w, down_h), resample=resample_down)
+            resample_up = random.choice([Image.Resampling.BILINEAR, Image.Resampling.BICUBIC])
+            return img_down.resize(self.target_size, resample=resample_up)
+        return img
+
+
+class RandomGaussianBlurCustom:
+    """Mild Gaussian blur with random kernel size (3 or 5) and sigma in [0.2, 1.2]."""
+    def __init__(
+        self,
+        kernel_sizes: Tuple[int, ...] = (3, 5),
+        sigma_range: Tuple[float, float] = (0.2, 1.2),
+        p: float = 0.3,
+    ):
+        self.kernel_sizes = kernel_sizes
+        self.sigma_range = sigma_range
+        self.p = p
+
+    def __call__(self, img: Image.Image) -> Image.Image:
+        if random.random() < self.p:
+            k = random.choice(self.kernel_sizes)
+            s = random.uniform(*self.sigma_range)
+            return transforms.functional.gaussian_blur(img, kernel_size=[k, k], sigma=[s, s])
+        return img
+
+
+class RandomPhotometricDistortion:
+    """Mild brightness/contrast jitter +/-10% OR Gaussian noise sigma=0.01 with p=0.3."""
+    def __init__(
+        self,
+        p: float = 0.3,
+        brightness: float = 0.1,
+        contrast: float = 0.1,
+        noise_sigma: float = 0.01,
+    ):
+        self.p = p
+        self.jitter = transforms.ColorJitter(brightness=brightness, contrast=contrast)
+        self.noise_sigma = noise_sigma
+
+    def __call__(self, img: Image.Image) -> Image.Image:
+        if random.random() < self.p:
+            if random.random() < 0.5:
+                return self.jitter(img)
+            else:
+                arr = np.array(img, dtype=np.float32) / 255.0
+                noise = np.random.normal(0.0, self.noise_sigma, arr.shape).astype(np.float32)
+                arr = np.clip(arr + noise, 0.0, 1.0)
+                return Image.fromarray((arr * 255.0).astype(np.uint8))
+        return img
+
+
+def get_train_robustness_transform() -> transforms.Compose:
+    """
+    Returns data augmentation pipeline for E4 Robustness experiment.
+    
+    Operates on PIL Images:
+    1. Resize to target size (224, 224)
+    2. Random downscale (0.6 - 0.95x) + bilinear/bicubic upsample (p=0.4)
+    3. Random JPEG recompression (Q=65-95, p=0.5)
+    4. Mild Gaussian blur (kernel 3 or 5, sigma 0.2-1.2, p=0.3)
+    5. Photometric distortion: Color jitter +/-10% OR Gaussian noise sigma=0.01 (p=0.3)
+    6. ToTensor() -> unnormalized [0, 1] RGB tensor for dual-branch consumption.
+    """
+    return transforms.Compose([
+        transforms.Resize(config.TARGET_IMAGE_SIZE),
+        RandomResizeDownsample(scale_min=0.6, scale_max=0.95, p=0.4),
+        RandomJPEGCompression(quality_min=65, quality_max=95, p=0.5),
+        RandomGaussianBlurCustom(kernel_sizes=(3, 5), sigma_range=(0.2, 1.2), p=0.3),
+        RandomPhotometricDistortion(p=0.3, brightness=0.1, contrast=0.1, noise_sigma=0.01),
+        transforms.ToTensor(),
+    ])
+
 
 
 def build_parameter_groups(
@@ -260,6 +376,8 @@ def run_training(
     seed: int = 42,
     save_dir: str = "experiments/e1_spatial",
     use_amp: bool = True,
+    robustness_augment: bool = False,
+    manifest_path: Optional[Union[str, Path]] = None,
 ) -> Dict[str, float]:
     """
     Configures, verifies, and coordinates model training.
@@ -291,14 +409,26 @@ def run_training(
     print(f"Epochs:           {epochs} (Warmup: {warmup_epochs} epochs)")
     print(f"Random Seed:      {seed}")
     print(f"Save Directory:   {save_path}")
+    if manifest_path is not None:
+        print(f"Manifest Path:    {manifest_path}")
 
     # 2. Data Split Safety Verification
-    raw_transform = get_raw_rgb_transform()
-    train_dataset = DeepVisionDataset(split="train", transform=raw_transform)
-    val_dataset = DeepVisionDataset(split="val", transform=raw_transform)
+    if robustness_augment or experiment == "E4":
+        train_transform = get_train_robustness_transform()
+        print("Train Transform:  Robustness-Augmented (JPEG, Resize, Blur, Photometric)")
+    else:
+        train_transform = get_raw_rgb_transform()
+        print("Train Transform:  Standard Clean (Resize + ToTensor)")
 
-    train_gens = sorted(list({r.get("generator") for r in train_dataset.records}))
-    val_gens = sorted(list({r.get("generator") for r in val_dataset.records}))
+    val_transform = get_raw_rgb_transform()
+    print("Val Transform:    Standard Clean (Zero Augmentation)")
+
+    m_path = Path(manifest_path) if manifest_path is not None else None
+    train_dataset = DeepVisionDataset(split="train", transform=train_transform, manifest_path=m_path)
+    val_dataset = DeepVisionDataset(split="val", transform=val_transform, manifest_path=m_path)
+
+    train_gens = sorted(list({r.get("generator") or r.get("generator_or_device") for r in train_dataset.records}))
+    val_gens = sorted(list({r.get("generator") or r.get("generator_or_device") for r in val_dataset.records}))
 
     print("-" * 60)
     print("DATASET & GENERATOR VERIFICATION:")
@@ -313,8 +443,13 @@ def run_training(
         raise RuntimeError(f"FATAL: Unseen test generator found in training split: {train_gens}")
     if any(g in forbidden_gens for g in val_gens):
         raise RuntimeError(f"FATAL: Unseen test generator found in validation split: {val_gens}")
+    if any("DALL-E" in str(g) for g in train_gens):
+        raise RuntimeError(f"FATAL: DALL-E 3 found in training split: {train_gens}")
+    if any("DALL-E" in str(g) for g in val_gens):
+        raise RuntimeError(f"FATAL: DALL-E 3 found in validation split: {val_gens}")
 
     print("Holdout Check:    PASSED (BigGAN & Midjourney are 100% invisible)")
+    print("DALL-E 3 Check:   PASSED (DALL-E 3 is 100% invisible to train & val)")
     print("Test DataLoader:  NOT constructed or accessed (Zero Test Leakage)")
     print("-" * 60)
 
@@ -334,8 +469,9 @@ def run_training(
     )
 
     # 3. Model Architecture Verification
+    model_exp = "E3" if experiment in ("E3", "E4", "E5") else experiment
     model = build_model(
-        experiment=experiment,
+        experiment=model_exp,
         pretrained=True,
         freq_norm_strategy=norm_strategy,
         freq_embedding_dim=freq_embedding_dim,
@@ -471,9 +607,35 @@ def run_training(
                     "seed": seed,
                     "norm_strategy": norm_strategy,
                     "freq_embedding_dim": freq_embedding_dim,
+                    "robustness_augmented": (robustness_augment or experiment == "E4"),
                 }
             }, checkpoint_file)
             print(f"  --> [*] Saved new best checkpoint to {checkpoint_file} (Val AUC: {val_auc:.4f})")
+
+    # Save final model checkpoint
+    final_checkpoint = save_path / "final_model.pt"
+    torch.save({
+        "epoch": epochs,
+        "experiment": experiment,
+        "model_state_dict": model.state_dict(),
+        "optimizer_state_dict": optimizer.state_dict(),
+        "val_auc": val_auc,
+        "val_loss": val_loss,
+        "val_acc": val_acc,
+        "config": {
+            "experiment": experiment,
+            "batch_size": batch_size,
+            "epochs": epochs,
+            "lr_backbone": lr_backbone,
+            "lr_head": lr_head,
+            "weight_decay": weight_decay,
+            "seed": seed,
+            "norm_strategy": norm_strategy,
+            "freq_embedding_dim": freq_embedding_dim,
+            "manifest_path": str(manifest_path) if manifest_path else None,
+        }
+    }, final_checkpoint)
+    print(f"Saved final checkpoint to {final_checkpoint}")
 
     total_duration = time.time() - start_time
     best_metrics["total_duration_sec"] = round(total_duration, 1)
@@ -501,8 +663,12 @@ def run_training(
 
 def parse_args():
     parser = argparse.ArgumentParser(description="DeepVision-Forensics Training Script")
-    parser.add_argument("--experiment", type=str, choices=["E1", "E2", "E3"], default="E1",
-                        help="Experiment configuration: E1 (Spatial), E2 (Frequency), E3 (Fusion)")
+    parser.add_argument("--experiment", type=str, choices=["E1", "E2", "E3", "E4", "E5"], default="E1",
+                        help="Experiment configuration: E1 (Spatial), E2 (Frequency), E3 (Fusion), E4 (Robustness Fusion), E5 (Modern-Generator Generalization)")
+    parser.add_argument("--manifest-path", type=str, default=None,
+                        help="Path to manifest CSV (defaults to standard GenImage manifest or E5 manifest if E5)")
+    parser.add_argument("--robustness-augment", action="store_true",
+                        help="Enable robustness augmentations on training split (automatically enabled for E4)")
     parser.add_argument("--batch-size", type=int, default=16,
                         help="Batch size (conservative default 16 for RTX 3050 4GB)")
     parser.add_argument("--epochs", type=int, default=10, help="Number of training epochs")
@@ -523,6 +689,21 @@ def parse_args():
 
 if __name__ == "__main__":
     args = parse_args()
+    if args.experiment == "E4":
+        if args.save_dir == "experiments/e1_spatial":
+            args.save_dir = "experiments/e4_robustness"
+        if args.norm_strategy == "minmax":
+            args.norm_strategy = "standardize"
+        args.robustness_augment = True
+
+    if args.experiment == "E5":
+        if args.save_dir == "experiments/e1_spatial":
+            args.save_dir = "experiments/e5_generalization"
+        if args.norm_strategy == "minmax":
+            args.norm_strategy = "standardize"
+        if args.manifest_path is None:
+            args.manifest_path = "data/e5_external/manifests/e5_manifest.csv"
+
     run_training(
         experiment=args.experiment,
         batch_size=args.batch_size,
@@ -537,4 +718,7 @@ if __name__ == "__main__":
         seed=args.seed,
         save_dir=args.save_dir,
         use_amp=not args.no_amp,
+        robustness_augment=args.robustness_augment,
+        manifest_path=args.manifest_path,
     )
+

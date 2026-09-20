@@ -1,0 +1,24 @@
+{
+  "experiment": "E13: Compression-Aware Training + Domain Normalization",
+  "starting_checkpoint": "experiments\\e6_multiscale_training\\e6c_finetune_benchmark\\e6c_checkpoint_epoch2.pt",
+  "epochs": 3,
+  "batch_size": 16,
+  "crops_per_step": 80,
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "optimizer": "AdamW",
+  "precision": "CUDA AMP FP16",
+  "trainable_parameters": 1218050,
+  "frozen_parameters": 11150856,
+  "total_parameters": 12368906,
+  "training_data": "E5 Train Split (N=23,165) + Online E10-B Compression Augmentation",
+  "validation_data": "100% Clean E5 Validation (N=5,775)",
+  "selection_protocol": {
+    "gate_1_roc_auc_min": 0.993,
+    "gate_2_fpr_max": 0.04,
+    "primary_ranking": "Clean E5 F1-Score",
+    "tie_breaker": "Clean E5 ROC-AUC",
+    "whatsapp_in_selection": false
+  },
+  "hypothesis": "Combining realistic compression augmentation with LayerNorm(1792) retains compressed-AI recall (>=42.42%) while mitigating real-photo FPR (<14.71%)."
+}

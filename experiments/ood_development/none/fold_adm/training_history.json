@@ -1,0 +1,102 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 0.532,
+    "val_loss": 0.786,
+    "val_accuracy": 0.573,
+    "val_roc_auc": 0.6388,
+    "lr_backbone": 1e-05,
+    "lr_head": 0.0005,
+    "epoch_duration_sec": 176.8
+  },
+  {
+    "epoch": 2,
+    "train_loss": 0.4409,
+    "val_loss": 0.9518,
+    "val_accuracy": 0.594,
+    "val_roc_auc": 0.6729,
+    "lr_backbone": 1e-05,
+    "lr_head": 0.0005,
+    "epoch_duration_sec": 171.2
+  },
+  {
+    "epoch": 3,
+    "train_loss": 0.3499,
+    "val_loss": 0.9209,
+    "val_accuracy": 0.569,
+    "val_roc_auc": 0.654,
+    "lr_backbone": 9.62e-06,
+    "lr_head": 0.000481,
+    "epoch_duration_sec": 175.5
+  },
+  {
+    "epoch": 4,
+    "train_loss": 0.298,
+    "val_loss": 1.1926,
+    "val_accuracy": 0.578,
+    "val_roc_auc": 0.742,
+    "lr_backbone": 8.54e-06,
+    "lr_head": 0.000427,
+    "epoch_duration_sec": 168.8
+  },
+  {
+    "epoch": 5,
+    "train_loss": 0.2545,
+    "val_loss": 1.3472,
+    "val_accuracy": 0.567,
+    "val_roc_auc": 0.6749,
+    "lr_backbone": 6.91e-06,
+    "lr_head": 0.000346,
+    "epoch_duration_sec": 170.0
+  },
+  {
+    "epoch": 6,
+    "train_loss": 0.2203,
+    "val_loss": 1.4031,
+    "val_accuracy": 0.56,
+    "val_roc_auc": 0.6828,
+    "lr_backbone": 5e-06,
+    "lr_head": 0.00025,
+    "epoch_duration_sec": 169.6
+  },
+  {
+    "epoch": 7,
+    "train_loss": 0.198,
+    "val_loss": 1.612,
+    "val_accuracy": 0.545,
+    "val_roc_auc": 0.6653,
+    "lr_backbone": 3.09e-06,
+    "lr_head": 0.000154,
+    "epoch_duration_sec": 169.9
+  },
+  {
+    "epoch": 8,
+    "train_loss": 0.1744,
+    "val_loss": 1.3516,
+    "val_accuracy": 0.587,
+    "val_roc_auc": 0.6975,
+    "lr_backbone": 1.46e-06,
+    "lr_head": 7.32e-05,
+    "epoch_duration_sec": 169.8
+  },
+  {
+    "epoch": 9,
+    "train_loss": 0.1621,
+    "val_loss": 1.5824,
+    "val_accuracy": 0.571,
+    "val_roc_auc": 0.6917,
+    "lr_backbone": 3.81e-07,
+    "lr_head": 1.9e-05,
+    "epoch_duration_sec": 170.0
+  },
+  {
+    "epoch": 10,
+    "train_loss": 0.1548,
+    "val_loss": 1.6428,
+    "val_accuracy": 0.553,
+    "val_roc_auc": 0.672,
+    "lr_backbone": 0.0,
+    "lr_head": 0.0,
+    "epoch_duration_sec": 171.2
+  }
+]
