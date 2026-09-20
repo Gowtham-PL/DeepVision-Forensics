@@ -25,24 +25,26 @@ from backend.schemas import (
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Lifecycle manager: loads default model at startup and preloads E3-Std if available."""
+    """Lifecycle manager: loads default model at startup and preloads other supported models if available."""
     try:
         model_service.load_model(config.DEFAULT_MODEL_KEY)
         print(
             f"[*] DeepVision-Forensics default model ({config.DEFAULT_MODEL_KEY}) loaded successfully on "
             f"{model_service.device} ({model_service.param_count:,} parameters)."
         )
-        # Attempt preloading E3-Std candidate if checkpoint is present
-        e3_cfg = config.SUPPORTED_MODELS.get("e3_std")
-        if e3_cfg and e3_cfg["checkpoint_path"].exists():
-            try:
-                model_service.load_model("e3_std")
-                print(
-                    f"[*] DeepVision-Forensics E3-Std candidate model preloaded successfully on "
-                    f"{model_service.device} ({model_service.model_params.get('e3_std', 0):,} parameters)."
-                )
-            except Exception as e_e3:
-                print(f"[!] Note: E3-Std preload deferred: {e_e3}")
+        # Attempt preloading other supported models if checkpoints are present
+        for preload_key, m_cfg in config.SUPPORTED_MODELS.items():
+            if preload_key == config.DEFAULT_MODEL_KEY:
+                continue
+            if m_cfg["checkpoint_path"].exists():
+                try:
+                    model_service.load_model(preload_key)
+                    print(
+                        f"[*] DeepVision-Forensics {preload_key} model preloaded successfully on "
+                        f"{model_service.device} ({model_service.model_params.get(preload_key, 0):,} parameters)."
+                    )
+                except Exception as e_pre:
+                    print(f"[!] Note: {preload_key} preload deferred: {e_pre}")
     except Exception as exc:
         print(f"[!] Warning: Default model failed to load during startup: {exc}")
     yield

@@ -309,4 +309,126 @@ The finalized candidate (`E3-Std`) was trained on all 5 development generators (
 
 ---
 
-*Report compiled from frozen artifacts in `experiments/e1_spatial/`, `experiments/e2_frequency/`, `experiments/e3_dual_domain/`, `experiments/final_evaluation/`, `experiments/ood_development/`, `experiments/candidate_standardize/`, and `experiments/final_evaluation_ood/`.*
+## 15. Experiment E4: Robustness Augmentation (Documented Failed Experiment)
+
+### 15.1 Motivation & Experimental Design
+Experiment E4 was formulated to investigate whether aggressive data augmentation (including simulated JPEG compression artifacts, additive Gaussian noise, and spatial blurring applied to both spatial and frequency representations) would improve model robustness against real-world degradation without compromising clean synthetic detection.
+
+The E4 model utilized the E3-Std architecture (EfficientNet-B3 spatial backbone + standardized 4-block spectral CNN with late fusion) trained on the 5 GenImage development generators with active online robustness augmentations.
+
+### 15.2 Empirical Evaluation Results
+When evaluated on the standardized holdout benchmarks and the real-world test sets, Experiment E4 produced catastrophic performance degradation across all domains:
+
+| Metric | E3-Std (Baseline) | E4 (Robustness Augmented) | Delta ($\Delta$) | Status |
+| :--- | :---: | :---: | :---: | :---: |
+| **In-Distribution Val ROC-AUC** | **0.9838** | 0.9570 | -0.0268 | Degraded |
+| **Overall Unseen Test ROC-AUC** | **0.8959** | 0.7878 | -0.1081 (-10.8%) | Severe Failure |
+| **Unseen BigGAN ROC-AUC** | **0.9511** | 0.7627 | -0.1884 (-18.8%) | Severe Failure |
+| **Unseen Midjourney ROC-AUC** | **0.8392** | 0.8137 | -0.0255 | Degraded |
+| **DALL-E 3 Standalone Recall ($N=492$)** | 33.94% (167/492) | 34.96% (172/492) | +1.02% | Near Zero Transfer |
+| **Real-World V2 ROC-AUC ($N=76$)** | 0.4619 | **0.2590** | -0.2029 | Catastrophic Failure |
+| **Real-World V2 AI Detected** | 5 / 38 | **0 / 38** (0.0% Recall) | -5 detections | Total Blindness |
+| **Real-World V2 AI FNR** | 86.84% | **100.0%** | +13.16% | Complete Miss Rate |
+
+### 15.3 Scientific Post-Mortem & Rejection
+- **Spectral Artifact Destruction:** Applying artificial noise and compression during training effectively masked the subtle high-frequency harmonic grids that neural generators leave behind. The frequency branch was rendered unable to distinguish synthetic generator traces from artificial noise.
+- **Decision Boundary Distortion:** Rather than learning invariant features, the model shifted its decision threshold excessively toward authentic classifications, completely failing on real-world AI images (0 / 38 detected on V2).
+- **Official Status:** Experiment E4 is explicitly documented as a **FAILED EXPERIMENT**. Its checkpoints are preserved for scientific transparency but are completely excluded from deployment.
+
+---
+
+## 16. Experiment E5: Modern-Generator Domain Generalization (Final Production Model)
+
+### 16.1 Motivation & Controlled External Acquisition
+Following the failure of E4 and the domain limitation of classical GenImage training generators (which lacked modern diffusion transformer and flow-matching paradigms), Experiment E5 was instituted to achieve robust cross-generator domain generalization.
+
+Under a strict zero-leakage protocol, 4,432 external images were acquired and verified:
+1. **Modern AI Generators (2,000 images):** FLUX.1 [dev] (500), FLUX.1 [schnell] (500), Synthbuster SDXL (1,000).
+2. **Authentic Camera Photographs (1,940 accepted):** Native and social-media transmitted smartphone images from the VISION dataset (Apple iPhone and Android/Samsung devices).
+3. **Quarantined Evaluation Holdout (492 images):** Synthbuster DALL-E 3 images reserved strictly for zero-shot holdout evaluation (permanently barred from training or validation).
+4. **Perceptual Leakage Gate:** A perceptual hash ($d_H \le 3$) and exact MD5 audit against the frozen V2 benchmark intercepted 7 candidate collisions, quarantining them with zero contamination.
+
+### 16.2 Training Configuration & Convergence
+- **Architecture:** `DeepVisionFusionModel` with EfficientNet-B3 spatial branch and standardized 2D FFT spectral CNN (`freq_norm_strategy="standardize"`, late fusion).
+- **Dataset:** Unified manifest (`data/e5_external/manifests/e5_manifest.csv`) with 23,165 training images and 5,775 validation images.
+- **Outcome:** Smooth convergence reaching **0.9820 Validation ROC-AUC** at Epoch 10 (`experiments/e5_generalization/best_model.pt`).
+
+### 16.3 Final Unseen Benchmark Performance ($N = 9,999$, Holdout Test)
+
+| Model | Architecture | Overall Unseen ROC-AUC | Overall Unseen PR-AUC | Overall Accuracy | BigGAN ROC-AUC | Midjourney ROC-AUC |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| **E5 (Generalization)** | Dual-Domain (Std) | **0.9195** | **0.9227** | 78.93% | **0.9517** | **0.8869** |
+| **E1 (Spatial Baseline)** | Spatial-Only | 0.8991 | 0.9079 | **81.31%** | **0.9732** | 0.8224 |
+| **E3-Std (Standardized)** | Dual-Domain (Std) | 0.8959 | 0.8993 | 75.52% | 0.9511 | 0.8392 |
+| **E3 (Baseline MinMax)** | Dual-Domain (MinMax) | 0.8851 | 0.8908 | 77.25% | 0.9465 | 0.8228 |
+| **E4 (Robustness)** | Dual-Domain (Aug) | 0.7878 | 0.7824 | 64.33% | 0.7627 | 0.8137 |
+
+*Key Findings:*
+- **Overall Unseen ROC-AUC** reached **0.9195**, exceeding all prior models including E1 Spatial Baseline (0.8991).
+- **Midjourney Generalization** surged to **0.8869 ROC-AUC**, representing a $+6.45\%$ improvement over E1 (0.8224) and $+4.77\%$ over E3-Std (0.8392).
+- **BigGAN Generalization** remained exceptionally strong at **0.9517 ROC-AUC**.
+
+### 16.4 DALL-E 3 Standalone Zero-Shot Holdout Evaluation ($N = 492$)
+DALL-E 3 images were evaluated strictly out-of-distribution with zero prior model exposure:
+
+| Evaluation Dimension | Metric | Comparative Context |
+| :--- | :---: | :--- |
+| **Total Test Samples ($N$)** | **492** | Synthbuster DALL-E 3 partition |
+| **ROC-AUC (vs. Unseen Real)** | **0.9883** | vs. E3-Std 0.8158, E1 0.7665, E4 0.7780 |
+| **PR-AUC (vs. Unseen Real)** | **0.9382** | vs. E3-Std 0.3634, E1 0.2608 |
+| **Detection Rate (Recall @ 0.50)** | **93.29%** | **459 / 492 AI Images Detected** |
+| **Historical Comparison** | +59.35% | E3-Std detected only 167/492 (33.94%) |
+| **Mean AI Probability** | **0.9141** | High confidence synthetic separation |
+| **Median AI Probability** | **0.9946** | Strong clustering near 1.0 |
+
+---
+
+## 17. Final Frozen Real-World Benchmark: Dataset V2 ($N = 76$)
+
+The Real-World Test Dataset V2 ($N=76$: 38 authentic smartphone photographs, 38 modern AI-generated images from Gemini, ChatGPT-4o, and Midjourney v6) remained permanently frozen and unaccessed during training.
+
+### Comparative Real-World Benchmark Table (Threshold = 0.50)
+
+| Metric | E1 (Spatial) | E3-Std (Dual) | E4 (Robustness) | E5 (Generalization) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Total Samples ($N$)** | 76 | 76 | 76 | **76** |
+| **Authentic Real Photos** | 38 | 38 | 38 | **38** |
+| **Synthetic AI Images** | 38 | 38 | 38 | **38** |
+| **ROC-AUC** | 0.2621 | 0.4619 | 0.2590 | **0.7715** |
+| **PR-AUC** | 0.3541 | 0.4578 | 0.3600 | **0.8284** |
+| **Accuracy** | 47.37% | 48.68% | 40.79% | **76.32%** |
+| **Precision** | 33.33% | 40.00% | 0.00% | **88.46%** |
+| **Recall (AI Sensitivity)** | 5.26% | 5.26% | 0.00% | **60.53%** |
+| **F1-Score** | 0.0909 | 0.0930 | 0.0000 | **0.7188** |
+| **Real False Positive Rate (FPR)** | 10.53% (4/38) | 7.89% (3/38) | 18.42% (7/38) | **7.89%** (3/38) |
+| **AI False Negative Rate (FNR)** | 94.74% (36/38) | 94.74% (36/38) | 100.0% (38/38) | **39.47%** (15/38) |
+| **AI Detected Count** | 2 / 38 | 2 / 38 | 0 / 38 | **23 / 38** |
+
+### Confusion Matrix ($N = 76$, Threshold = 0.50)
+```
+                  Predicted Real (0)    Predicted AI (1)
+Actual Real (0)        35 (TN)               3 (FP)        [FPR = 7.89%]
+Actual AI   (1)        15 (FN)              23 (TP)        [Recall = 60.53%]
+```
+
+### Scientific Takeaway on Real-World Generalization
+1. **Breakthrough Real-World AI Detection:** Prior models (E1, E3, E3-Std) detected at most 2 out of 38 real-world AI images (failing catastrophically due to generator domain shift). E5 detects **23 out of 38** real-world AI images (**60.53% recall**), elevating ROC-AUC from $0.4619 \to \mathbf{0.7715}$.
+2. **Preservation of Low False Alarm Rate:** Despite a massive increase in sensitivity, E5 maintains a strict **7.89% false positive rate** on authentic smartphone photos (35/38 correctly classified as real), resulting in **88.46% precision**.
+3. **Production Model Recommendation:** Experiment E5 is officially designated as the **primary production model** for DeepVision-Forensics.
+
+---
+
+## 18. Forensic Explainability Standards & Disclaimers
+
+### 18.1 Model Attention (Grad-CAM)
+- **Definition:** Grad-CAM calculates gradient-weighted class activation heatmaps showing which spatial features and regions within the image contributed most strongly to the model's authenticity decision.
+- **Scientific Constraint:** Grad-CAM reflects internal **model attention patterns**. It is **NOT** a pixel-level forgery mask, tamper localization map, or edit boundary delineator. Claims of exact manipulation localization from Grad-CAM are technically unfounded and strictly disclaimed.
+
+### 18.2 Frequency Evidence (2D FFT Log-Magnitude)
+- **Definition:** Centered 2D Fast Fourier Transform log-magnitude spectrum $\log(1 + |F(u, v)|)$ visualizes spatial frequency distributions across radial and angular bands.
+- **Forensic Role:** Serves as complementary frequency evidence to reveal periodic sampling artifacts, checkerboard traces, and upsampling grid signatures characteristic of generative neural synthesis.
+
+---
+
+*Report compiled from frozen artifacts in `experiments/e1_spatial/`, `experiments/e2_frequency/`, `experiments/e3_dual_domain/`, `experiments/candidate_standardize/`, `experiments/e4_robustness/`, and `experiments/e5_generalization/`.*
+

@@ -1,0 +1,3 @@
+group_field,group_value,n,n_real,n_ai,e6c_acc,e20_acc,e21_acc,e22_acc,e22_f1,e6c_recall,e20_recall,e21_recall,e22_recall,e6c_fpr,e20_fpr,e21_fpr,e22_fpr
+device_family,RAISE-1k,100,100,0,0.77,0.96,0.33,0.41,0.0,,,,,0.23,0.04,0.67,0.59
+device_family,Synthbuster,100,0,100,0.74,0.34,0.95,0.93,0.9637305699481865,0.74,0.34,0.95,0.93,,,,

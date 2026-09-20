@@ -1,0 +1,97 @@
+{
+  "Candidate_A_FPR_3pct": {
+    "name": "Candidate A (Strict Conservative: E5 FPR <= 3%)",
+    "threshold": 0.6,
+    "rationale": "Matches E6-C production clean baseline false alarm rate (approx 2.97%).",
+    "e5_metrics": {
+      "threshold": 0.6,
+      "tp": 2721,
+      "fp": 86,
+      "tn": 2848,
+      "fn": 120,
+      "accuracy": 0.9643,
+      "precision": 0.9694,
+      "recall": 0.9578,
+      "f1": 0.9635,
+      "fpr": 0.0293,
+      "fnr": 0.0422,
+      "specificity": 0.9707
+    }
+  },
+  "Candidate_B_FPR_5pct": {
+    "name": "Candidate B (Moderate Trade-Off: E5 FPR <= 5%)",
+    "threshold": 0.3,
+    "rationale": "Allows controlled false alarms on clean data up to 5% to boost recall.",
+    "e5_metrics": {
+      "threshold": 0.3,
+      "tp": 2768,
+      "fp": 144,
+      "tn": 2790,
+      "fn": 73,
+      "accuracy": 0.9624,
+      "precision": 0.9505,
+      "recall": 0.9743,
+      "f1": 0.9623,
+      "fpr": 0.0491,
+      "fnr": 0.0257,
+      "specificity": 0.9509
+    }
+  },
+  "Candidate_C_FPR_7.5pct": {
+    "name": "Candidate C (High-Sensitivity: E5 FPR <= 7.5%)",
+    "threshold": 0.2,
+    "rationale": "High-sensitivity threshold for catching subtle AI generation.",
+    "e5_metrics": {
+      "threshold": 0.2,
+      "tp": 2782,
+      "fp": 171,
+      "tn": 2763,
+      "fn": 59,
+      "accuracy": 0.9602,
+      "precision": 0.9421,
+      "recall": 0.9792,
+      "f1": 0.9603,
+      "fpr": 0.0583,
+      "fnr": 0.0208,
+      "specificity": 0.9417
+    }
+  },
+  "Candidate_D_Max_F1": {
+    "name": "Candidate D (E5 Maximum F1-Score)",
+    "threshold": 0.55,
+    "rationale": "Maximizes harmonic mean of precision and recall on clean validation.",
+    "e5_metrics": {
+      "threshold": 0.55,
+      "tp": 2739,
+      "fp": 89,
+      "tn": 2845,
+      "fn": 102,
+      "accuracy": 0.9669,
+      "precision": 0.9685,
+      "recall": 0.9641,
+      "f1": 0.9663,
+      "fpr": 0.0303,
+      "fnr": 0.0359,
+      "specificity": 0.9697
+    }
+  },
+  "Baseline_Standard_0.50": {
+    "name": "Standard Default Operating Point (0.50)",
+    "threshold": 0.5,
+    "rationale": "Standard decision threshold for baseline comparison.",
+    "e5_metrics": {
+      "threshold": 0.5,
+      "tp": 2742,
+      "fp": 96,
+      "tn": 2838,
+      "fn": 99,
+      "accuracy": 0.9662,
+      "precision": 0.9662,
+      "recall": 0.9652,
+      "f1": 0.9657,
+      "fpr": 0.0327,
+      "fnr": 0.0348,
+      "specificity": 0.9673
+    }
+  }
+}

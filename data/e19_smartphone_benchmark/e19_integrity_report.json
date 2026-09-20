@@ -1,0 +1,73 @@
+{
+  "benchmark_name": "E19 Real Smartphone & ISP Diversity Benchmark",
+  "freeze_timestamp": "2026-09-18 13:53:50 UTC",
+  "provenance_audit_timestamp": "2026-09-18 14:20:00 UTC",
+  "total_images": 200,
+  "real_count": 100,
+  "ai_count": 100,
+  "unique_sha256_count": 200,
+  "unique_image_ids": 200,
+  "historical_exclusion_pool_size": 41172,
+  "historical_leakage_overlap": 0,
+  "internal_duplicate_count": 0,
+  "whatsapp_subset": {
+    "total_count": 60,
+    "real_count": 30,
+    "ai_count": 30,
+    "transformation_type": "controlled WhatsApp-style compression simulation (1280px long edge, JPEG Q75, 4:2:0 chroma subsampling, stripped EXIF/ICC)",
+    "actual_whatsapp_network_transit": false
+  },
+  "real_device_breakdown": {
+    "Apple iPhone (iPhone X)": {
+      "count": 35,
+      "exact_model_confirmed": true,
+      "source_dataset": "marcosv/rawir (NTIRE 2025)",
+      "license": "MIT"
+    },
+    "Samsung Galaxy (Galaxy S9)": {
+      "count": 35,
+      "exact_model_confirmed": true,
+      "source_dataset": "marcosv/rawir (NTIRE 2025)",
+      "license": "MIT"
+    },
+    "Google Pixel (Pixel 7-9 family, exact model unspecified)": {
+      "count": 30,
+      "exact_model_confirmed": false,
+      "source_dataset": "marcosv/rawir (NTIRE 2025)",
+      "license": "MIT"
+    }
+  },
+  "ai_generator_breakdown": {
+    "FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)": {
+      "count": 20,
+      "exact_model_engine_confirmed": false,
+      "source_dataset": "mramazan/Synthetic-Character-Dataset-for-FLUX-LORA",
+      "license": "Other (Research only)"
+    },
+    "Google Gemini (exact underlying model unspecified)": {
+      "count": 20,
+      "exact_model_engine_confirmed": false,
+      "source_dataset": "Wikimedia Commons (Category:Images_generated_by_Gemini)",
+      "license": "Creative Commons / Public Domain (verified per file)"
+    },
+    "Midjourney (exact version unspecified)": {
+      "count": 20,
+      "exact_model_engine_confirmed": false,
+      "source_dataset": "Wikimedia Commons (Category:Images_generated_by_Midjourney)",
+      "license": "Creative Commons / Public Domain (verified per file)"
+    },
+    "OpenAI DALL-E (DALL-E 3)": {
+      "count": 20,
+      "exact_model_engine_confirmed": true,
+      "source_dataset": "Wikimedia Commons (Category:Images_generated_by_DALL-E_3)",
+      "license": "Creative Commons / Public Domain (verified per file)"
+    },
+    "Stability AI Stable Diffusion (exact version unspecified)": {
+      "count": 20,
+      "exact_model_engine_confirmed": false,
+      "source_dataset": "Wikimedia Commons (Category:Images_generated_by_Stable_Diffusion)",
+      "license": "Creative Commons / Public Domain (verified per file)"
+    }
+  },
+  "zero_model_inference_verified": true
+}

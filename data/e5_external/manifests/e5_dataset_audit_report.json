@@ -1,0 +1,89 @@
+{
+  "timestamp": "2026-09-15T14:43:00Z",
+  "manifest_path": "data/e5_external/manifests/e5_manifest.csv",
+  "total_records": 39432,
+  "total_file_bytes": 16192561370,
+  "total_file_gigabytes": 15.08,
+  "integrity_verification": {
+    "missing_files_count": 0,
+    "zero_byte_files_count": 0,
+    "v2_exact_collisions": 0,
+    "v2_perceptual_collisions": 78,
+    "dalle3_contamination": {
+      "in_train": 0,
+      "in_val": 0,
+      "in_eval_modern": 492,
+      "isolated": true
+    },
+    "genimage_holdout_isolation": {
+      "biggan_midjourney_in_train": 0,
+      "biggan_midjourney_in_val": 0,
+      "biggan_midjourney_in_test": 10000,
+      "isolated": true
+    },
+    "split_contamination": {
+      "train_val_sha256_overlap": 0,
+      "train_eval_sha256_overlap": 0,
+      "train_test_sha256_overlap": 1,
+      "val_eval_sha256_overlap": 0
+    },
+    "real_world_test_v2_untouched": true,
+    "genimage_dataset_untouched": true,
+    "original_manifest_untouched": true
+  },
+  "dataset_distributions": {
+    "split_class_summary": {
+      "train_ai": 11418,
+      "train_real": 11747,
+      "val_ai": 2841,
+      "val_real": 2934,
+      "test_ai": 5000,
+      "test_real": 5000,
+      "eval_modern_ai": 492
+    },
+    "source_class_summary": {
+      "GenImage (NeurIPS 2023)_ai": 17500,
+      "GenImage (NeurIPS 2023)_real": 17500,
+      "LukasT9/Flux-1-Dev-Images-1k_ai": 372,
+      "LukasT9/Flux-1-Schnell-Images-1k_ai": 406,
+      "Synthbuster (Zenodo Record 10066460)_ai": 1473,
+      "VISION Smartphone Dataset (Univ. Florence)_real": 2181
+    },
+    "generator_split_summary": {
+      "ADM__train": 4000,
+      "ADM__val": 1000,
+      "VQDM__train": 4000,
+      "VQDM__val": 1000,
+      "SDv5__train": 4000,
+      "SDv5__val": 1000,
+      "Wukong__train": 4000,
+      "Wukong__val": 1000,
+      "GLIDE__train": 4000,
+      "GLIDE__val": 1000,
+      "BigGAN__test": 5000,
+      "Midjourney__test": 5000,
+      "FLUX.1 [dev]__train": 300,
+      "FLUX.1 [dev]__val": 72,
+      "FLUX.1 [schnell]__train": 329,
+      "FLUX.1 [schnell]__val": 77,
+      "Stable Diffusion XL (SDXL)__train": 789,
+      "Stable Diffusion XL (SDXL)__val": 192,
+      "DALL-E 3__eval_modern": 492,
+      "VISION_D02_Apple_iPhone4s__train": 183,
+      "VISION_D05_Apple_iPhone5c__train": 227,
+      "VISION_D06_Apple_iPhone6__train": 95,
+      "VISION_D09_Apple_iPhone4__train": 162,
+      "VISION_D10_Apple_iPhone4s__train": 145,
+      "VISION_D14_Apple_iPhone5c__train": 91,
+      "VISION_D14_Apple_iPhone5c__val": 94,
+      "VISION_D19_Apple_iPhone6Plus__val": 137,
+      "VISION_D01_Samsung_GalaxyS3Mini__train": 164,
+      "VISION_D11_Samsung_GalaxyS3__train": 181,
+      "VISION_D22_Samsung_GalaxyTrendPlus__train": 129,
+      "VISION_D24_Xiaomi_RedmiNote3__train": 257,
+      "VISION_D25_OnePlus_A3000__train": 113,
+      "VISION_D25_OnePlus_A3000__val": 75,
+      "VISION_D27_Samsung_GalaxyS5__val": 128
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "leakage_protocol_version": "1.0",
+  "quarantined_benchmarks": {
+    "real_world_test_v2": {
+      "path": "data/real_world_test_v2",
+      "total_images": 76,
+      "n_real": 38,
+      "n_ai": 38,
+      "hash_registry_path": "scratch/v2_hash_registry.json",
+      "status": "QUARANTINED_FROZEN",
+      "accepted_collisions_permitted": 0
+    },
+    "genimage_classical_unseen_test": {
+      "generators": ["BigGAN", "Midjourney"],
+      "total_images": 9999,
+      "status": "QUARANTINED_FROZEN",
+      "permitted_in_e5_train_or_val": false
+    },
+    "modern_unseen_evaluation": {
+      "generator": "DALL-E 3",
+      "total_images": 500,
+      "isolation_path": "data/e5_external/modern_ai/dalle3_eval",
+      "status": "STRICTLY_EVALUATION_ONLY",
+      "permitted_in_e5_train_or_val": false
+    }
+  },
+  "collision_rejection_rules": {
+    "exact_sha256": {
+      "rule": "Exact string equality",
+      "action": "REJECT_IMMEDIATELY"
+    },
+    "perceptual_dhash": {
+      "rule": "Hamming distance <= 4 on 64-bit difference hash",
+      "action": "REJECT_NEAR_DUPLICATE"
+    },
+    "perceptual_ahash": {
+      "rule": "Hamming distance <= 4 on 64-bit average hash",
+      "action": "REJECT_NEAR_DUPLICATE"
+    },
+    "internal_e5_duplicates": {
+      "rule": "Hamming distance == 0 within acquired batch",
+      "action": "DEDUPLICATE_KEEP_FIRST"
+    }
+  },
+  "pre_acquisition_audit_status": {
+    "v2_hash_registry_verified": true,
+    "v2_total_hashes_indexed": 76,
+    "active_downloads": 0,
+    "current_v2_accepted_collisions": 0,
+    "dalle3_physical_separation_verified": true
+  }
+}

@@ -1,0 +1,505 @@
+{
+  "timestamp": "2026-09-18 14:23:25 UTC",
+  "threshold": 0.5,
+  "n_total": 200,
+  "models": {},
+  "full_e19": {
+    "E6-C": {
+      "n_total": 200,
+      "n_pos": 100,
+      "n_neg": 100,
+      "accuracy": 0.695,
+      "roc_auc": 0.7853,
+      "pr_auc": 0.7818577556143296,
+      "precision": 0.7746478873239436,
+      "recall": 0.55,
+      "f1": 0.6432748538011696,
+      "fpr": 0.16,
+      "fnr": 0.45,
+      "tp": 55,
+      "tn": 84,
+      "fp": 16,
+      "fn": 45,
+      "mean_prob_real": 0.1892000561952591,
+      "mean_prob_ai": 0.5491626596450806,
+      "median_prob_real": 0.032501220703125,
+      "median_prob_ai": 0.67431640625
+    },
+    "E15": {
+      "n_total": 200,
+      "n_pos": 100,
+      "n_neg": 100,
+      "accuracy": 0.715,
+      "roc_auc": 0.7746,
+      "pr_auc": 0.6928735454817005,
+      "precision": 0.7087378640776699,
+      "recall": 0.73,
+      "f1": 0.7192118226600985,
+      "fpr": 0.3,
+      "fnr": 0.27,
+      "tp": 73,
+      "tn": 70,
+      "fp": 30,
+      "fn": 27,
+      "mean_prob_real": 0.33580187797546385,
+      "mean_prob_ai": 0.6850916576385498,
+      "median_prob_real": 0.210205078125,
+      "median_prob_ai": 0.78955078125
+    },
+    "E18": {
+      "n_total": 200,
+      "n_pos": 100,
+      "n_neg": 100,
+      "accuracy": 0.595,
+      "roc_auc": 0.61345,
+      "pr_auc": 0.5618196944884928,
+      "precision": 0.5714285714285714,
+      "recall": 0.76,
+      "f1": 0.6523605150214592,
+      "fpr": 0.57,
+      "fnr": 0.24,
+      "tp": 76,
+      "tn": 43,
+      "fp": 57,
+      "fn": 24,
+      "mean_prob_real": 0.548839111328125,
+      "mean_prob_ai": 0.628818359375,
+      "median_prob_real": 0.525390625,
+      "median_prob_ai": 0.66552734375
+    }
+  },
+  "whatsapp_subset": {
+    "E6-C": {
+      "n_total": 60,
+      "n_pos": 30,
+      "n_neg": 30,
+      "accuracy": 0.36666666666666664,
+      "roc_auc": 0.30444444444444446,
+      "pr_auc": 0.3869494881365701,
+      "precision": 0.2777777777777778,
+      "recall": 0.16666666666666666,
+      "f1": 0.20833333333333334,
+      "fpr": 0.43333333333333335,
+      "fnr": 0.8333333333333334,
+      "tp": 5,
+      "tn": 17,
+      "fp": 13,
+      "fn": 25,
+      "mean_prob_real": 0.4552105585734049,
+      "mean_prob_ai": 0.18648726145426434,
+      "median_prob_real": 0.3553466796875,
+      "median_prob_ai": 0.06561279296875
+    },
+    "E15": {
+      "n_total": 60,
+      "n_pos": 30,
+      "n_neg": 30,
+      "accuracy": 0.4,
+      "roc_auc": 0.3611111111111111,
+      "pr_auc": 0.40777623764498444,
+      "precision": 0.4117647058823529,
+      "recall": 0.4666666666666667,
+      "f1": 0.43749999999999994,
+      "fpr": 0.6666666666666666,
+      "fnr": 0.5333333333333333,
+      "tp": 14,
+      "tn": 10,
+      "fp": 20,
+      "fn": 16,
+      "mean_prob_real": 0.615771993001302,
+      "mean_prob_ai": 0.47153828938802084,
+      "median_prob_real": 0.61474609375,
+      "median_prob_ai": 0.4818115234375
+    },
+    "E18": {
+      "n_total": 60,
+      "n_pos": 30,
+      "n_neg": 30,
+      "accuracy": 0.38333333333333336,
+      "roc_auc": 0.28888888888888886,
+      "pr_auc": 0.38296198634050793,
+      "precision": 0.425531914893617,
+      "recall": 0.6666666666666666,
+      "f1": 0.5194805194805194,
+      "fpr": 0.9,
+      "fnr": 0.3333333333333333,
+      "tp": 20,
+      "tn": 3,
+      "fp": 27,
+      "fn": 10,
+      "mean_prob_real": 0.69814453125,
+      "mean_prob_ai": 0.57047119140625,
+      "median_prob_real": 0.748779296875,
+      "median_prob_ai": 0.58251953125
+    }
+  },
+  "whatsapp_real": {
+    "E6-C": {
+      "n": 30,
+      "fp_count": 13,
+      "fpr": 0.43333333333333335,
+      "accuracy": 0.5666666666666667,
+      "mean_prob": 0.4552105585734049,
+      "median_prob": 0.3553466796875
+    },
+    "E15": {
+      "n": 30,
+      "fp_count": 20,
+      "fpr": 0.6666666666666666,
+      "accuracy": 0.3333333333333333,
+      "mean_prob": 0.615771993001302,
+      "median_prob": 0.61474609375
+    },
+    "E18": {
+      "n": 30,
+      "fp_count": 27,
+      "fpr": 0.9,
+      "accuracy": 0.1,
+      "mean_prob": 0.69814453125,
+      "median_prob": 0.748779296875
+    }
+  },
+  "whatsapp_ai": {
+    "E6-C": {
+      "n": 30,
+      "tp_count": 5,
+      "fn_count": 25,
+      "recall": 0.16666666666666666,
+      "accuracy": 0.16666666666666666,
+      "mean_prob": 0.18648726145426434,
+      "median_prob": 0.06561279296875
+    },
+    "E15": {
+      "n": 30,
+      "tp_count": 14,
+      "fn_count": 16,
+      "recall": 0.4666666666666667,
+      "accuracy": 0.4666666666666667,
+      "mean_prob": 0.47153828938802084,
+      "median_prob": 0.4818115234375
+    },
+    "E18": {
+      "n": 30,
+      "tp_count": 20,
+      "fn_count": 10,
+      "recall": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "mean_prob": 0.57047119140625,
+      "median_prob": 0.58251953125
+    }
+  },
+  "pristine_subset": {
+    "E6-C": {
+      "n_total": 140,
+      "n_pos": 70,
+      "n_neg": 70,
+      "accuracy": 0.8357142857142857,
+      "roc_auc": 0.9389795918367347,
+      "pr_auc": 0.9497741737612786,
+      "precision": 0.9433962264150944,
+      "recall": 0.7142857142857143,
+      "f1": 0.8130081300813008,
+      "fpr": 0.04285714285714286,
+      "fnr": 0.2857142857142857,
+      "tp": 50,
+      "tn": 67,
+      "fp": 3,
+      "fn": 20,
+      "mean_prob_real": 0.07519555517605372,
+      "mean_prob_ai": 0.7045949731554304,
+      "median_prob_real": 0.0118255615234375,
+      "median_prob_ai": 0.90869140625
+    },
+    "E15": {
+      "n_total": 140,
+      "n_pos": 70,
+      "n_neg": 70,
+      "accuracy": 0.85,
+      "roc_auc": 0.9177551020408163,
+      "pr_auc": 0.917996513699244,
+      "precision": 0.855072463768116,
+      "recall": 0.8428571428571429,
+      "f1": 0.8489208633093526,
+      "fpr": 0.14285714285714285,
+      "fnr": 0.15714285714285714,
+      "tp": 59,
+      "tn": 60,
+      "fp": 10,
+      "fn": 11,
+      "mean_prob_real": 0.2158146858215332,
+      "mean_prob_ai": 0.7766145297459194,
+      "median_prob_real": 0.09808349609375,
+      "median_prob_ai": 0.906982421875
+    },
+    "E18": {
+      "n_total": 140,
+      "n_pos": 70,
+      "n_neg": 70,
+      "accuracy": 0.6857142857142857,
+      "roc_auc": 0.7495918367346939,
+      "pr_auc": 0.738136816705237,
+      "precision": 0.6511627906976745,
+      "recall": 0.8,
+      "f1": 0.7179487179487181,
+      "fpr": 0.42857142857142855,
+      "fnr": 0.2,
+      "tp": 56,
+      "tn": 40,
+      "fp": 30,
+      "fn": 14,
+      "mean_prob_real": 0.48485107421875,
+      "mean_prob_ai": 0.6538242885044643,
+      "median_prob_real": 0.4796142578125,
+      "median_prob_ai": 0.6845703125
+    }
+  },
+  "real_devices": {
+    "Apple iPhone X": {
+      "E6-C": {
+        "n": 35,
+        "fp_count": 2,
+        "fpr": 0.05714285714285714,
+        "accuracy": 0.9428571428571428,
+        "mean_prob": 0.06747475692204066,
+        "median_prob": 0.003147125244140625
+      },
+      "E15": {
+        "n": 35,
+        "fp_count": 5,
+        "fpr": 0.14285714285714285,
+        "accuracy": 0.8571428571428571,
+        "mean_prob": 0.17636849539620536,
+        "median_prob": 0.057373046875
+      },
+      "E18": {
+        "n": 35,
+        "fp_count": 12,
+        "fpr": 0.34285714285714286,
+        "accuracy": 0.6571428571428571,
+        "mean_prob": 0.4362130301339286,
+        "median_prob": 0.43017578125
+      }
+    },
+    "Samsung Galaxy S9": {
+      "E6-C": {
+        "n": 35,
+        "fp_count": 1,
+        "fpr": 0.02857142857142857,
+        "accuracy": 0.9714285714285714,
+        "mean_prob": 0.08291635343006679,
+        "median_prob": 0.0261993408203125
+      },
+      "E15": {
+        "n": 35,
+        "fp_count": 5,
+        "fpr": 0.14285714285714285,
+        "accuracy": 0.8571428571428571,
+        "mean_prob": 0.25526087624686106,
+        "median_prob": 0.1973876953125
+      },
+      "E18": {
+        "n": 35,
+        "fp_count": 18,
+        "fpr": 0.5142857142857142,
+        "accuracy": 0.4857142857142857,
+        "mean_prob": 0.5334891183035714,
+        "median_prob": 0.509765625
+      }
+    },
+    "Google Pixel 7-9 family": {
+      "E6-C": {
+        "n": 30,
+        "fp_count": 13,
+        "fpr": 0.43333333333333335,
+        "accuracy": 0.5666666666666667,
+        "mean_prob": 0.4552105585734049,
+        "median_prob": 0.3553466796875
+      },
+      "E15": {
+        "n": 30,
+        "fp_count": 20,
+        "fpr": 0.6666666666666666,
+        "accuracy": 0.3333333333333333,
+        "mean_prob": 0.615771993001302,
+        "median_prob": 0.61474609375
+      },
+      "E18": {
+        "n": 30,
+        "fp_count": 27,
+        "fpr": 0.9,
+        "accuracy": 0.1,
+        "mean_prob": 0.69814453125,
+        "median_prob": 0.748779296875
+      }
+    }
+  },
+  "ai_generators": {
+    "FLUX": {
+      "E6-C": {
+        "n": 20,
+        "tp_count": 2,
+        "fn_count": 18,
+        "recall": 0.1,
+        "mean_prob": 0.13013181686401368,
+        "median_prob": 0.0377655029296875,
+        "roc_auc_vs_real": 0.5615
+      },
+      "E15": {
+        "n": 20,
+        "tp_count": 8,
+        "fn_count": 12,
+        "recall": 0.4,
+        "mean_prob": 0.41957550048828124,
+        "median_prob": 0.4351806640625,
+        "roc_auc_vs_real": 0.63175
+      },
+      "E18": {
+        "n": 20,
+        "tp_count": 13,
+        "fn_count": 7,
+        "recall": 0.65,
+        "mean_prob": 0.567364501953125,
+        "median_prob": 0.54443359375,
+        "roc_auc_vs_real": 0.525
+      }
+    },
+    "Google Gemini": {
+      "E6-C": {
+        "n": 20,
+        "tp_count": 6,
+        "fn_count": 14,
+        "recall": 0.3,
+        "mean_prob": 0.3128143548965454,
+        "median_prob": 0.14678955078125,
+        "roc_auc_vs_real": 0.66775
+      },
+      "E15": {
+        "n": 20,
+        "tp_count": 10,
+        "fn_count": 10,
+        "recall": 0.5,
+        "mean_prob": 0.5162404537200928,
+        "median_prob": 0.5191650390625,
+        "roc_auc_vs_real": 0.665
+      },
+      "E18": {
+        "n": 20,
+        "tp_count": 14,
+        "fn_count": 6,
+        "recall": 0.7,
+        "mean_prob": 0.564959716796875,
+        "median_prob": 0.62060546875,
+        "roc_auc_vs_real": 0.52625
+      }
+    },
+    "Midjourney": {
+      "E6-C": {
+        "n": 20,
+        "tp_count": 17,
+        "fn_count": 3,
+        "recall": 0.85,
+        "mean_prob": 0.8612518310546875,
+        "median_prob": 0.964111328125,
+        "roc_auc_vs_real": 0.9315
+      },
+      "E15": {
+        "n": 20,
+        "tp_count": 19,
+        "fn_count": 1,
+        "recall": 0.95,
+        "mean_prob": 0.86634521484375,
+        "median_prob": 0.94482421875,
+        "roc_auc_vs_real": 0.87675
+      },
+      "E18": {
+        "n": 20,
+        "tp_count": 18,
+        "fn_count": 2,
+        "recall": 0.9,
+        "mean_prob": 0.7126220703125,
+        "median_prob": 0.737060546875,
+        "roc_auc_vs_real": 0.7335
+      }
+    },
+    "OpenAI DALL-E 3": {
+      "E6-C": {
+        "n": 20,
+        "tp_count": 14,
+        "fn_count": 6,
+        "recall": 0.7,
+        "mean_prob": 0.6870620727539063,
+        "median_prob": 0.9052734375,
+        "roc_auc_vs_real": 0.8675
+      },
+      "E15": {
+        "n": 20,
+        "tp_count": 18,
+        "fn_count": 2,
+        "recall": 0.9,
+        "mean_prob": 0.821734619140625,
+        "median_prob": 0.930419921875,
+        "roc_auc_vs_real": 0.8525
+      },
+      "E18": {
+        "n": 20,
+        "tp_count": 15,
+        "fn_count": 5,
+        "recall": 0.75,
+        "mean_prob": 0.64239501953125,
+        "median_prob": 0.673828125,
+        "roc_auc_vs_real": 0.63175
+      }
+    },
+    "Stability AI Stable Diffusion": {
+      "E6-C": {
+        "n": 20,
+        "tp_count": 16,
+        "fn_count": 4,
+        "recall": 0.8,
+        "mean_prob": 0.75455322265625,
+        "median_prob": 0.838134765625,
+        "roc_auc_vs_real": 0.89825
+      },
+      "E15": {
+        "n": 20,
+        "tp_count": 18,
+        "fn_count": 2,
+        "recall": 0.9,
+        "mean_prob": 0.8015625,
+        "median_prob": 0.882568359375,
+        "roc_auc_vs_real": 0.847
+      },
+      "E18": {
+        "n": 20,
+        "tp_count": 16,
+        "fn_count": 4,
+        "recall": 0.8,
+        "mean_prob": 0.65675048828125,
+        "median_prob": 0.67529296875,
+        "roc_auc_vs_real": 0.65075
+      }
+    }
+  },
+  "error_analysis": {
+    "all_3_correct_count": 92,
+    "all_3_failed_count": 30,
+    "e15_corrections_over_e6c_count": 18,
+    "e18_corrections_over_e6c_count": 26,
+    "e15_new_errors_over_e6c_count": 14,
+    "e18_new_errors_over_e6c_count": 46,
+    "error_counts": {
+      "E6-C": {
+        "fps": 16,
+        "fns": 45
+      },
+      "E15": {
+        "fps": 30,
+        "fns": 27
+      },
+      "E18": {
+        "fps": 57,
+        "fns": 24
+      }
+    }
+  }
+}

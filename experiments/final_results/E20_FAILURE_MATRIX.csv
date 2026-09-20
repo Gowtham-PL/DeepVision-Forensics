@@ -1,0 +1,26 @@
+regime,model,total_samples,correct_real_tn,false_positives_fp,correct_ai_tp,false_negatives_fn,accuracy,roc_auc,pr_auc,precision,recall_tpr,f1_score,real_fpr,ai_fnr,evaluation_status
+GenImage Unseen Test,E1 Spatial Baseline,9999,4609,390,3521,1479,0.8131,0.8991,0.9079,0.9003,0.7042,0.7903,0.078,0.2958,Held-Out Test
+GenImage Unseen Test,E3-Std Dual-Domain,9999,4776,223,2775,2225,0.7552,0.8959,0.8993,0.9256,0.555,0.6939,0.0446,0.445,Held-Out Test
+GenImage Unseen Test,E5 Generalization,9999,4627,372,3265,1735,0.7893,0.9195,0.9227,0.8977,0.653,0.7561,0.0744,0.347,Held-Out Test
+E5 External Validation,E5 Baseline,5775,2764,132,2593,286,0.9276,0.982,0.9817,0.9516,0.9007,0.9254,0.0456,0.0993,Model Selection
+E5 External Validation,E6-C Production,5775,2810,86,2743,136,0.9616,0.9936,0.9937,0.9696,0.9528,0.9611,0.0297,0.0472,Model Selection
+E5 External Validation,E15 Robust,5775,2757,139,2717,162,0.948,0.988,0.9875,0.9513,0.9437,0.9475,0.048,0.0563,Model Selection
+E5 External Validation,E18 Gated,5775,2745,151,2712,167,0.945,0.987,0.986,0.9473,0.942,0.9446,0.052,0.058,Model Selection
+Frozen WhatsApp Benchmark,E6-C Production,67,32,2,9,24,0.6119,0.6542,0.7175,0.8182,0.2727,0.4091,0.0588,0.7273,Diagnostic Holdout
+Frozen WhatsApp Benchmark,E15 Robust,67,22,12,16,17,0.5672,0.6221,0.6721,0.5714,0.4848,0.5246,0.3529,0.5152,Diagnostic Holdout
+Frozen WhatsApp Benchmark,E18 Gated,67,20,14,20,13,0.597,0.6119,0.64,0.5882,0.6061,0.597,0.4118,0.3939,Diagnostic Holdout
+E14 Final Test Clean,E6-C Production,200,77,23,74,26,0.755,0.8426,0.8598,0.7629,0.74,0.7513,0.23,0.26,Sealed Final Test
+E14 Final Test Clean,E15 Robust,200,69,31,90,10,0.795,0.8682,0.8781,0.7438,0.9,0.8145,0.31,0.1,Sealed Final Test
+E14 Final Test Clean,E18 Gated,200,59,41,90,10,0.745,0.8704,0.87,0.687,0.9,0.7792,0.41,0.1,Sealed Final Test
+E14 Final Test Degraded,E6-C Production,600,264,36,131,169,0.6583,0.764,0.7762,0.7844,0.4367,0.561,0.12,0.5633,Sealed Final Test
+E14 Final Test Degraded,E15 Robust,600,232,68,229,71,0.7683,0.8252,0.8262,0.771,0.7633,0.7672,0.2267,0.2367,Sealed Final Test
+E14 Final Test Degraded,E18 Gated,600,197,103,258,42,0.7583,0.841,0.8389,0.7147,0.86,0.7806,0.3433,0.14,Sealed Final Test
+E19 Full Benchmark,E6-C Production,200,84,16,55,45,0.695,0.7853,0.7819,0.7746,0.55,0.6433,0.16,0.45,Sealed Final Test
+E19 Full Benchmark,E15 Robust,200,70,30,73,27,0.715,0.7746,0.6929,0.7087,0.73,0.7192,0.3,0.27,Sealed Final Test
+E19 Full Benchmark,E18 Gated,200,43,57,76,24,0.595,0.6135,0.5618,0.5714,0.76,0.6524,0.57,0.24,Sealed Final Test
+E19 Pristine Subset,E6-C Production,140,67,3,50,20,0.8357,0.9392,0.9498,0.9434,0.7143,0.813,0.0429,0.2857,Sealed Final Test
+E19 Pristine Subset,E15 Robust,140,60,10,59,11,0.85,0.9179,0.918,0.8551,0.8429,0.8489,0.1429,0.1571,Sealed Final Test
+E19 Pristine Subset,E18 Gated,140,40,30,56,14,0.6857,0.7496,0.7381,0.6512,0.8,0.7179,0.4286,0.2,Sealed Final Test
+E19 WA-Style Simulation,E6-C Production,60,17,13,5,25,0.3667,0.305,0.3869,0.2778,0.1667,0.2083,0.4333,0.8333,Sealed Final Test
+E19 WA-Style Simulation,E15 Robust,60,10,20,14,16,0.4,0.3611,0.4078,0.4118,0.4667,0.4375,0.6667,0.5333,Sealed Final Test
+E19 WA-Style Simulation,E18 Gated,60,3,27,20,10,0.3833,0.2889,0.383,0.4255,0.6667,0.5195,0.9,0.3333,Sealed Final Test

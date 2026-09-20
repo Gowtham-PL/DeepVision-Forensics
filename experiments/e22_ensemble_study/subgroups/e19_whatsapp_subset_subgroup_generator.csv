@@ -1,0 +1,4 @@
+group_field,group_value,n,n_real,n_ai,e6c_acc,e20_acc,e21_acc,e22_acc,e22_f1,e6c_recall,e20_recall,e21_recall,e22_recall,e6c_fpr,e20_fpr,e21_fpr,e22_fpr
+generator,"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",20,0,20,0.1,0.35,0.9,0.7,0.8235294117647058,0.1,0.35,0.9,0.7,,,,
+generator,Google Gemini (exact underlying model unspecified),10,0,10,0.3,0.8,0.9,0.9,0.9473684210526316,0.3,0.8,0.9,0.9,,,,
+generator,None (Camera ISP),30,30,0,0.5666666666666667,0.9666666666666667,0.3333333333333333,0.36666666666666664,0.0,,,,,0.43333333333333335,0.03333333333333333,0.6666666666666666,0.6333333333333333

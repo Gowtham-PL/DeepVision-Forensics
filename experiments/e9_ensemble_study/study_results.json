@@ -1,0 +1,195 @@
+{
+  "experiment": "E9: E6-C + E8-B Compression-Robust Ensemble Study",
+  "frozen_rule": {
+    "name": "Ensemble (w_e8=0.20)",
+    "type": "continuous_ensemble",
+    "rule_func": [
+      "ensemble",
+      0.2,
+      0.5
+    ],
+    "rationale": "Selected strictly on E5 validation dataset to maximize F1 and recall under the strict constraint FPR <= 3.5%.",
+    "e5_val_metrics": {
+      "n_samples": 5775,
+      "n_real": 2934,
+      "n_ai": 2841,
+      "tp": 2715,
+      "fp": 82,
+      "tn": 2852,
+      "fn": 126,
+      "accuracy": 0.964,
+      "precision": 0.9707,
+      "recall": 0.9556,
+      "f1": 0.9631,
+      "fpr": 0.0279,
+      "fnr": 0.0444,
+      "roc_auc": 0.9941,
+      "pr_auc": 0.9942,
+      "weight_e8": 0.2,
+      "weight_e6c": 0.8
+    }
+  },
+  "models": {
+    "e6c_checkpoint": "experiments\\e6_multiscale_training\\e6c_finetune_benchmark\\e6c_checkpoint_epoch2.pt",
+    "e8b_checkpoint": "experiments\\e8_compression_robustness\\checkpoints\\e8b_best_model.pt"
+  },
+  "e5_validation_comparison": {
+    "e6c": {
+      "n_samples": 5775,
+      "n_real": 2934,
+      "n_ai": 2841,
+      "tp": 2707,
+      "fp": 87,
+      "tn": 2847,
+      "fn": 134,
+      "accuracy": 0.9617,
+      "precision": 0.9689,
+      "recall": 0.9528,
+      "f1": 0.9608,
+      "fpr": 0.0297,
+      "fnr": 0.0472,
+      "roc_auc": 0.9936,
+      "pr_auc": 0.9937
+    },
+    "e8b": {
+      "n_samples": 5775,
+      "n_real": 2934,
+      "n_ai": 2841,
+      "tp": 2677,
+      "fp": 101,
+      "tn": 2833,
+      "fn": 164,
+      "accuracy": 0.9541,
+      "precision": 0.9636,
+      "recall": 0.9423,
+      "f1": 0.9528,
+      "fpr": 0.0344,
+      "fnr": 0.0577,
+      "roc_auc": 0.9907,
+      "pr_auc": 0.9909
+    },
+    "e9": {
+      "n_samples": 5775,
+      "n_real": 2934,
+      "n_ai": 2841,
+      "tp": 2715,
+      "fp": 82,
+      "tn": 2852,
+      "fn": 126,
+      "accuracy": 0.964,
+      "precision": 0.9707,
+      "recall": 0.9556,
+      "f1": 0.9631,
+      "fpr": 0.0279,
+      "fnr": 0.0444,
+      "roc_auc": 0.9941,
+      "pr_auc": 0.9942,
+      "weight_e8": 0.2,
+      "weight_e6c": 0.8
+    }
+  },
+  "hard_case_diagnostics": {
+    "original_ai_edit": {
+      "path": "data\\e6_hard_cases\\original_ai_edit.png",
+      "ground_truth": "AI",
+      "e6c": {
+        "prob": 0.8608,
+        "global_prob": 0.8572,
+        "strongest_local_prob": 0.9589,
+        "pred": "AI"
+      },
+      "e8b": {
+        "prob": 0.2697,
+        "global_prob": 0.0574,
+        "strongest_local_prob": 0.6639,
+        "pred": "REAL"
+      },
+      "e9": {
+        "prob_or_score": 0.7426,
+        "pred": "AI",
+        "correct": true
+      }
+    },
+    "whatsapp_download": {
+      "path": "data\\e6_hard_cases\\whatsapp_download.jpeg",
+      "ground_truth": "REAL",
+      "e6c": {
+        "prob": 0.1117,
+        "global_prob": 0.0551,
+        "strongest_local_prob": 0.7553,
+        "pred": "REAL"
+      },
+      "e8b": {
+        "prob": 0.0621,
+        "global_prob": 0.0196,
+        "strongest_local_prob": 0.401,
+        "pred": "REAL"
+      },
+      "e9": {
+        "prob_or_score": 0.1018,
+        "pred": "REAL",
+        "correct": true
+      }
+    }
+  },
+  "whatsapp_test_comparison": {
+    "e6c": {
+      "n_samples": 67,
+      "n_real": 34,
+      "n_ai": 33,
+      "tp": 9,
+      "fp": 2,
+      "tn": 32,
+      "fn": 24,
+      "accuracy": 0.6119,
+      "precision": 0.8182,
+      "recall": 0.2727,
+      "f1": 0.4091,
+      "fpr": 0.0588,
+      "fnr": 0.7273,
+      "roc_auc": 0.656,
+      "pr_auc": 0.7139
+    },
+    "e8b": {
+      "n_samples": 67,
+      "n_real": 34,
+      "n_ai": 33,
+      "tp": 14,
+      "fp": 5,
+      "tn": 29,
+      "fn": 19,
+      "accuracy": 0.6418,
+      "precision": 0.7368,
+      "recall": 0.4242,
+      "f1": 0.5385,
+      "fpr": 0.1471,
+      "fnr": 0.5758,
+      "roc_auc": 0.6881,
+      "pr_auc": 0.7209
+    },
+    "e9": {
+      "n_samples": 67,
+      "n_real": 34,
+      "n_ai": 33,
+      "tp": 9,
+      "fp": 2,
+      "tn": 32,
+      "fn": 24,
+      "accuracy": 0.6119,
+      "precision": 0.8182,
+      "recall": 0.2727,
+      "f1": 0.4091,
+      "fpr": 0.0588,
+      "fnr": 0.7273,
+      "roc_auc": 0.6774,
+      "pr_auc": 0.7258
+    }
+  },
+  "transition_analysis": {
+    "recovered_ai_fn_count": 0,
+    "lost_e6c_tp_count": 0,
+    "additional_real_fp_count": 0,
+    "corrected_e6c_fp_count": 0,
+    "transitions": []
+  }
+}

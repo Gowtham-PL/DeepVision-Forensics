@@ -1,0 +1,35 @@
+{
+  "experiment": "E12-A: Compression-Invariant Feature Regularization",
+  "starting_checkpoint": "experiments\\e6_multiscale_training\\e6c_finetune_benchmark\\e6c_checkpoint_epoch2.pt",
+  "lambda_consistency": 0.05,
+  "epochs": 3,
+  "batch_size_pairs": 8,
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "optimizer": "AdamW",
+  "precision": "CUDA AMP",
+  "trainable_parameters": 1214466,
+  "total_parameters": 12365322,
+  "augmentation_distribution": {
+    "clean_branch_pct": 100,
+    "compressed_branch_single_whatsapp_pct": 50,
+    "compressed_branch_double_social_pct": 50,
+    "single_whatsapp_quality": [
+      70,
+      82
+    ],
+    "single_whatsapp_resize_range": [
+      1080,
+      1600
+    ],
+    "double_social_q1": [
+      75,
+      85
+    ],
+    "double_social_q2": [
+      65,
+      75
+    ],
+    "subsampling": "4:2:0"
+  }
+}

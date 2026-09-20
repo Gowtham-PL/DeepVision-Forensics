@@ -1,0 +1,18 @@
+{
+  "experiment_name": "E6-B Frozen-Backbone Multi-View Training",
+  "checkpoint_init": "d:\\DeepVision-Forensics\\experiments\\e5_generalization\\best_model.pt",
+  "num_views": 5,
+  "batch_size": 16,
+  "num_epochs": 10,
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "optimizer": "AdamW",
+  "amp_enabled": true,
+  "frozen_backbone": true,
+  "n_trainable_params": 229633,
+  "n_frozen_params": 12135689,
+  "train_samples": 23165,
+  "val_samples": 5775,
+  "device": "cuda",
+  "seed": 42
+}

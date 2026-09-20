@@ -110,7 +110,7 @@ class DeepVisionFusionModel(nn.Module):
 
 
 def build_model(
-    experiment: Literal["E1", "E2", "E3"] = "E3",
+    experiment: Literal["E1", "E2", "E3", "E4"] = "E3",
     pretrained: bool = True,
     freq_norm_strategy: Literal["minmax", "standardize", "instance_norm", "none"] = "minmax",
     freq_embedding_dim: int = 256,
@@ -119,7 +119,7 @@ def build_model(
     Factory function for building baseline and primary experimental models.
     
     Args:
-        experiment: 'E1' (Spatial-only), 'E2' (Frequency-only), or 'E3' (Dual-branch Fusion).
+        experiment: 'E1' (Spatial-only), 'E2' (Frequency-only), 'E3' (Dual-branch Fusion), or 'E4' (Robustness Dual-branch Fusion).
         pretrained: Whether to load ImageNet pretrained weights for EfficientNet-B3.
         freq_norm_strategy: Frequency log-magnitude normalization method.
         freq_embedding_dim: Dimensionality of the frequency embedding (default 256).
@@ -137,11 +137,11 @@ def build_model(
             norm_strategy=freq_norm_strategy,
             embedding_dim=freq_embedding_dim,
         )
-    elif experiment == "E3":
+    elif experiment in ("E3", "E4"):
         return DeepVisionFusionModel(
             spatial_pretrained=pretrained,
             freq_norm_strategy=freq_norm_strategy,
             freq_embedding_dim=freq_embedding_dim,
         )
     else:
-        raise ValueError(f"Unknown experiment configuration: {experiment}. Expected 'E1', 'E2', or 'E3'.")
+        raise ValueError(f"Unknown experiment configuration: {experiment}. Expected 'E1', 'E2', 'E3', or 'E4'.")

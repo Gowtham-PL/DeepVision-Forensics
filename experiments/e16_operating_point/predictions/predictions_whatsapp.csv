@@ -1,0 +1,68 @@
+filepath,label,filename,label_int,prob_e6c,pred_e6c,prob_e15,pred_e15,prob_e16,pred_e16
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 3.50.51 PM.jpeg,AI,WhatsApp Image 2026-09-17 at 3.50.51 PM.jpeg,1,0.23914,Real,0.61523,AI,0.42719,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 3.56.02 PM (1).jpeg,AI,WhatsApp Image 2026-09-17 at 3.56.02 PM (1).jpeg,1,0.06854,Real,0.17908,Real,0.12381,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 3.56.02 PM (2).jpeg,AI,WhatsApp Image 2026-09-17 at 3.56.02 PM (2).jpeg,1,0.18042,Real,0.34937,Real,0.26489,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 3.56.02 PM (3).jpeg,AI,WhatsApp Image 2026-09-17 at 3.56.02 PM (3).jpeg,1,0.73340,AI,0.67432,AI,0.70386,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 3.56.02 PM.jpeg,AI,WhatsApp Image 2026-09-17 at 3.56.02 PM.jpeg,1,0.07782,Real,0.43774,Real,0.25778,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.13.17 PM (1).jpeg,AI,WhatsApp Image 2026-09-17 at 4.13.17 PM (1).jpeg,1,0.00289,Real,0.09106,Real,0.04698,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.13.17 PM (2).jpeg,AI,WhatsApp Image 2026-09-17 at 4.13.17 PM (2).jpeg,1,0.80371,AI,0.89453,AI,0.84912,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.13.17 PM (3).jpeg,AI,WhatsApp Image 2026-09-17 at 4.13.17 PM (3).jpeg,1,0.73145,AI,0.95508,AI,0.84326,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.13.17 PM (4).jpeg,AI,WhatsApp Image 2026-09-17 at 4.13.17 PM (4).jpeg,1,0.16931,Real,0.46997,Real,0.31964,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.13.17 PM (5).jpeg,AI,WhatsApp Image 2026-09-17 at 4.13.17 PM (5).jpeg,1,0.55225,AI,0.89844,AI,0.72534,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.13.17 PM.jpeg,AI,WhatsApp Image 2026-09-17 at 4.13.17 PM.jpeg,1,0.00015,Real,0.01273,Real,0.00644,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.13.18 PM (1).jpeg,AI,WhatsApp Image 2026-09-17 at 4.13.18 PM (1).jpeg,1,0.67871,AI,0.79688,AI,0.73779,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.13.18 PM (2).jpeg,AI,WhatsApp Image 2026-09-17 at 4.13.18 PM (2).jpeg,1,0.16431,Real,0.56348,AI,0.36389,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.13.18 PM (3).jpeg,AI,WhatsApp Image 2026-09-17 at 4.13.18 PM (3).jpeg,1,0.27759,Real,0.83545,AI,0.55652,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.13.18 PM (4).jpeg,AI,WhatsApp Image 2026-09-17 at 4.13.18 PM (4).jpeg,1,0.05634,Real,0.61230,AI,0.33432,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.13.18 PM (5).jpeg,AI,WhatsApp Image 2026-09-17 at 4.13.18 PM (5).jpeg,1,0.92432,AI,0.98291,AI,0.95361,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.13.18 PM (6).jpeg,AI,WhatsApp Image 2026-09-17 at 4.13.18 PM (6).jpeg,1,0.61865,AI,0.92822,AI,0.77344,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.13.18 PM.jpeg,AI,WhatsApp Image 2026-09-17 at 4.13.18 PM.jpeg,1,0.47681,Real,0.72168,AI,0.59924,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.28.11 PM (1).jpeg,AI,WhatsApp Image 2026-09-17 at 4.28.11 PM (1).jpeg,1,0.57178,AI,0.64795,AI,0.60986,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.28.11 PM (2).jpeg,AI,WhatsApp Image 2026-09-17 at 4.28.11 PM (2).jpeg,1,0.00477,Real,0.14929,Real,0.07703,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.28.11 PM (3).jpeg,AI,WhatsApp Image 2026-09-17 at 4.28.11 PM (3).jpeg,1,0.00160,Real,0.08447,Real,0.04304,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.28.11 PM (4).jpeg,AI,WhatsApp Image 2026-09-17 at 4.28.11 PM (4).jpeg,1,0.00200,Real,0.05603,Real,0.02901,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.28.11 PM (5).jpeg,AI,WhatsApp Image 2026-09-17 at 4.28.11 PM (5).jpeg,1,0.08435,Real,0.42920,Real,0.25677,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.28.11 PM (6).jpeg,AI,WhatsApp Image 2026-09-17 at 4.28.11 PM (6).jpeg,1,0.32373,Real,0.56885,AI,0.44629,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.28.11 PM (7).jpeg,AI,WhatsApp Image 2026-09-17 at 4.28.11 PM (7).jpeg,1,0.00605,Real,0.07367,Real,0.03986,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.28.11 PM.jpeg,AI,WhatsApp Image 2026-09-17 at 4.28.11 PM.jpeg,1,0.01462,Real,0.41284,Real,0.21373,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.31.09 PM.jpeg,AI,WhatsApp Image 2026-09-17 at 4.31.09 PM.jpeg,1,0.10822,Real,0.39819,Real,0.25320,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.37.12 PM (1).jpeg,AI,WhatsApp Image 2026-09-17 at 4.37.12 PM (1).jpeg,1,0.00229,Real,0.15454,Real,0.07841,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.37.12 PM (2).jpeg,AI,WhatsApp Image 2026-09-17 at 4.37.12 PM (2).jpeg,1,0.37207,Real,0.84961,AI,0.61084,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.37.12 PM (3).jpeg,AI,WhatsApp Image 2026-09-17 at 4.37.12 PM (3).jpeg,1,0.00197,Real,0.16602,Real,0.08399,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.37.12 PM.jpeg,AI,WhatsApp Image 2026-09-17 at 4.37.12 PM.jpeg,1,0.00066,Real,0.10071,Real,0.05069,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.39.57 PM (1).jpeg,AI,WhatsApp Image 2026-09-17 at 4.39.57 PM (1).jpeg,1,0.87158,AI,0.92627,AI,0.89893,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/ai/WhatsApp Image 2026-09-17 at 4.39.57 PM.jpeg,AI,WhatsApp Image 2026-09-17 at 4.39.57 PM.jpeg,1,0.03928,Real,0.25000,Real,0.14464,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.38.18 PM (1).jpeg,Real,WhatsApp Image 2026-09-17 at 3.38.18 PM (1).jpeg,0,0.53662,AI,0.79150,AI,0.66406,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.38.18 PM (2).jpeg,Real,WhatsApp Image 2026-09-17 at 3.38.18 PM (2).jpeg,0,0.02438,Real,0.18860,Real,0.10649,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.38.18 PM.jpeg,Real,WhatsApp Image 2026-09-17 at 3.38.18 PM.jpeg,0,0.00001,Real,0.00162,Real,0.00081,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.38.19 PM (1).jpeg,Real,WhatsApp Image 2026-09-17 at 3.38.19 PM (1).jpeg,0,0.04663,Real,0.20789,Real,0.12726,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.38.19 PM (2).jpeg,Real,WhatsApp Image 2026-09-17 at 3.38.19 PM (2).jpeg,0,0.00930,Real,0.12366,Real,0.06648,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.38.19 PM.jpeg,Real,WhatsApp Image 2026-09-17 at 3.38.19 PM.jpeg,0,0.00022,Real,0.01883,Real,0.00953,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.38.21 PM (1).jpeg,Real,WhatsApp Image 2026-09-17 at 3.38.21 PM (1).jpeg,0,0.00598,Real,0.15308,Real,0.07953,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.38.21 PM (2).jpeg,Real,WhatsApp Image 2026-09-17 at 3.38.21 PM (2).jpeg,0,0.05511,Real,0.43823,Real,0.24667,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.38.21 PM.jpeg,Real,WhatsApp Image 2026-09-17 at 3.38.21 PM.jpeg,0,0.00539,Real,0.12939,Real,0.06739,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.38.22 PM (1).jpeg,Real,WhatsApp Image 2026-09-17 at 3.38.22 PM (1).jpeg,0,0.33057,Real,0.57715,AI,0.45386,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.38.22 PM (2).jpeg,Real,WhatsApp Image 2026-09-17 at 3.38.22 PM (2).jpeg,0,0.00011,Real,0.00755,Real,0.00383,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.38.22 PM (3).jpeg,Real,WhatsApp Image 2026-09-17 at 3.38.22 PM (3).jpeg,0,0.18140,Real,0.45068,Real,0.31604,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.38.22 PM.jpeg,Real,WhatsApp Image 2026-09-17 at 3.38.22 PM.jpeg,0,0.07019,Real,0.49902,Real,0.28461,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.40.06 PM (1).jpeg,Real,WhatsApp Image 2026-09-17 at 3.40.06 PM (1).jpeg,0,0.03149,Real,0.24182,Real,0.13666,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.40.06 PM.jpeg,Real,WhatsApp Image 2026-09-17 at 3.40.06 PM.jpeg,0,0.01287,Real,0.16821,Real,0.09054,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.10 PM (1).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.10 PM (1).jpeg,0,0.01390,Real,0.49561,Real,0.25475,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.10 PM (2).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.10 PM (2).jpeg,0,0.00378,Real,0.05176,Real,0.02777,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.10 PM (3).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.10 PM (3).jpeg,0,0.04691,Real,0.50732,AI,0.27711,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.10 PM (4).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.10 PM (4).jpeg,0,0.04630,Real,0.75488,AI,0.40059,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.10 PM (7).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.10 PM (7).jpeg,0,0.00050,Real,0.02670,Real,0.01360,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.11 PM (1).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.11 PM (1).jpeg,0,0.04419,Real,0.62939,AI,0.33679,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.11 PM (10).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.11 PM (10).jpeg,0,0.31616,Real,0.67773,AI,0.49695,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.11 PM (11).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.11 PM (11).jpeg,0,0.06305,Real,0.51367,AI,0.28836,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.11 PM (12).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.11 PM (12).jpeg,0,0.41528,Real,0.77051,AI,0.59290,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.11 PM (13).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.11 PM (13).jpeg,0,0.34839,Real,0.66211,AI,0.50525,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.11 PM (14).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.11 PM (14).jpeg,0,0.14990,Real,0.47876,Real,0.31433,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.11 PM (15).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.11 PM (15).jpeg,0,0.16479,Real,0.54199,AI,0.35339,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.11 PM (2).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.11 PM (2).jpeg,0,0.00012,Real,0.00790,Real,0.00401,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.11 PM (3).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.11 PM (3).jpeg,0,0.51221,AI,0.81055,AI,0.66138,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.11 PM (4).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.11 PM (4).jpeg,0,0.00000,Real,0.00170,Real,0.00085,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.11 PM (5).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.11 PM (5).jpeg,0,0.17261,Real,0.85352,AI,0.51306,AI
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.11 PM (7).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.11 PM (7).jpeg,0,0.00743,Real,0.10504,Real,0.05624,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.11 PM (8).jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.11 PM (8).jpeg,0,0.04654,Real,0.14697,Real,0.09676,Real
+D:/DeepVision-Forensics/data/whatsapp_robustness_test/real/WhatsApp Image 2026-09-17 at 3.44.11 PM.jpeg,Real,WhatsApp Image 2026-09-17 at 3.44.11 PM.jpeg,0,0.00729,Real,0.15662,Real,0.08195,Real

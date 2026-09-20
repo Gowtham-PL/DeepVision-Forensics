@@ -1,0 +1,8 @@
+{
+  "name": "Blend_w0.5",
+  "family": "blend",
+  "params": {
+    "w": 0.5
+  },
+  "description": "Weighted probability blend with E6-C weight 0.5 and E15 weight 0.5"
+}

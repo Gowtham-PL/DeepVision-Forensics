@@ -1,0 +1,32 @@
+{
+  "original_ai_edit": {
+    "ground_truth": "AI",
+    "final_prob": 0.9961,
+    "predicted_class": "AI",
+    "correct": true,
+    "global_prob": 0.9932,
+    "strongest_local_prob": 0.9995,
+    "attention_weights": [
+      0.2747,
+      0.1605,
+      0.1327,
+      0.2796,
+      0.1525
+    ]
+  },
+  "whatsapp_download": {
+    "ground_truth": "REAL",
+    "final_prob": 0.2246,
+    "predicted_class": "REAL",
+    "correct": true,
+    "global_prob": 0.1331,
+    "strongest_local_prob": 0.9902,
+    "attention_weights": [
+      0.301,
+      0.1226,
+      0.1714,
+      0.2585,
+      0.1466
+    ]
+  }
+}

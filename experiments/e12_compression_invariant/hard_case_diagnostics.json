@@ -1,0 +1,46 @@
+{
+  "original_ai_edit.png": {
+    "ground_truth": "AI",
+    "prediction": "AI",
+    "correct": true,
+    "final_prob": 0.9282,
+    "global_prob": 0.9683,
+    "strongest_local_prob": 0.9995,
+    "attention_weights": [
+      0.3143,
+      0.1165,
+      0.1165,
+      0.3005,
+      0.1523
+    ],
+    "view_probs": [
+      0.9683,
+      0.2915,
+      0.9995,
+      0.6729,
+      0.9556
+    ]
+  },
+  "whatsapp_download.jpeg": {
+    "ground_truth": "REAL",
+    "prediction": "REAL",
+    "correct": true,
+    "final_prob": 0.012,
+    "global_prob": 0.0051,
+    "strongest_local_prob": 0.9492,
+    "attention_weights": [
+      0.3708,
+      0.0729,
+      0.1303,
+      0.286,
+      0.1399
+    ],
+    "view_probs": [
+      0.0051,
+      0.0,
+      0.9492,
+      0.0015,
+      0.1354
+    ]
+  }
+}

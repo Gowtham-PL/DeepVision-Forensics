@@ -1,0 +1,21 @@
+{
+  "dataset_name": "E20_TRAIN_DEV_EXPANDED",
+  "timestamp_utc": "2026-09-18 18:36:06",
+  "total_train_images": 22400,
+  "total_dev_images": 2800,
+  "total_images": 25200,
+  "train_clean_originals": 3200,
+  "dev_clean_originals": 400,
+  "total_clean_originals": 3600,
+  "train_real_count": 11200,
+  "train_ai_count": 11200,
+  "dev_real_count": 1400,
+  "dev_ai_count": 1400,
+  "historical_exclusion_pool_size": 41372,
+  "historical_leakage_sha_collisions": 0,
+  "cross_split_sha_collisions": 0,
+  "cross_split_parent_collisions": 0,
+  "rejected_collisions_during_build": 1304,
+  "download_errors_during_build": 1036,
+  "leakage_rule_passed": true
+}

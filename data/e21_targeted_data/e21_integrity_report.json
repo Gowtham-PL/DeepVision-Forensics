@@ -1,0 +1,18 @@
+{
+  "dataset_name": "E21 Targeted Data-Balancing Dataset",
+  "created_at": "2026-09-19 15:39:09",
+  "total_originals": 584,
+  "total_variants": 4088,
+  "train_count": 3276,
+  "dev_count": 812,
+  "train_real": 1638,
+  "train_ai": 1638,
+  "dev_real": 406,
+  "dev_ai": 406,
+  "rejection_stats": {
+    "duplicates": 337,
+    "download_errors": 29
+  },
+  "historical_exclusions_checked": 66772,
+  "zero_contamination_verified": true
+}

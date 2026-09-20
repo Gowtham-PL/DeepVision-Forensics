@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DeepVision-Forensics | AI-Generated Image Detection</title>
-  <meta name="description" content="Probabilistic AI-Generated Image Detection & Explainable Forensic Analysis Suite powered by DeepVision-E1 SpatialClassifier." />
+  <meta name="description" content="Probabilistic AI-Generated Image Detection & Explainable Forensic Analysis Suite powered by DeepVision-E5 Generalization (Dual-Domain Multi-Generator)." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -43,8 +43,8 @@
         <h2>Probabilistic Forensic Image Analysis</h2>
         <p>
           DeepVision-Forensics evaluates images for synthetic generation artifacts using the 
-          <strong>DeepVision-E1 SpatialClassifier</strong> (ImageNet pretrained EfficientNet-B3). 
-          The system produces probabilistic AI estimates alongside Grad-CAM spatial localization and diagnostic 2D FFT spectral analysis.
+          <strong>DeepVision-E6-C Multi-View Forensics Model</strong> (5-View Multi-Scale Spatial + Frequency Fusion with Learned Attention). 
+          The system produces probabilistic AI authenticity estimates alongside Localized Forensic Evidence, Model Attention (Grad-CAM) spatial heatmaps, and diagnostic 2D FFT spectral evidence.
         </p>
       </div>
     </section>
@@ -117,8 +117,10 @@
             </label>
             <div class="select-wrapper">
               <select id="modelSelect" class="form-select">
-                <option value="e1_spatial" selected>DeepVision-E1 Spatial (EfficientNet-B3 Baseline)</option>
-                <option value="e3_std">DeepVision-E3-Std Dual-Domain (Spatial + Frequency Fusion)</option>
+                <option value="e6c_multiview" selected>DeepVision-E6-C Multi-View Forensics (Production — 5-View Multi-Scale)</option>
+                <option value="e5_generalization">DeepVision-E5 Generalization (Dual-Domain Spatial + Frequency Fusion)</option>
+                <option value="e3_std">DeepVision-E3-Std Dual-Domain (GenImage Standardized Fusion)</option>
+                <option value="e1_spatial">DeepVision-E1 Spatial (EfficientNet-B3 Baseline)</option>
               </select>
             </div>
           </div>
@@ -129,7 +131,7 @@
               <input type="checkbox" id="fftToggle" checked />
               <span class="toggle-slider"></span>
               <span class="toggle-label">
-                <strong>Include 2D FFT Frequency Diagnostic</strong>
+                <strong>Include 2D FFT Frequency Evidence</strong>
                 <span class="toggle-sub">Generates log-magnitude spectrum without affecting classification</span>
               </span>
             </label>
@@ -162,19 +164,19 @@
           <div class="meta-grid">
             <div class="meta-item">
               <span class="meta-label">Model Architecture</span>
-              <span class="meta-value" id="metaModelName">DeepVision-E1-Spatial</span>
+              <span class="meta-value" id="metaModelName">DeepVision-E6-C Multi-View Forensics</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Backbone</span>
-              <span class="meta-value" id="metaBackbone">EfficientNet-B3 (Pretrained)</span>
+              <span class="meta-value" id="metaBackbone">EfficientNet-B3 + Spectral CNN (5-View Multi-Scale)</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Input Resolution</span>
-              <span class="meta-value">224 &times; 224 RGB</span>
+              <span class="meta-value">5 &times; 224 &times; 224 RGB</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Research Benchmark</span>
-              <span class="meta-value text-accent" id="metaBenchmark">0.8991 ROC-AUC (Unseen Test)</span>
+              <span class="meta-value text-accent" id="metaBenchmark">0.9936 ROC-AUC / 96.16% Accuracy (Learned Attention)</span>
             </div>
           </div>
         </section>
@@ -236,13 +238,66 @@
             </div>
           </section>
 
+          <!-- Multi-View Localized Evidence Card (Diagnostic) -->
+          <section class="card diagnostics-card" id="diagnosticsCard" style="display: none;">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Localized Forensic Evidence (Diagnostic)</h3>
+                <span class="control-sub">Multi-scale crop analysis for localized tampering and patch-level synthesis</span>
+              </div>
+              <div class="local-evidence-badge-wrapper">
+                <span class="local-pill" id="strongestLocalBadge">--</span>
+              </div>
+            </div>
+
+            <div class="local-summary-box">
+              <div class="local-summary-metric">
+                <span class="metric-label">Strongest Local Crop Probability:</span>
+                <span class="metric-val" id="strongestLocalVal">--</span>
+              </div>
+              <p class="diagnostic-note">
+                Diagnostic indicator showing peak localized AI confidence across 4 corner crops.
+                <em>Final classification is strictly determined by learned attention aggregation at threshold 50%.</em>
+              </p>
+            </div>
+
+            <!-- 5-View Probabilities and Weights Grid -->
+            <div class="views-grid" id="viewsGrid">
+              <div class="view-item" id="viewItemGlobal">
+                <div class="view-tag">View 0 &bull; Global</div>
+                <div class="view-prob" id="viewProb0">--</div>
+                <div class="view-weight" id="viewWeight0">Weight: --</div>
+              </div>
+              <div class="view-item" id="viewItemTL">
+                <div class="view-tag">View 1 &bull; Top-Left</div>
+                <div class="view-prob" id="viewProb1">--</div>
+                <div class="view-weight" id="viewWeight1">Weight: --</div>
+              </div>
+              <div class="view-item" id="viewItemTR">
+                <div class="view-tag">View 2 &bull; Top-Right</div>
+                <div class="view-prob" id="viewProb2">--</div>
+                <div class="view-weight" id="viewWeight2">Weight: --</div>
+              </div>
+              <div class="view-item" id="viewItemBL">
+                <div class="view-tag">View 3 &bull; Bottom-Left</div>
+                <div class="view-prob" id="viewProb3">--</div>
+                <div class="view-weight" id="viewWeight3">Weight: --</div>
+              </div>
+              <div class="view-item" id="viewItemBR">
+                <div class="view-tag">View 4 &bull; Bottom-Right</div>
+                <div class="view-prob" id="viewProb4">--</div>
+                <div class="view-weight" id="viewWeight4">Weight: --</div>
+              </div>
+            </div>
+          </section>
+
           <!-- Visualizations Card -->
           <section class="card visualizations-card">
             <div class="card-header">
               <h3 class="card-title">Forensic Visual Evidence</h3>
               <div class="viz-tabs">
-                <button type="button" class="tab-btn active" id="tabGradCam">Grad-CAM Spatial</button>
-                <button type="button" class="tab-btn" id="tabFft">2D FFT Spectrum</button>
+                <button type="button" class="tab-btn active" id="tabGradCam">Model Attention (Grad-CAM)</button>
+                <button type="button" class="tab-btn" id="tabFft">Frequency Evidence (2D FFT)</button>
               </div>
             </div>
 
@@ -256,9 +311,9 @@
                   </div>
                 </div>
                 <div class="viz-column">
-                  <span class="viz-column-title">Grad-CAM Attention Overlay</span>
+                  <span class="viz-column-title">Model Attention (Grad-CAM) Overlay</span>
                   <div class="media-frame">
-                    <img id="vizGradCamImage" alt="Grad-CAM Spatial Heatmap Overlay" src="" />
+                    <img id="vizGradCamImage" alt="Model Attention (Grad-CAM) Heatmap Overlay" src="" />
                   </div>
                 </div>
               </div>
@@ -268,7 +323,7 @@
                   <line x1="12" y1="16" x2="12" y2="12" />
                   <line x1="12" y1="8" x2="12.01" y2="8" />
                 </svg>
-                <span><strong>Spatial Evidence:</strong> Heatmap highlights image regions that contributed most strongly to the model's classification score. Warmer colors indicate higher activation.</span>
+                <span><strong>Model Attention:</strong> Heatmap highlights image regions that contributed most strongly to the model's classification score. Warmer colors indicate higher activation. Note: This heatmap reflects model attention patterns and is NOT an exact manipulation or edit mask.</span>
               </div>
             </div>
 
@@ -276,7 +331,7 @@
             <div class="viz-panel" id="panelFft" style="display: none;">
               <div class="viz-single-display">
                 <div class="media-frame frame-fft">
-                  <img id="vizFftImage" alt="2D FFT Log-Magnitude Spectrum" src="" />
+                  <img id="vizFftImage" alt="2D FFT Log-Magnitude Frequency Evidence" src="" />
                 </div>
               </div>
               <div class="viz-caption">
@@ -285,7 +340,7 @@
                   <line x1="12" y1="16" x2="12" y2="12" />
                   <line x1="12" y1="8" x2="12.01" y2="8" />
                 </svg>
-                <span><strong>Frequency Diagnostic:</strong> Centered 2D Fast Fourier Transform (FFT) log-magnitude spectrum $\log(1+|F(u,v)|)$. Frequency features are diagnostic only and do not alter E1 spatial predictions.</span>
+                <span><strong>Frequency Evidence:</strong> Centered 2D Fast Fourier Transform (FFT) log-magnitude spectrum $\log(1+|F(u,v)|)$ illustrating spectral energy distribution and periodic synthesis artifacts.</span>
               </div>
             </div>
           </section>

@@ -1,0 +1,17 @@
+candidate,threshold,filename,ground_truth,e10b_prob,pred_at_050,pred_at_tau,transition_type,reason
+Candidate_A_FPR_3pct,0.6,WhatsApp Image 2026-09-17 at 3.44.11 PM (11).jpeg,REAL,0.5697,AI,REAL,Real_FP_Corrected,Higher threshold 0.60 successfully eliminated false alarm on Real image (prob=0.5697)
+Candidate_A_FPR_3pct,0.6,WhatsApp Image 2026-09-17 at 4.28.11 PM (6).jpeg,AI,0.5154,AI,REAL,AI_TP_Lost,Higher threshold 0.60 caused previously caught AI image (prob=0.5154) to be classified as Real
+Candidate_B_FPR_5pct,0.3,WhatsApp Image 2026-09-17 at 3.38.22 PM (3).jpeg,REAL,0.4992,REAL,AI,Real_FP_Introduced,Lower threshold 0.30 pushed Real image (prob=0.4992) into false alarm
+Candidate_B_FPR_5pct,0.3,WhatsApp Image 2026-09-17 at 3.44.10 PM (4).jpeg,REAL,0.4211,REAL,AI,Real_FP_Introduced,Lower threshold 0.30 pushed Real image (prob=0.4211) into false alarm
+Candidate_B_FPR_5pct,0.3,WhatsApp Image 2026-09-17 at 3.44.11 PM (5).jpeg,REAL,0.3435,REAL,AI,Real_FP_Introduced,Lower threshold 0.30 pushed Real image (prob=0.3435) into false alarm
+Candidate_B_FPR_5pct,0.3,WhatsApp Image 2026-09-17 at 4.28.11 PM (5).jpeg,AI,0.3471,REAL,AI,AI_FN_Recovered,Lower threshold 0.30 allowed previously missed AI image (prob=0.3471) to trigger AI
+Candidate_B_FPR_5pct,0.3,WhatsApp Image 2026-09-17 at 4.31.09 PM.jpeg,AI,0.3057,REAL,AI,AI_FN_Recovered,Lower threshold 0.30 allowed previously missed AI image (prob=0.3057) to trigger AI
+Candidate_B_FPR_5pct,0.3,WhatsApp Image 2026-09-17 at 4.37.12 PM (1).jpeg,AI,0.3606,REAL,AI,AI_FN_Recovered,Lower threshold 0.30 allowed previously missed AI image (prob=0.3606) to trigger AI
+Candidate_C_FPR_7.5pct,0.2,WhatsApp Image 2026-09-17 at 3.38.22 PM (3).jpeg,REAL,0.4992,REAL,AI,Real_FP_Introduced,Lower threshold 0.20 pushed Real image (prob=0.4992) into false alarm
+Candidate_C_FPR_7.5pct,0.2,WhatsApp Image 2026-09-17 at 3.44.10 PM (4).jpeg,REAL,0.4211,REAL,AI,Real_FP_Introduced,Lower threshold 0.20 pushed Real image (prob=0.4211) into false alarm
+Candidate_C_FPR_7.5pct,0.2,WhatsApp Image 2026-09-17 at 3.44.11 PM (5).jpeg,REAL,0.3435,REAL,AI,Real_FP_Introduced,Lower threshold 0.20 pushed Real image (prob=0.3435) into false alarm
+Candidate_C_FPR_7.5pct,0.2,WhatsApp Image 2026-09-17 at 4.28.11 PM (5).jpeg,AI,0.3471,REAL,AI,AI_FN_Recovered,Lower threshold 0.20 allowed previously missed AI image (prob=0.3471) to trigger AI
+Candidate_C_FPR_7.5pct,0.2,WhatsApp Image 2026-09-17 at 4.31.09 PM.jpeg,AI,0.3057,REAL,AI,AI_FN_Recovered,Lower threshold 0.20 allowed previously missed AI image (prob=0.3057) to trigger AI
+Candidate_C_FPR_7.5pct,0.2,WhatsApp Image 2026-09-17 at 4.37.12 PM (1).jpeg,AI,0.3606,REAL,AI,AI_FN_Recovered,Lower threshold 0.20 allowed previously missed AI image (prob=0.3606) to trigger AI
+Candidate_C_FPR_7.5pct,0.2,WhatsApp Image 2026-09-17 at 4.39.57 PM.jpeg,AI,0.2278,REAL,AI,AI_FN_Recovered,Lower threshold 0.20 allowed previously missed AI image (prob=0.2278) to trigger AI
+Candidate_D_Max_F1,0.55,WhatsApp Image 2026-09-17 at 4.28.11 PM (6).jpeg,AI,0.5154,AI,REAL,AI_TP_Lost,Higher threshold 0.55 caused previously caught AI image (prob=0.5154) to be classified as Real

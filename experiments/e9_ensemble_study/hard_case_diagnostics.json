@@ -1,0 +1,44 @@
+{
+  "original_ai_edit": {
+    "path": "data\\e6_hard_cases\\original_ai_edit.png",
+    "ground_truth": "AI",
+    "e6c": {
+      "prob": 0.8608,
+      "global_prob": 0.8572,
+      "strongest_local_prob": 0.9589,
+      "pred": "AI"
+    },
+    "e8b": {
+      "prob": 0.2697,
+      "global_prob": 0.0574,
+      "strongest_local_prob": 0.6639,
+      "pred": "REAL"
+    },
+    "e9": {
+      "prob_or_score": 0.7426,
+      "pred": "AI",
+      "correct": true
+    }
+  },
+  "whatsapp_download": {
+    "path": "data\\e6_hard_cases\\whatsapp_download.jpeg",
+    "ground_truth": "REAL",
+    "e6c": {
+      "prob": 0.1117,
+      "global_prob": 0.0551,
+      "strongest_local_prob": 0.7553,
+      "pred": "REAL"
+    },
+    "e8b": {
+      "prob": 0.0621,
+      "global_prob": 0.0196,
+      "strongest_local_prob": 0.401,
+      "pred": "REAL"
+    },
+    "e9": {
+      "prob_or_score": 0.1018,
+      "pred": "REAL",
+      "correct": true
+    }
+  }
+}

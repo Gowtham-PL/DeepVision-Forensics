@@ -1,0 +1,33 @@
+{
+  "benchmark_name": "E6-B Multi-View Training Optimized Benchmark",
+  "checkpoint_init": "d:\\DeepVision-Forensics\\experiments\\e5_generalization\\best_model.pt",
+  "device": "cuda",
+  "n_smoke_images": 500,
+  "batch_size": 8,
+  "amp_enabled": true,
+  "smoke_test_runtime_sec": 192.28,
+  "smoke_test_runtime_min": 3.2,
+  "images_per_sec": 2.6,
+  "peak_vram_mb": 4256.78,
+  "peak_vram_gb": 4.16,
+  "baseline_runtime_sec": 1183.93,
+  "baseline_throughput": 0.42,
+  "baseline_vram_gb": 7.89,
+  "speedup_factor": 6.19,
+  "vram_reduction_pct": 47.3,
+  "full_dataset_size": 23165,
+  "est_full_10epoch_runtime_hours": 24.75,
+  "implementation_errors": [],
+  "gradient_checks": {
+    "spatial_branch": true,
+    "frequency_branch": true,
+    "view_attention": true,
+    "classifier": true
+  },
+  "numerical_validity": {
+    "final_loss": 0.213,
+    "accuracy_pct": 92.0,
+    "gradients_valid": true
+  },
+  "timestamp": "2026-09-16T08:56:30Z"
+}

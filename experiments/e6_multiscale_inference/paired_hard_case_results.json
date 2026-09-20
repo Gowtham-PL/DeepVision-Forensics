@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "diagnostic_name": "E5 Paired Hard Case Controlled Diagnostic",
+    "model_key": "e5_generalization",
+    "model_name": "DeepVision-E5-Generalization",
+    "checkpoint": "experiments/e5_generalization/best_model.pt",
+    "device": "cuda",
+    "threshold": 0.5,
+    "timestamp": "2026-09-15T19:16:53Z"
+  },
+  "images": [
+    {
+      "label_description": "Original AI Edit",
+      "filename": "original_ai_edit.png",
+      "rel_path": "data/e6_hard_cases/original_ai_edit.png",
+      "file_format": "PNG",
+      "width": 941,
+      "height": 1672,
+      "aspect_ratio": 0.5628,
+      "file_size_bytes": 2229907,
+      "file_size_kb": 2177.64,
+      "file_size_mb": 2.127,
+      "input_tensor_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "ai_probability": 0.052183,
+      "ai_probability_pct": 5.2183,
+      "logit": -2.899407,
+      "predicted_class": "Real",
+      "threshold": 0.5,
+      "inference_time_ms": 26.035,
+      "spatial_embedding_l2_norm": 11.0226,
+      "freq_embedding_l2_norm": 16.6604
+    },
+    {
+      "label_description": "WhatsApp Download",
+      "filename": "whatsapp_download.jpeg",
+      "rel_path": "data/e6_hard_cases/whatsapp_download.jpeg",
+      "file_format": "JPEG",
+      "width": 900,
+      "height": 1600,
+      "aspect_ratio": 0.5625,
+      "file_size_bytes": 170945,
+      "file_size_kb": 166.94,
+      "file_size_mb": 0.163,
+      "input_tensor_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "ai_probability": 0.001436,
+      "ai_probability_pct": 0.1436,
+      "logit": -6.544741,
+      "predicted_class": "Real",
+      "threshold": 0.5,
+      "inference_time_ms": 26.605,
+      "spatial_embedding_l2_norm": 11.0768,
+      "freq_embedding_l2_norm": 16.661
+    }
+  ],
+  "comparison": {
+    "original_ai_prob": 0.052183,
+    "whatsapp_ai_prob": 0.001436,
+    "absolute_prob_difference": 0.050747,
+    "percentage_point_change": -5.0747,
+    "direction_of_change": "decreased",
+    "original_predicted_class": "Real",
+    "whatsapp_predicted_class": "Real"
+  }
+}

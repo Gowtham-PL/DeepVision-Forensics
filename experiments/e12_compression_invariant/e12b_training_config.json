@@ -1,0 +1,17 @@
+{
+  "experiment": "E12-B: Clean-Data Domain-Conditioned Normalization",
+  "starting_checkpoint": "experiments\\e6_multiscale_training\\e6c_finetune_benchmark\\e6c_checkpoint_epoch2.pt",
+  "epochs": 3,
+  "batch_size": 16,
+  "crops_per_step": 80,
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "optimizer": "AdamW",
+  "precision": "CUDA AMP FP16",
+  "trainable_parameters": 1218050,
+  "frozen_parameters": 11150856,
+  "total_parameters": 12368906,
+  "training_data": "100% Clean E5 (N=23,165)",
+  "validation_data": "100% Clean E5 (N=5,775)",
+  "hypothesis": "Test whether LayerNorm(1792) on aggregated representation mitigates WhatsApp false positives without degrading clean E5 recall."
+}

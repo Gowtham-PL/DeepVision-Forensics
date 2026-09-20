@@ -1,0 +1,4 @@
+group_field,group_value,n,n_real,n_ai,e6c_acc,e20_acc,e21_acc,e22_acc,e22_f1,e6c_recall,e20_recall,e21_recall,e22_recall,e6c_fpr,e20_fpr,e21_fpr,e22_fpr
+degradation_type,"Double JPEG (L1280, Q80->Q70, 4:2:0)",200,100,100,0.6,0.64,0.61,0.625,0.6781115879828326,0.28,0.3,0.81,0.79,0.08,0.02,0.59,0.54
+degradation_type,Resize (L1080) + JPEG Q80 (4:2:0),200,100,100,0.71,0.64,0.655,0.67,0.7360000000000001,0.55,0.33,0.93,0.92,0.13,0.05,0.62,0.58
+degradation_type,"WhatsApp-tier JPEG (L1280, Q75, 4:2:0)",200,100,100,0.665,0.645,0.63,0.66,0.7322834645669292,0.48,0.33,0.94,0.93,0.15,0.04,0.68,0.61

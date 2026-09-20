@@ -1,0 +1,68 @@
+filename,ground_truth,e6c_prob,e10b_prob,e12b_prob,e13_prob,e6c_pred,e10b_pred,e12b_pred,e13_pred,flip_vs_e6c,flip_vs_e10b,flip_vs_e12b
+WhatsApp Image 2026-09-17 at 3.38.18 PM (1).jpeg,REAL,0.5367,0.0745,0.751,0.0583,AI,REAL,AI,REAL,True,False,True
+WhatsApp Image 2026-09-17 at 3.38.18 PM (2).jpeg,REAL,0.0248,0.0318,0.0002,0.0272,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.38.18 PM.jpeg,REAL,0.0,0.0,0.0,0.0,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.38.19 PM (1).jpeg,REAL,0.0463,0.0553,0.0091,0.0372,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.38.19 PM (2).jpeg,REAL,0.0095,0.0063,0.0,0.0064,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.38.19 PM.jpeg,REAL,0.0002,0.0001,0.0,0.0001,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.38.21 PM (1).jpeg,REAL,0.006,0.0024,0.0,0.0029,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.38.21 PM (2).jpeg,REAL,0.0542,0.0834,0.0107,0.1065,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.38.21 PM.jpeg,REAL,0.0054,0.0004,0.0,0.0001,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.38.22 PM (1).jpeg,REAL,0.3354,0.7522,0.8301,0.6787,REAL,AI,AI,AI,True,False,False
+WhatsApp Image 2026-09-17 at 3.38.22 PM (2).jpeg,REAL,0.0001,0.0,0.0,0.0,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.38.22 PM (3).jpeg,REAL,0.1817,0.4992,0.2216,0.5347,REAL,REAL,REAL,AI,True,True,True
+WhatsApp Image 2026-09-17 at 3.38.22 PM.jpeg,REAL,0.0706,0.0714,0.0074,0.0357,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.40.06 PM (1).jpeg,REAL,0.0328,0.7493,0.0073,0.7104,REAL,AI,REAL,AI,True,False,True
+WhatsApp Image 2026-09-17 at 3.40.06 PM.jpeg,REAL,0.013,0.0053,0.0001,0.0034,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.44.10 PM (1).jpeg,REAL,0.0141,0.1237,0.0,0.139,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.44.10 PM (2).jpeg,REAL,0.0038,0.0244,0.0,0.0357,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.44.10 PM (3).jpeg,REAL,0.0471,0.0466,0.0103,0.0637,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.44.10 PM (4).jpeg,REAL,0.0453,0.4211,0.0205,0.6201,REAL,REAL,REAL,AI,True,True,True
+WhatsApp Image 2026-09-17 at 3.44.10 PM (7).jpeg,REAL,0.0005,0.0065,0.0,0.0136,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.44.11 PM (1).jpeg,REAL,0.0439,0.0218,0.0111,0.0113,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.44.11 PM (10).jpeg,REAL,0.3169,0.1113,0.2303,0.2153,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.44.11 PM (11).jpeg,REAL,0.0626,0.5697,0.0276,0.5483,REAL,AI,REAL,AI,True,False,True
+WhatsApp Image 2026-09-17 at 3.44.11 PM (12).jpeg,REAL,0.4119,0.6577,0.9189,0.8032,REAL,AI,AI,AI,True,False,False
+WhatsApp Image 2026-09-17 at 3.44.11 PM (13).jpeg,REAL,0.3496,0.1208,0.1421,0.0923,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.44.11 PM (14).jpeg,REAL,0.1493,0.7722,0.3503,0.6787,REAL,AI,REAL,AI,True,False,True
+WhatsApp Image 2026-09-17 at 3.44.11 PM (15).jpeg,REAL,0.1645,0.046,0.1375,0.0587,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.44.11 PM (2).jpeg,REAL,0.0001,0.0002,0.0,0.0001,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.44.11 PM (3).jpeg,REAL,0.5136,0.6269,0.8999,0.7207,AI,AI,AI,AI,False,False,False
+WhatsApp Image 2026-09-17 at 3.44.11 PM (4).jpeg,REAL,0.0,0.0,0.0,0.0,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.44.11 PM (5).jpeg,REAL,0.1712,0.3435,0.2954,0.1497,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.44.11 PM (7).jpeg,REAL,0.0073,0.0003,0.0,0.0001,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.44.11 PM (8).jpeg,REAL,0.0468,0.0054,0.0021,0.0037,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.44.11 PM.jpeg,REAL,0.0073,0.0164,0.0004,0.0275,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.50.51 PM.jpeg,AI,0.239,0.0169,0.2573,0.0282,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.56.02 PM (1).jpeg,AI,0.0686,0.0104,0.005,0.033,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.56.02 PM (2).jpeg,AI,0.18,0.0898,0.2942,0.1318,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 3.56.02 PM (3).jpeg,AI,0.7363,0.9882,0.9985,0.9961,AI,AI,AI,AI,False,False,False
+WhatsApp Image 2026-09-17 at 3.56.02 PM.jpeg,AI,0.0796,0.6093,0.0792,0.6064,REAL,AI,REAL,AI,True,False,True
+WhatsApp Image 2026-09-17 at 4.13.17 PM (1).jpeg,AI,0.0029,0.0001,0.0,0.0,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 4.13.17 PM (2).jpeg,AI,0.805,0.8664,0.998,0.9595,AI,AI,AI,AI,False,False,False
+WhatsApp Image 2026-09-17 at 4.13.17 PM (3).jpeg,AI,0.7318,0.9281,0.979,0.9253,AI,AI,AI,AI,False,False,False
+WhatsApp Image 2026-09-17 at 4.13.17 PM (4).jpeg,AI,0.1699,0.1014,0.0119,0.0868,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 4.13.17 PM (5).jpeg,AI,0.5517,0.9789,0.9844,0.9922,AI,AI,AI,AI,False,False,False
+WhatsApp Image 2026-09-17 at 4.13.17 PM.jpeg,AI,0.0001,0.0001,0.0,0.0,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 4.13.18 PM (1).jpeg,AI,0.678,0.9209,0.9868,0.9224,AI,AI,AI,AI,False,False,False
+WhatsApp Image 2026-09-17 at 4.13.18 PM (2).jpeg,AI,0.1694,0.981,0.4387,0.9844,REAL,AI,REAL,AI,True,False,True
+WhatsApp Image 2026-09-17 at 4.13.18 PM (3).jpeg,AI,0.2781,0.8544,0.9468,0.916,REAL,AI,AI,AI,True,False,False
+WhatsApp Image 2026-09-17 at 4.13.18 PM (4).jpeg,AI,0.0566,0.113,0.0034,0.1154,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 4.13.18 PM (5).jpeg,AI,0.9235,0.9998,1.0,1.0,AI,AI,AI,AI,False,False,False
+WhatsApp Image 2026-09-17 at 4.13.18 PM (6).jpeg,AI,0.6134,0.8442,0.8979,0.9312,AI,AI,AI,AI,False,False,False
+WhatsApp Image 2026-09-17 at 4.13.18 PM.jpeg,AI,0.4772,0.8685,0.668,0.9263,REAL,AI,AI,AI,True,False,False
+WhatsApp Image 2026-09-17 at 4.28.11 PM (1).jpeg,AI,0.5728,0.8489,0.9229,0.812,AI,AI,AI,AI,False,False,False
+WhatsApp Image 2026-09-17 at 4.28.11 PM (2).jpeg,AI,0.0047,0.0107,0.0,0.0158,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 4.28.11 PM (3).jpeg,AI,0.0016,0.0,0.0,0.0,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 4.28.11 PM (4).jpeg,AI,0.0021,0.1578,0.0,0.1337,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 4.28.11 PM (5).jpeg,AI,0.0837,0.3471,0.0539,0.2983,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 4.28.11 PM (6).jpeg,AI,0.3284,0.5154,0.5986,0.603,REAL,AI,AI,AI,True,False,False
+WhatsApp Image 2026-09-17 at 4.28.11 PM (7).jpeg,AI,0.006,0.0018,0.0001,0.0004,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 4.28.11 PM.jpeg,AI,0.0149,0.0552,0.0,0.0239,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 4.31.09 PM.jpeg,AI,0.1063,0.3057,0.062,0.2944,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 4.37.12 PM (1).jpeg,AI,0.0022,0.3606,0.0,0.2328,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 4.37.12 PM (2).jpeg,AI,0.3809,0.1781,0.1182,0.2734,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 4.37.12 PM (3).jpeg,AI,0.0019,0.0029,0.0,0.004,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 4.37.12 PM.jpeg,AI,0.0007,0.1172,0.0,0.077,REAL,REAL,REAL,REAL,False,False,False
+WhatsApp Image 2026-09-17 at 4.39.57 PM (1).jpeg,AI,0.8717,0.8463,0.9985,0.8979,AI,AI,AI,AI,False,False,False
+WhatsApp Image 2026-09-17 at 4.39.57 PM.jpeg,AI,0.04,0.2278,0.0072,0.2311,REAL,REAL,REAL,REAL,False,False,False

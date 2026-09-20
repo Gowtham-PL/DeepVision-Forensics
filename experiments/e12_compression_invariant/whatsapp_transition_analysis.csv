@@ -1,0 +1,4 @@
+filename,ground_truth,e10b_prob,e12a_prob,transition_type,details
+WhatsApp Image 2026-09-17 at 3.44.10 PM (4).jpeg,REAL,0.4211,0.6841,Real_FP_Introduced,"E10-B correct (prob=0.4211), E12-A false alarm (prob=0.6841)"
+WhatsApp Image 2026-09-17 at 3.44.11 PM (11).jpeg,REAL,0.5697,0.4438,Real_FP_Corrected,"E10-B false alarm (prob=0.5697), E12-A corrected (prob=0.4438)"
+WhatsApp Image 2026-09-17 at 4.28.11 PM (6).jpeg,AI,0.5154,0.2325,AI_TP_Lost,"E10-B caught (prob=0.5154), E12-A missed (prob=0.2325)"

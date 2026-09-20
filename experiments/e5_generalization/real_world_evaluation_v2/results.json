@@ -1,0 +1,820 @@
+{
+  "metadata": {
+    "evaluation_name": "Experiment E5 Final Frozen Real-World Test Evaluation (V2)",
+    "model": "E5 Generalization (Dual-Domain Multi-Generator)",
+    "checkpoint": "experiments/e5_generalization/best_model.pt",
+    "dataset_directory": "data/real_world_test_v2",
+    "decision_threshold": 0.5,
+    "timestamp": "2026-09-15T16:36:26Z"
+  },
+  "metrics": {
+    "n_samples": 76,
+    "n_real": 38,
+    "n_ai": 38,
+    "roc_auc": 0.7715,
+    "pr_auc": 0.8284,
+    "accuracy": 0.7632,
+    "precision": 0.8846,
+    "recall": 0.6053,
+    "f1_score": 0.7188,
+    "fpr": 0.0789,
+    "fnr": 0.3947,
+    "tp": 23,
+    "fp": 3,
+    "tn": 35,
+    "fn": 15,
+    "ai_detected_count": 23,
+    "ai_missed_count": 15,
+    "real_incorrect_as_ai_count": 3,
+    "confusion_matrix": {
+      "TN": 35,
+      "FP": 3,
+      "FN": 15,
+      "TP": 23
+    }
+  },
+  "probability_distributions": {
+    "real_images": {
+      "count": 38,
+      "mean": 0.1802,
+      "std": 0.2248,
+      "median": 0.0789,
+      "min": 0.0,
+      "max": 0.8301,
+      "p25": 0.0055,
+      "p75": 0.2354
+    },
+    "ai_images": {
+      "count": 38,
+      "mean": 0.5681,
+      "std": 0.4094,
+      "median": 0.7759,
+      "min": 0.0021,
+      "max": 1.0,
+      "p25": 0.059,
+      "p75": 0.9435
+    }
+  },
+  "per_image_predictions": [
+    {
+      "filename": "aadhi.jpeg",
+      "rel_path": "real/aadhi.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0862,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "aswin.jpeg",
+      "rel_path": "real/aswin.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0063,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "aswin2.jpeg",
+      "rel_path": "real/aswin2.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0388,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "dev1.jpeg",
+      "rel_path": "real/dev1.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.2384,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "dev2.jpeg",
+      "rel_path": "real/dev2.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.772,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": false
+    },
+    {
+      "filename": "Scene1.jpeg",
+      "rel_path": "real/Scene1.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.1903,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "scene2.jpeg",
+      "rel_path": "real/scene2.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0116,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "scene3.jpeg",
+      "rel_path": "real/scene3.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.1919,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "scene4.jpeg",
+      "rel_path": "real/scene4.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0045,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "scene5.jpeg",
+      "rel_path": "real/scene5.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.11.35 PM (1).jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.11.35 PM (1).jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.4304,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.11.35 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.11.35 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.459,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.12.08 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.12.08 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0019,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.12.09 PM (1).jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.12.09 PM (1).jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0039,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.12.09 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.12.09 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.1506,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.12.30 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.12.30 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.1729,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.13.02 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.13.02 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.1071,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.13.06 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.13.06 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.7007,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": false
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.13.16 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.13.16 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0053,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.13.41 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.13.41 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.8301,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": false
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.14.51 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.14.51 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0215,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.15.05 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.15.05 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.2264,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.15.46 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.15.46 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0605,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.16.11 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.16.11 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.4299,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.16.21 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.16.21 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0716,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.16.32 PM (1).jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.16.32 PM (1).jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.459,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.16.32 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.16.32 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0346,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 10.16.54 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 10.16.54 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0158,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 11.00.40 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 11.00.40 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.1948,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 11.01.28 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 11.01.28 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.1904,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 11.01.51 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 11.01.51 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.002,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 11.02.11 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 11.02.11 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0003,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 11.02.37 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 11.02.37 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0004,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 11.03.13 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 11.03.13 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0389,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 11.03.34 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 11.03.34 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.3059,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 11.03.45 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 11.03.45 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.3899,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 11.04.11 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 11.04.11 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0004,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-08-31 at 11.04.43 PM.jpeg",
+      "rel_path": "real/WhatsApp Image 2026-08-31 at 11.04.43 PM.jpeg",
+      "ground_truth_label": 0,
+      "ground_truth_class": "real",
+      "ai_probability": 0.0023,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": true
+    },
+    {
+      "filename": "0d28d39e-c5b6-4436-b476-e5d257ff4f96.jpg",
+      "rel_path": "ai/0d28d39e-c5b6-4436-b476-e5d257ff4f96.jpg",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.0021,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": false
+    },
+    {
+      "filename": "0e5c8694-f927-47cd-9206-b12af52c1c5b.jpg",
+      "rel_path": "ai/0e5c8694-f927-47cd-9206-b12af52c1c5b.jpg",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.9033,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "11185668-7b1c-4c51-b326-073b7a2624ab.jpg",
+      "rel_path": "ai/11185668-7b1c-4c51-b326-073b7a2624ab.jpg",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.9248,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "63b038f4-b540-4f60-ad08-d984826c48a8.jpg",
+      "rel_path": "ai/63b038f4-b540-4f60-ad08-d984826c48a8.jpg",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.897,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "706d4ecc-bc97-4f47-b591-e5590b97203f.jpg",
+      "rel_path": "ai/706d4ecc-bc97-4f47-b591-e5590b97203f.jpg",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.0801,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": false
+    },
+    {
+      "filename": "830c25d9-bfc6-4cf9-abe4-7477c408ebdd.jpg",
+      "rel_path": "ai/830c25d9-bfc6-4cf9-abe4-7477c408ebdd.jpg",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.9863,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "bac7477a-e896-4c25-875e-d320e147d7e2.jpg",
+      "rel_path": "ai/bac7477a-e896-4c25-875e-d320e147d7e2.jpg",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.0497,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": false
+    },
+    {
+      "filename": "c03c2063-adb4-489a-bc49-9185590b95da.jpg",
+      "rel_path": "ai/c03c2063-adb4-489a-bc49-9185590b95da.jpg",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.5713,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "c28779be-ca74-4e18-bce1-4f66fac5338a.jpg",
+      "rel_path": "ai/c28779be-ca74-4e18-bce1-4f66fac5338a.jpg",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.0148,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": false
+    },
+    {
+      "filename": "c4ba4a96-2767-4796-be63-366623b61669.jpg",
+      "rel_path": "ai/c4ba4a96-2767-4796-be63-366623b61669.jpg",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.7393,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "e8d62f29-ec23-4a15-aa37-93b880293c09.jpg",
+      "rel_path": "ai/e8d62f29-ec23-4a15-aa37-93b880293c09.jpg",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.8125,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "fcdc787f-8aa8-4821-829a-640024bf3893.jpg",
+      "rel_path": "ai/fcdc787f-8aa8-4821-829a-640024bf3893.jpg",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.8936,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "Gemini_Generated_Image_117fps117fps117f.png",
+      "rel_path": "ai/Gemini_Generated_Image_117fps117fps117f.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.9883,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "Gemini_Generated_Image_4iugfr4iugfr4iug.png",
+      "rel_path": "ai/Gemini_Generated_Image_4iugfr4iugfr4iug.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.1393,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": false
+    },
+    {
+      "filename": "Gemini_Generated_Image_4tm47s4tm47s4tm4.png",
+      "rel_path": "ai/Gemini_Generated_Image_4tm47s4tm47s4tm4.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.0365,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": false
+    },
+    {
+      "filename": "Gemini_Generated_Image_5qg2pg5qg2pg5qg2.png",
+      "rel_path": "ai/Gemini_Generated_Image_5qg2pg5qg2pg5qg2.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.9067,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "Gemini_Generated_Image_6uqymu6uqymu6uqy.png",
+      "rel_path": "ai/Gemini_Generated_Image_6uqymu6uqymu6uqy.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.8618,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "Gemini_Generated_Image_6wg3ub6wg3ub6wg3.png",
+      "rel_path": "ai/Gemini_Generated_Image_6wg3ub6wg3ub6wg3.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.8945,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "Gemini_Generated_Image_7hjd827hjd827hjd.png",
+      "rel_path": "ai/Gemini_Generated_Image_7hjd827hjd827hjd.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.0249,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": false
+    },
+    {
+      "filename": "Gemini_Generated_Image_9zfx8e9zfx8e9zfx.png",
+      "rel_path": "ai/Gemini_Generated_Image_9zfx8e9zfx8e9zfx.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.0219,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": false
+    },
+    {
+      "filename": "Gemini_Generated_Image_aakexpaakexpaake.png",
+      "rel_path": "ai/Gemini_Generated_Image_aakexpaakexpaake.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.9995,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "Gemini_Generated_Image_am35wnam35wnam35.png",
+      "rel_path": "ai/Gemini_Generated_Image_am35wnam35wnam35.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.9507,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "Gemini_Generated_Image_fg4hufg4hufg4huf.png",
+      "rel_path": "ai/Gemini_Generated_Image_fg4hufg4hufg4huf.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.0328,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": false
+    },
+    {
+      "filename": "Gemini_Generated_Image_he9veuhe9veuhe9v.png",
+      "rel_path": "ai/Gemini_Generated_Image_he9veuhe9veuhe9v.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 1.0,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "Gemini_Generated_Image_i387pvi387pvi387.png",
+      "rel_path": "ai/Gemini_Generated_Image_i387pvi387pvi387.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.916,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "Gemini_Generated_Image_i576uxi576uxi576.png",
+      "rel_path": "ai/Gemini_Generated_Image_i576uxi576uxi576.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.9946,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "Gemini_Generated_Image_kduz3lkduz3lkduz.png",
+      "rel_path": "ai/Gemini_Generated_Image_kduz3lkduz3lkduz.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.5474,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "Gemini_Generated_Image_n84ugan84ugan84u.png",
+      "rel_path": "ai/Gemini_Generated_Image_n84ugan84ugan84u.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.667,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "Gemini_Generated_Image_nbsk7vnbsk7vnbsk.png",
+      "rel_path": "ai/Gemini_Generated_Image_nbsk7vnbsk7vnbsk.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.9912,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "Gemini_Generated_Image_qf4qlgqf4qlgqf4q.png",
+      "rel_path": "ai/Gemini_Generated_Image_qf4qlgqf4qlgqf4q.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.1748,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": false
+    },
+    {
+      "filename": "Gemini_Generated_Image_so466wso466wso46.png",
+      "rel_path": "ai/Gemini_Generated_Image_so466wso466wso46.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.0147,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": false
+    },
+    {
+      "filename": "Gemini_Generated_Image_ssgk4vssgk4vssgk.png",
+      "rel_path": "ai/Gemini_Generated_Image_ssgk4vssgk4vssgk.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.3008,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": false
+    },
+    {
+      "filename": "Gemini_Generated_Image_tcnp2ltcnp2ltcnp.png",
+      "rel_path": "ai/Gemini_Generated_Image_tcnp2ltcnp2ltcnp.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.2871,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": false
+    },
+    {
+      "filename": "Gemini_Generated_Image_tw0h6ptw0h6ptw0h.png",
+      "rel_path": "ai/Gemini_Generated_Image_tw0h6ptw0h6ptw0h.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.9849,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "Gemini_Generated_Image_u0p8xru0p8xru0p8.png",
+      "rel_path": "ai/Gemini_Generated_Image_u0p8xru0p8xru0p8.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.0054,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": false
+    },
+    {
+      "filename": "Gemini_Generated_Image_xb4tusxb4tusxb4t.png",
+      "rel_path": "ai/Gemini_Generated_Image_xb4tusxb4tusxb4t.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.9497,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    },
+    {
+      "filename": "Gemini_Generated_Image_yrcx5dyrcx5dyrcx.png",
+      "rel_path": "ai/Gemini_Generated_Image_yrcx5dyrcx5dyrcx.png",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.052,
+      "predicted_label": 0,
+      "predicted_class": "real",
+      "is_correct": false
+    },
+    {
+      "filename": "images.jpg",
+      "rel_path": "ai/images.jpg",
+      "ground_truth_label": 1,
+      "ground_truth_class": "ai",
+      "ai_probability": 0.9702,
+      "predicted_label": 1,
+      "predicted_class": "ai",
+      "is_correct": true
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+group_field,group_value,n,n_real,n_ai,e6c_acc,e20_acc,e21_acc,e22_acc,e22_f1,e6c_recall,e20_recall,e21_recall,e22_recall,e6c_fpr,e20_fpr,e21_fpr,e22_fpr
+generator,"FLUX (Flux LoRA Synthetic Corpus, exact engine unspecified)",20,0,20,0.1,0.35,0.9,0.7,0.8235294117647058,0.1,0.35,0.9,0.7,,,,
+generator,Google Gemini (exact underlying model unspecified),20,0,20,0.3,0.7,0.75,0.75,0.8571428571428571,0.3,0.7,0.75,0.75,,,,
+generator,Midjourney (exact version unspecified),20,0,20,0.85,0.85,1.0,1.0,1.0,0.85,0.85,1.0,1.0,,,,
+generator,None (Camera ISP),100,100,0,0.84,0.99,0.71,0.74,0.0,,,,,0.16,0.01,0.29,0.26
+generator,OpenAI DALL-E (DALL-E 3),20,0,20,0.7,0.95,0.95,0.95,0.9743589743589743,0.7,0.95,0.95,0.95,,,,
+generator,Stability AI Stable Diffusion (exact version unspecified),20,0,20,0.8,0.85,0.9,0.9,0.9473684210526316,0.8,0.85,0.9,0.9,,,,

@@ -8,6 +8,7 @@ forward probabilistic inference, Grad-CAM spatial explainability, and optional F
 import base64
 import io
 import threading
+import time
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 import cv2
@@ -24,11 +25,25 @@ from backend.schemas import (
     ModelInfo,
     ModelOption,
     ModelsListResponse,
+    MultiViewDiagnostics,
     PredictionResult,
     Visualizations,
 )
 from ml.gradcam import GradCAM, compute_log_magnitude_spectrum, overlay_heatmap
 from models.fusion import build_model
+
+
+def generate_5_crops(img: Image.Image) -> List[Image.Image]:
+    """Generates 1 global (224x224) and 4 deterministic corner crops (60% scale resized to 224x224)."""
+    w, h = img.size
+    w60, h60 = max(1, int(round(w * 0.6))), max(1, int(round(h * 0.6)))
+    crops = []
+    crops.append(img.resize((224, 224), Image.Resampling.BILINEAR))  # View 0: Global
+    crops.append(img.crop((0, 0, w60, h60)).resize((224, 224), Image.Resampling.BILINEAR))  # View 1: Top-Left
+    crops.append(img.crop((w - w60, 0, w, h60)).resize((224, 224), Image.Resampling.BILINEAR))  # View 2: Top-Right
+    crops.append(img.crop((0, h - h60, w60, h)).resize((224, 224), Image.Resampling.BILINEAR))  # View 3: Bottom-Left
+    crops.append(img.crop((w - w60, h - h60, w, h)).resize((224, 224), Image.Resampling.BILINEAR))  # View 4: Bottom-Right
+    return crops
 
 
 class ModelService:
@@ -72,10 +87,14 @@ class ModelService:
         if not key:
             return config.DEFAULT_MODEL_KEY
         k = str(key).strip().lower().replace("-", "_")
+        if k in {"e6c", "e6_c", "e6c_multiview", "deepvision_e6_c_multiview", "multiview"}:
+            return "e6c_multiview"
         if k in {"e1", "e1_spatial", "deepvision_e1_spatial", "spatial"}:
             return "e1_spatial"
         if k in {"e3", "e3_std", "deepvision_e3_std", "candidate_standardize", "dual", "dual_domain"}:
             return "e3_std"
+        if k in {"e5", "e5_generalization", "deepvision_e5_generalization", "generalization", "production"}:
+            return "e5_generalization"
         return k
 
     def load_model(
@@ -88,7 +107,7 @@ class ModelService:
         Loads the specified model architecture and checkpoint into memory.
         
         Args:
-            model_key: Target model key ('e1_spatial' or 'e3_std'). Defaults to DEFAULT_MODEL_KEY.
+            model_key: Target model key ('e6c_multiview', 'e5_generalization', 'e1_spatial', or 'e3_std'). Defaults to DEFAULT_MODEL_KEY.
             checkpoint_path: Path to checkpoint .pt file (optional override).
             device_str: Target device string ('cuda', 'cpu', etc.).
 
@@ -120,11 +139,19 @@ class ModelService:
             # Build corresponding model architecture
             if target_key == "e1_spatial":
                 model = build_model(experiment="E1", pretrained=False)
-            elif target_key == "e3_std":
+            elif target_key in {"e3_std", "e5_generalization"}:
                 model = build_model(
                     experiment="E3",
                     pretrained=False,
                     freq_norm_strategy="standardize",
+                )
+            elif target_key == "e6c_multiview":
+                from experiments.e6_multiscale_inference.e6b_multiview_model import MultiViewE5Model
+                model = MultiViewE5Model(
+                    checkpoint_path=None,
+                    num_views=5,
+                    freq_norm_strategy="standardize",
+                    freq_embedding_dim=256,
                 )
             else:
                 raise ValueError(f"No architecture builder configured for '{target_key}'")
@@ -144,7 +171,10 @@ class ModelService:
 
             # Warmup pass to initialize CUDA kernels if available
             try:
-                dummy_input = torch.zeros((1, 3, 224, 224), dtype=torch.float32, device=self.device)
+                if target_key == "e6c_multiview":
+                    dummy_input = torch.zeros((1, 5, 3, 224, 224), dtype=torch.float32, device=self.device)
+                else:
+                    dummy_input = torch.zeros((1, 3, 224, 224), dtype=torch.float32, device=self.device)
                 with torch.no_grad():
                     _ = model(dummy_input)
             except Exception:
@@ -310,30 +340,66 @@ class ModelService:
         Args:
             image: Decoded RGB PIL image.
             include_fft: Whether to generate diagnostic 2D FFT visualization.
-            model_key: Identifier of model to use ('e1_spatial' or 'e3_std').
+            model_key: Identifier of model to use.
             
         Returns:
             Structured AnalyzeResponse.
         """
+        start_time = time.perf_counter()
         target_key, target_model = self.get_or_load_model(model_key)
 
         orig_w, orig_h = image.size
         orig_rgb_np = np.array(image)
 
-        # Standard preprocessing: resize to 224x224 and scale to [0, 1] tensor
+        # Standard preprocessing transform: 224x224, [0, 1] tensor
         preprocess_transform = transforms.Compose([
             transforms.Resize((224, 224), interpolation=transforms.InterpolationMode.BILINEAR),
             transforms.ToTensor(),
         ])
-        input_tensor = preprocess_transform(image).unsqueeze(0).to(self.device)
+
+        diagnostics: Optional[MultiViewDiagnostics] = None
+        strongest_local_prob: Optional[float] = None
+
+        if target_key == "e6c_multiview":
+            # Multi-view 5-crop preparation
+            crop_images = generate_5_crops(image)
+            crop_tensors = [preprocess_transform(c) for c in crop_images]
+            x_views = torch.stack(crop_tensors, dim=0).unsqueeze(0).to(self.device)  # (1, 5, 3, 224, 224)
+            input_tensor = crop_tensors[0].unsqueeze(0).to(self.device)  # Global view (1, 3, 224, 224)
+        else:
+            input_tensor = preprocess_transform(image).unsqueeze(0).to(self.device)
 
         with self.infer_lock:
             # 1. Forward inference for classification
             with torch.no_grad():
-                logit = target_model(input_tensor)
-                if isinstance(logit, dict):
-                    logit = logit["logit"]
-                ai_prob = float(torch.sigmoid(logit).item())
+                if target_key == "e6c_multiview":
+                    # Multi-view forward pass with feature extraction for per-view diagnostics
+                    B, V, C, H, W = x_views.shape
+                    x_flat = x_views.view(B * V, C, H, W)
+                    feats = target_model.base_model(x_flat, return_features=True)
+                    e_fused = feats["fused_embedding"]  # (5, 1792)
+                    e_fused_views = e_fused.view(B, V, target_model.fused_dim)
+
+                    attn_scores = target_model.view_attention(e_fused_views)  # (1, 5, 1)
+                    attn_weights = torch.softmax(attn_scores, dim=1)  # (1, 5, 1)
+
+                    # Learned attention pooled embedding
+                    pooled_embedding = torch.sum(attn_weights * e_fused_views, dim=1)  # (1, 1792)
+                    logit = target_model.classifier(pooled_embedding)  # (1, 1)
+                    ai_prob = float(torch.sigmoid(logit).item())
+
+                    # Per-view individual probabilities
+                    view_logits = target_model.classifier(e_fused)  # (5, 1)
+                    view_probs_tensor = torch.sigmoid(view_logits).view(5)
+                    view_probs = [round(float(p), 4) for p in view_probs_tensor.cpu().numpy()]
+                    view_weights = [round(float(w), 4) for w in attn_weights.view(5).cpu().numpy()]
+
+                    strongest_local_prob = round(float(max(view_probs[1:])), 4)
+                else:
+                    logit = target_model(input_tensor)
+                    if isinstance(logit, dict):
+                        logit = logit["logit"]
+                    ai_prob = float(torch.sigmoid(logit).item())
 
             # 2. Derive classification and risk indicators
             is_ai = ai_prob >= config.CLASSIFICATION_THRESHOLD
@@ -350,8 +416,28 @@ class ModelService:
                 f"Model estimate: {ai_prob * 100:.1f}% probability of AI generation."
             )
 
-            # 3. Generate Grad-CAM spatial explainability
-            gradcam = GradCAM(target_model)
+            infer_time_ms = round((time.perf_counter() - start_time) * 1000.0, 2)
+
+            if target_key == "e6c_multiview":
+                diagnostics = MultiViewDiagnostics(
+                    overall_ai_probability=round(ai_prob, 4),
+                    strongest_local_probability=strongest_local_prob,
+                    strongest_local_prob=strongest_local_prob,
+                    view_probabilities=view_probs,
+                    attention_weights=view_weights,
+                    predicted_class=classification_label,
+                    inference_time_ms=infer_time_ms,
+                    global_view_prob=view_probs[0],
+                    top_left_prob=view_probs[1],
+                    top_right_prob=view_probs[2],
+                    bottom_left_prob=view_probs[3],
+                    bottom_right_prob=view_probs[4],
+                    aggregation_strategy="learned_attention",
+                )
+
+            # 3. Generate Grad-CAM spatial explainability on global image view
+            gradcam_target = target_model.base_model if hasattr(target_model, "base_model") else target_model
+            gradcam = GradCAM(gradcam_target)
             try:
                 with torch.enable_grad():
                     cam_tensor = input_tensor.clone().detach().requires_grad_(True)
@@ -372,7 +458,7 @@ class ModelService:
                 gradcam_b64 = self._encode_rgb_to_base64_png(blended_overlay)
             finally:
                 gradcam.remove_hooks()
-                target_model.zero_grad()
+                gradcam_target.zero_grad()
 
             # 4. Diagnostic Frequency Spectrum (always minmax scaled for visual contrast)
             fft_b64: Optional[str] = None
@@ -380,25 +466,52 @@ class ModelService:
                 spec_norm = compute_log_magnitude_spectrum(input_tensor, norm_strategy="minmax")
                 fft_b64 = self._encode_spectrum_to_base64_png(spec_norm, colormap=cv2.COLORMAP_VIRIDIS)
 
+        infer_time_ms = round((time.perf_counter() - start_time) * 1000.0, 2)
+        if diagnostics is not None:
+            diagnostics.inference_time_ms = infer_time_ms
+
         # 5. Model-specific evidence summaries
-        if target_key == "e3_std":
+        if target_key == "e6c_multiview":
             spatial_summary = (
-                "Grad-CAM spatial visualization highlighting regions receiving primary attention in the dual-branch backbone. "
-                "Note: Saliency heatmaps indicate model attention patterns rather than pixel-exact forgery boundaries."
+                "Multi-View Attention & Grad-CAM: Analyzes 5 multi-scale views (1 global + 4 local crops) "
+                "using learned self-attention. The heatmap visualizes spatial regions receiving primary focus on the global view. "
+                "Note: Saliency heatmaps indicate model attention patterns rather than pixel-exact manipulation boundaries or edit masks."
             )
             frequency_summary = (
-                "Diagnostic 2D Fast Fourier Transform (FFT) log-magnitude spectrum illustrating frequency energy distribution. "
+                "Dual-Domain Frequency Analysis (2D FFT Log-Magnitude): Evaluates spectral energy across views "
+                "using standardized frequency representations to detect synthesis artifacts and localized tampering."
+                if include_fft
+                else None
+            )
+        elif target_key == "e5_generalization":
+            spatial_summary = (
+                "Model Attention (Grad-CAM): Visualizes spatial feature regions receiving primary attention in the dual-branch backbone. "
+                "Note: Saliency heatmaps indicate model attention patterns rather than pixel-exact manipulation boundaries or edit masks."
+            )
+            frequency_summary = (
+                "Frequency Evidence (2D FFT Log-Magnitude): Illustrates frequency energy distribution across spatial frequencies. "
+                "The dual-branch architecture leverages standardized spectral features to detect cross-generator synthesis artifacts."
+                if include_fft
+                else None
+            )
+        elif target_key == "e3_std":
+            spatial_summary = (
+                "Model Attention (Grad-CAM): Visualizes spatial feature regions receiving primary attention in the dual-branch backbone. "
+                "Note: Saliency heatmaps indicate model attention patterns rather than pixel-exact manipulation boundaries or edit masks."
+            )
+            frequency_summary = (
+                "Frequency Evidence (2D FFT Log-Magnitude): Illustrates frequency energy distribution. "
                 "The dual-branch model uses standardized frequency features to identify periodic synthesis artifacts."
                 if include_fft
                 else None
             )
         else:
             spatial_summary = (
-                "Grad-CAM visualization showing spatial regions receiving stronger model attention in the EfficientNet-B3 backbone. "
-                "Note: Saliency heatmaps indicate model attention patterns rather than pixel-exact forgery boundaries."
+                "Model Attention (Grad-CAM): Visualizes spatial regions receiving stronger model attention in the EfficientNet-B3 backbone. "
+                "Note: Saliency heatmaps indicate model attention patterns rather than pixel-exact manipulation boundaries or edit masks."
             )
             frequency_summary = (
-                "Diagnostic 2D Fast Fourier Transform (FFT) log-magnitude spectrum showing spectral energy distribution."
+                "Frequency Evidence (2D FFT Log-Magnitude): Illustrates spectral energy distribution across spatial frequencies."
                 if include_fft
                 else None
             )
@@ -413,6 +526,8 @@ class ModelService:
                 authenticity_assessment=authenticity_assessment,
                 risk_indicator=risk_indicator,
                 threshold_used=config.CLASSIFICATION_THRESHOLD,
+                strongest_local_probability=strongest_local_prob,
+                inference_time_ms=infer_time_ms,
             ),
             evidence=EvidenceSummary(
                 spatial_summary=spatial_summary,
@@ -422,6 +537,7 @@ class ModelService:
                 gradcam_heatmap=gradcam_b64,
                 fft_spectrum=fft_b64,
             ),
+            diagnostics=diagnostics,
             disclaimer=(
                 "This analysis provides probabilistic forensic indicators for research "
                 "and screening purposes, not definitive proof."

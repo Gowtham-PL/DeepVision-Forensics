@@ -1,0 +1,34 @@
+{
+  "experiment": "E15",
+  "title": "External Compression-Robust Training",
+  "base_checkpoint": "experiments/e6_multiscale_training/e6c_finetune_benchmark/e6c_checkpoint_epoch2.pt",
+  "architecture": "MultiViewE5Model (5-view)",
+  "trainable_modules": [
+    "view_attention",
+    "classifier"
+  ],
+  "frozen_modules": [
+    "base_model.spatial_branch (EfficientNet-B3)",
+    "base_model.frequency_branch (Frequency CNN)"
+  ],
+  "train_samples": 640,
+  "train_base_images": 160,
+  "dev_val_samples": 40,
+  "compression_variants": [
+    "Clean",
+    "WhatsApp-tier JPEG (L1280, Q75, 4:2:0)",
+    "Double JPEG (L1400, Q80->Q70, 4:2:0)",
+    "Downsample (L960) + JPEG Q75 (4:2:0)"
+  ],
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "batch_size": 16,
+  "epochs": 5,
+  "seed": 42,
+  "selection_protocol": {
+    "min_roc_auc": 0.98,
+    "max_fpr": 0.05,
+    "metric": "highest_f1"
+  },
+  "decision_threshold": 0.50
+}
